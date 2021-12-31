@@ -104,8 +104,8 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
+set $ws1 "1: terminal"
+set $ws2 "2: web"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
@@ -145,8 +145,9 @@ assign [class="firefox" instance="Navigator"] $ws2
 
 focus_follows_mouse no
 
+set $i3lockwall i3lock -c 000000
 # set $i3lockwall i3lock -i ~/Downloads/wallpaper.png
-set $i3lockwall sh ~/.config/i3/scripts/lock.sh
+# set $i3lockwall sh ~/.config/i3/scripts/lock.sh
 bindsym $mod+CTRL+Shift+l exec --no-startup-id $i3lockwall
 
 # reload the configuration file
