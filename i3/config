@@ -173,7 +173,7 @@ mode "$mode_system" {
 
 bindsym $mod+BackSpace mode "$mode_system"
 
-exec --no-startup-id feh --no-fehbg --bg-fill ~/.config/i3/feh/wallpaper.jpg
+#exec --no-startup-id feh --no-fehbg --bg-fill ~/.config/i3/feh/wallpaper.jpg
 
 # floating pop up automatically
 for_window [window_role="pop-up"] floating enable
@@ -264,14 +264,14 @@ client.placeholder 	#000000 #0c0c0c $white2 #000000 0c0c0c
 for_window [class="URxvt*"] border pixel 1
 
 # Terminal scratchpad
-for_window [instance="urxvt_scratchpad"] move to scratchpad, border none
-bindsym $mod+Shift+t [instance="urxvt_scratchpad"] scratchpad show
-exec urxvtc -name urxvt_scratchpad
+#for_window [instance="urxvt_scratchpad"] move to scratchpad, border none
+#bindsym $mod+Shift+t [instance="urxvt_scratchpad"] scratchpad show
+#exec urxvtc -name urxvt_scratchpad
 
 # htop scratchpad
-for_window [instance="htop_scratchpad"] move to scratchpad, border none
-bindsym $mod+Shift+p [instance="htop_scratchpad"] scratchpad show
-exec urxvtc -name htop_scratchpad -e htop
+#for_window [instance="htop_scratchpad"] move to scratchpad, border none
+#bindsym $mod+Shift+p [instance="htop_scratchpad"] scratchpad show
+#exec urxvtc -name htop_scratchpad -e htop
 
 # i3bar
 bar {
