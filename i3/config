@@ -15,7 +15,7 @@ font pango:monospace 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 14
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -156,13 +156,14 @@ bindsym $mod+Shift+r restart
 
 # shutdown / restart / suspend...
 
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (CTRL+s) shutdown
+#set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (CTRL+s) shutdown
+set $mode_system System (l) lock, (e) logout, (r) reboot, (CTRL+s) shutdown
 
 mode "$mode_system" {
 	bindsym l exec --no-startup-id $i3lockwall, mode "default"
 	bindsym e exec --no-startup-id i3-msg exit, mode "default"
-	bindsym s exec --no-startup-id $i3lockwall && systemctl suspend, mode "default"
-	bindsym h exec --no-startup-id $i3lockwall && systemctl hibernate, mode "default"
+	#bindsym s exec --no-startup-id $i3lockwall && systemctl suspend, mode "default"
+	#bindsym h exec --no-startup-id $i3lockwall && systemctl hibernate, mode "default"
 	bindsym r exec --no-startup-id systemctl reboot, mode "default"
 	bindsym CTRL+s exec --no-startup-id systemctl poweroff -i, mode "default"
 	bindsym Return mode "default"
