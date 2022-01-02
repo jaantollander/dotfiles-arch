@@ -15,7 +15,8 @@ font pango:monospace 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 14
+#font pango:DejaVu Sans Mono 14
+font pango:Inconsolata NF 16
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -306,3 +307,8 @@ mode "$mode_display" {
     bindsym Escape mode "default"
 }
 bindsym $mod+x mode "$mode_display"
+
+exec --no-startup-id dunst
+
+# Remap Caps Lock key when external keyboard is plugged
+bindsym $mod+z exec "setxkbmap -option 'caps:ctrl_modifier';xcape -e 'Caps_Lock=Escape' &"
