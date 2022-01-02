@@ -9,6 +9,9 @@ mkdir -p "$XDG_CONFIG_HOME/nvim/undo"
 
 ln -sf "$DOTFILES/nvim/init.vim" "$XDG_CONFIG_HOME/nvim"
 
+#######
+# X11 #
+#######
 rm -rf "$XDG_CONFIG_HOME/X11"
 ln -s "$DOTFILES/X11" "$XDG_CONFIG_HOME"
 
