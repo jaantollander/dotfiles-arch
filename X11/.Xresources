@@ -27,7 +27,7 @@
 *.color7: #e4e4e4
 *.color15: #ffffff
 
-URxvt*font: xft:SourceCodePro:size=18:antialias=true
+URxvt*font: xft:DejaVuSansMono:size=18:antialias=true
 URxvt*borderLess: false
 URxvt*externalBorder: 0
 URxvt*internalBorder: 4
