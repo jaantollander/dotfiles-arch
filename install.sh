@@ -77,3 +77,10 @@ ln -sf "$DOTFILES/tmux/tmux.conf" "$XDG_CONFIG_HOME/tmux/tmux.conf"
 [ ! -d "$XDG_CONFIG_HOME/tmux/plugins" ] \
 && git clone https://github.com/tmux-plugins/tpm \
 "$XDG_CONFIG_HOME/tmux/plugins/tpm"
+
+##############
+# GitHub CLI #
+##############
+
+mkdir -p "$XDG_CONFIG_HOME/gh"
+ln -sf "$DOTFILES/gh/config.yml" "$XDG_CONFIG_HOME/gh/config.yml"
