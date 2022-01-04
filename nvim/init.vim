@@ -5,6 +5,7 @@ call plug#begin("$XDG_CONFIG_HOME/nvim/plugged")
     " Plug 'simeji/winresizer'
     Plug 'junegunn/fzf.vim'
     Plug 'simnalamburt/vim-mundo'
+    Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 set clipboard+=unnamedplus
@@ -43,6 +44,8 @@ let mapleader = "\<space>"
 
 nnoremap <leader>bn :bn<cr> ;buffer next
 nnoremap <leader>tn gt ;new tab
+
+nnoremap <c-w>h <c-w>s
 
 " Config for chrisbra/csv.vim
 augroup filetype_csv
