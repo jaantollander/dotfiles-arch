@@ -1,4 +1,17 @@
+#!/urs/bin/env/bash 
+
+## list files
+alias ls='ls --color=auto'
 alias ll='ls -lah'
 
+## grep
+alias grep='grep --color=auto'
+
+## list directories
 alias d='dirs -v'
 for index ({1..9}) alias "$index"="cd +${index}"; unset index
+
+## tmux
+alias tmuxl='tmux list-sessions'
+alias tmuxa='tmux attach-session'
+alias tmuxk='tmux kill-session'
