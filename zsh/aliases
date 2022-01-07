@@ -2,7 +2,7 @@
 
 ## list files
 alias ls='ls --color=auto'
-alias ll='ls -lah'
+alias ll='ls -lah --group-directories-first'
 
 ## grep
 alias grep='grep --color=auto'
@@ -15,3 +15,6 @@ for index ({1..9}) alias "$index"="cd +${index}"; unset index
 alias tmuxl='tmux list-sessions'
 alias tmuxa='tmux attach-session'
 alias tmuxk='tmux kill-session'
+
+## pacman
+alias pacman='pacman --color=auto'
