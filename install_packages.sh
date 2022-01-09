@@ -1,0 +1,18 @@
+#!/bin/bash
+# TODO: install yay
+sudo pacman -S man man-pages tldr
+sudo pacman -S openssh networkmanager #openvpn
+
+source $DOTFILES/X11/packages.sh
+source $DOTFILES/i3/packages.sh
+source $DOTFILES/dunst/packages.sh
+source $DOTFILES/zsh/packages.sh
+source $DOTFILES/tmux/packages.sh
+source $DOTFILES/nvim/packages.sh
+source $DOTFILES/git/packages.sh
+source $DOTFILES/gh/packages.sh
+source $DOTFILES/redshift/packages.sh
+
+sudo pacman -S rsync scrot htop tree
+#pacman -S nodejs yarn
+sudo pacman -S firefox
