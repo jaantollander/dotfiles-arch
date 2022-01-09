@@ -1,5 +1,8 @@
 fpath=($ZDOTDIR/external $fpath)
 
+# Override colors
+eval "$(dircolors -b $XDG_CONFIG_HOME/zsh/dircolors)"
+
 source "$XDG_CONFIG_HOME/zsh/aliases"
 
 zmodload zsh/complist
@@ -10,7 +13,7 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 
 autoload -Uz compinit; compinit
 _comp_options+=(globdots) # With hidden files
-source $DOTFILES/zsh/external/completion.zsh
+source $XDG_CONFIG_HOME/zsh/external/completion.zsh
 
 autoload -Uz prompt_purification_setup; prompt_purification_setup
 
@@ -30,7 +33,7 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
-source $DOTFILES/zsh/external/bd.zsh
+source $XDG_CONFIG_HOME/zsh/external/bd.zsh
 
 if [ $(command -v "fzf") ]; then
     source /usr/share/fzf/completion.zsh
@@ -49,5 +52,5 @@ bindkey -s '^g' 'clear\n'
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-source $DOTFILES/zsh/scripts.sh
+source $XDG_CONFIG_HOME/zsh/scripts.sh
 #ftmuxp
