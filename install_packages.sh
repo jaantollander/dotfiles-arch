@@ -1,8 +1,8 @@
 #!/bin/bash
-# TODO: install yay
 sudo pacman -S man man-pages tldr
 sudo pacman -S openssh networkmanager #openvpn
 
+source $DOTFILES/yay/packages.sh
 source $DOTFILES/X11/packages.sh
 source $DOTFILES/i3/packages.sh
 source $DOTFILES/dunst/packages.sh
