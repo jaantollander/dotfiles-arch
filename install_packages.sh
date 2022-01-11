@@ -8,6 +8,7 @@ sudo pacman -S rsync scrot htop tree
 source $DOTFILES/yay/packages.sh
 source $DOTFILES/X11/packages.sh
 source $DOTFILES/i3/packages.sh
+source $DOTFILES/rofi/packages.sh
 source $DOTFILES/redshift/packages.sh
 source $DOTFILES/dunst/packages.sh
 source $DOTFILES/zsh/packages.sh

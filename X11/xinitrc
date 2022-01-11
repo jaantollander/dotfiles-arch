@@ -12,5 +12,6 @@ xset s noblank
 xset -dpms
 
 udiskie &
+redshift &
 
 exec i3
