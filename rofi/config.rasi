@@ -144,3 +144,6 @@ configuration {
       sorting-method:    "name";
   }
 }
+
+@import "themes/gruvbox-dark.rasi"
+@theme "gruvbox-dark.rasi"
