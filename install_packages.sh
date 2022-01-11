@@ -20,5 +20,5 @@ sudo pacman -S firefox brave-bin
 sudo pacman -S keepassxc
 sudo pacman -S hledger hledger-ui
 
+source $DOTFILES/julia/packages.sh
 #pacman -S nodejs yarn
-#pacman -S julia
