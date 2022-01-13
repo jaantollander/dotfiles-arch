@@ -3,11 +3,9 @@
 ## --- Set parameters ---
 hard_disk=""
 swap_size=""  # GBs
-user_name=""
 
 echo "Hard disk: $hard_disk"
 echo "Swap size: $swap_size"
-echo "User name: $user_name"
 
 
 ## --- Enable network time synchronization --- 
@@ -70,8 +68,11 @@ if [ $boot_type = "uefi" ]; then
 fi
 
 
-## --- Install Arch Linux! Glory and fortune! ---
+## --- Install Arch Linux ---
 pacstrap /mnt base base-devel linux linux-firmware
+
+
+## --- Generate file system table ---
 genfstab -U /mnt >> /mnt/etc/fstab
 
 
@@ -94,11 +95,13 @@ fi
 grub-mkconfig -o /boot/grub/grub.cfg
 
 
+## TODO: set hostname
+
 ## --- Set hardware clock from system clock ---
 hwclock --systohc
 
 # To list the timezones: `timedatectl list-timezones`
-#timedatectl set-timezone "Europe/Helsinki"
+timedatectl set-timezone "Europe/Helsinki"
 
 
 # Replace en_US.UTF-8 by whatever locale you want.
@@ -108,12 +111,6 @@ locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 
 
-## --- Add the root user ---
-useradd -m -g wheel -s /bin/bash "root"
-# TODO: set password
-
-
-## --- Add a new user ---
-useradd -m -g wheel -s /bin/bash "$user_name"
-# TODO: set password
+## --- Change password for the root user ---
+passwd 
 
