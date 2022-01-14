@@ -3,7 +3,7 @@ sudo pacman --sync --refresh --sysupgrade
 
 sudo pacman -S man man-pages tldr
 sudo pacman -S networkmanager openssh openvpn
-sudo pacman -S rsync scrot htop tree
+sudo pacman -S rsync scrot htop tree dos2unix
 
 source $DOTFILES/yay/packages.sh
 source $DOTFILES/X11/packages.sh
@@ -17,9 +17,11 @@ source $DOTFILES/nvim/packages.sh
 source $DOTFILES/git/packages.sh
 source $DOTFILES/gh/packages.sh
 
-sudo pacman -S firefox brave-bin
+sudo pacman -S firefox 
+sudo pacman -S brave-bin
 sudo pacman -S keepassxc
 sudo pacman -S hledger hledger-ui
+source $DOTFILES/rtorrent/packages.sh
 
 source $DOTFILES/julia/packages.sh
 #pacman -S nodejs yarn

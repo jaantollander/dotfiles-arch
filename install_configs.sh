@@ -10,4 +10,5 @@ source $DOTFILES/git/config.sh
 source $DOTFILES/nvim/config.sh
 source $DOTFILES/tmux/config.sh
 source $DOTFILES/redshift/config.sh
+source $DOTFILES/rtorrent/config.sh
 source $DOTFILES/julia/config.sh
