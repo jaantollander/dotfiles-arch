@@ -19,3 +19,10 @@ alias tmuxk='tmux kill-session'
 ## pacman and yay
 alias pacman='pacman --color=auto'
 alias yay='yay --color=auto'
+
+## Git
+alias gs='git status'
+alias gd='git diff'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
