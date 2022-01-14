@@ -3,9 +3,11 @@
 ## --- Set parameters ---
 hard_disk=""
 swap_size=""  # GBs
+host_name=""
 
 echo "Hard disk: $hard_disk"
 echo "Swap size: $swap_size"
+echo "Host name: $host_name"
 
 
 ## --- Enable network time synchronization --- 
@@ -95,22 +97,26 @@ fi
 grub-mkconfig -o /boot/grub/grub.cfg
 
 
-## TODO: set hostname
+## -- Set hostname ---
+echo $host_name > /etc/hostname
+
 
 ## --- Set hardware clock from system clock ---
 hwclock --systohc
 
+
+## --- Set timezone ---
 # To list the timezones: `timedatectl list-timezones`
 timedatectl set-timezone "Europe/Helsinki"
 
 
-# Replace en_US.UTF-8 by whatever locale you want.
+# --- Set localization ---
 # You can run `cat /etc/locale.gen` to see all the locales available
 echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 
 
-## --- Change password for the root user ---
+## --- Set password for the root user ---
 passwd 
 
