@@ -1,9 +1,25 @@
 #!/bin/bash
 
+## --- Usage ---
+# Make sure you are connected to the internet via ethernet cable or wi-fi.
+# You can use `iwctl` to connect to wi-fi.
+#
+# Use the script as follows 
+# `bash install_system.sh <hard-disk> <swap-size> <host-name>`
+#
+# Example:
+# `bash install_system.sh "/dev/nvme0n1" "4G" "arch"`
+
 ## --- Set parameters ---
-hard_disk=""
-swap_size=""  # GBs
-host_name=""
+# Select the hard drive to install Arch Linux such as "/dev/sda" or `/dev/nvme0n1`. 
+# Use `lsblk -d` to list your block devices.
+hard_disk=$1  
+
+# Set you swap size such as "4G" or "512M".
+swap_size=$2
+
+# Set a (host)name for your computer, such as "arch".
+host_name=$3  
 
 echo "Hard disk: $hard_disk"
 echo "Swap size: $swap_size"
@@ -46,7 +62,7 @@ $boot_partition_type
 n
 
 
-+${swap_size}G
++${swap_size}
 n
 
 
