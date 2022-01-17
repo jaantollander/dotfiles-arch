@@ -66,3 +66,23 @@ Finally, we can run the system install script with arguments fort hard disk, swa
 bash install_system.sh "/dev/nvme0n1" "4G" "arch"
 ```
 
+After the installation, we can reboot the computer.
+
+```bash
+reboot
+```
+
+
+## 3. Adding Users
+After rebooting to our freshly installed Arch Linux, we need to add a new user for us to use. Let's download the script for adding new users.
+
+```bash
+curl https://github.com/jaantollander/dotfiles/blob/master/arch/add_new_user.sh > add_new_user.sh
+```
+
+Now, we can create new user as below, simply substitute `<username>` with the desired username.
+
+```bash
+bash add_new_user.sh <username>
+```
+

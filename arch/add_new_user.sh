@@ -1,5 +1,5 @@
 #!/bin/bash
-# Usage: add_new_user.sh <username>
+# Usage: bash add_new_user.sh <username>
 
 user_name=$1
 
