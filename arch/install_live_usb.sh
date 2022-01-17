@@ -15,11 +15,11 @@ arch_iso=$1
 # Use `lsblk` command to list block devices.
 usb_device=$2
 
-# Unmount the USB device if it is mounted
-umount $usb_device 2> /dev/null
+# Unmount all partitions of the USB device if they are mounted
+umount ${usb_device}* 2> /dev/null
 
 # Make FAT32 filesystem on the USB device
-mkfs.vfat $usb_device
+mkfs.vfat $usb_device 2> /dev/null
 
 # Copy the Arch Linux ISO file to the USB device.
 cp $arch_iso $usb_device

@@ -95,5 +95,5 @@ genfstab -U /mnt >> /mnt/etc/fstab
 
 
 ## --- Change root to /mnt ---
-arch-chroot /mnt bash "install_chroot.sh $hard_disk $host_name $boot_type"
+arch-chroot /mnt bash install_chroot.sh $hard_disk $host_name $boot_type
 

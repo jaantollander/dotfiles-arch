@@ -10,7 +10,7 @@ sudo pacman -S networkmanager openssh openvpn
 # File Synchronization
 sudo pacman -S rsync 
 
-# Print File System Tree
+# Command-line Utilities 
 sudo pacman -S tree 
 
 # Arch User Repository (AUR)
@@ -44,8 +44,9 @@ sudo pacman -S keepassxc
 # Accounting
 sudo pacman -S hledger hledger-ui
 
-# Torrent Client
-source $DOTFILES/rtorrent/packages.sh
+# File Sharing 
+# source $DOTFILES/rtorrent/packages.sh
+sudo pacman -S qbittorrent
 
 # Programming
 source $DOTFILES/julia/packages.sh
