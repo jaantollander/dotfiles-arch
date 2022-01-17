@@ -10,5 +10,5 @@ The setup consists of the following parts.
 - Shell: *Zsh*
 - Editor: *Neovim*
 
-The setup is configured with VIM like [./keystrokes](keystrokes.md).
+The setup is configured with VIM like [keystrokes](./keystrokes.md).
 
