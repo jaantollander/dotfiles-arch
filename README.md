@@ -1,6 +1,8 @@
 # Dotfiles
 My installation and configuration scripts and files for [Arch Linux](https://archlinux.org/). They are largely influenced by [Matthieu Cneude](https://github.com/Phantas0s) and his book [Building your Mouseless Development Environment](https://themouseless.dev/).
 
+---
+
 List of the Arch Linux setup.
 
 - Font: *Inconsolata Nerd Font*
@@ -17,11 +19,33 @@ List of the Arch Linux setup.
 
 The setup is configured with VIM like [keystrokes](./keystrokes.md).
 
+---
+
 List of the hardware I am using with my setup.
 
 - Laptop: *Lenovo T480s*
 - Keyboard: *Kinesis Advantage 2*
 - Mouse: *Death Adder Elite*
 
-My configuration scripts aim to be modular and indempotent.
+---
 
+I have structured the configurations as below.
+
+```text
+<program>
+├── config
+│   └── <config-files> 
+├── data 
+│   └── <data-files> 
+├── config.sh
+└── packages.sh
+```
+
+Configurations for each program are located in `<program>` directory, named after the program, such as `nvim` for Neovim. 
+
+- The `config` (optional) subdirectory contains the config files.
+- The `data` (optional) subdirectory contains the data files. 
+- The `config.sh` script, which creates configuration and data directories and copies or links the configuration and data files to their appropriate locations such as `$XDG_CONFIF_HOME` or `$HOME` for configuration files or `$XDG_DATA_HOME` for data files.
+- The `packages.sh` script installs the required packages for the program with `pacman` or `yay`.
+
+I aim to keep the configurations as modular as possible and the configuration scripts indempotent.
