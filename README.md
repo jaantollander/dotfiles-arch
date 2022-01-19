@@ -3,7 +3,7 @@ My installation and configuration scripts and files for [Arch Linux](https://arc
 
 ---
 
-List of the Arch Linux setup.
+List of the Arch Linux setup, configured with VIM like [**keystrokes**](./keystrokes.md).
 
 - Font: *Inconsolata Nerd Font*
 - Desktop: 
@@ -16,8 +16,6 @@ List of the Arch Linux setup.
     - multiplexer: *tmux*
 - Shell: *Zsh*
 - Editor: *Neovim*
-
-The setup is configured with VIM like [keystrokes](./keystrokes.md).
 
 ---
 
