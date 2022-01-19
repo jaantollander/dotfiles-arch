@@ -47,3 +47,8 @@ Configurations for each program are located in `<program>` directory, named afte
 - The `packages.sh` script installs the required packages for the program with `pacman` or `yay`.
 
 I aim to keep the configurations as modular as possible and the configuration scripts indempotent.
+
+---
+
+I have also included my [Arch Linux installation scripts](./arch) in this repository.
+
