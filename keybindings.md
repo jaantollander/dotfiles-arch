@@ -1,4 +1,14 @@
-# i3 
+# Key Bindings
+## Config Files
+We define custom key bindings in the following files. 
+
+- For i3 (whole desktop): [i3 config](./i3/config/config)
+- For zsh: [zshrc](./zsh/config/zshrc)
+- For tmux: [tmux.conf](./tmux/config/tmux.conf)
+- For neovim: [init.vim](./nvim/config/init.vim)
+
+
+## i3 
 General
 
 - `WIN` : Modifier key, denote as MOD
@@ -29,7 +39,7 @@ Container Layout
 - `MOD+w` : Switch to tabbed layout
 
 
-# URxvt
+## URxvt
 Search 
 
 - `CTRL+r` : Search command history
@@ -45,7 +55,7 @@ Clearing shell
 - `CTRL+g` : Clear shell's output
 
 
-# Neovim
+## Neovim
 Basic horizontal motions
 
 - `[h,j,k,l]` : Move cursor: left (h), down (j), up(k), right (l)
@@ -119,7 +129,7 @@ Writing buffers and closing windows
 - `:wqa` : Quit and write all the windows
 
 
-# tmux
+## tmux
 General
 
 - `CTRL+SPACE` : Prefix key, denote as PREFIX
