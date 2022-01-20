@@ -3,7 +3,7 @@ My installation and configuration scripts and files for [Arch Linux](https://arc
 
 ---
 
-List of the Arch Linux setup, configured with VIM like [**keystrokes**](./keystrokes.md).
+List of the Arch Linux setup, configured with VIM like [**key bindings**](./keybindings.md).
 
 - Font: *Inconsolata Nerd Font*
 - Desktop: 
@@ -50,5 +50,5 @@ I aim to keep the configurations as modular as possible and the configuration sc
 
 ---
 
-I have also included my [Arch Linux installation scripts](./arch) in this repository.
+I have also included my [**Arch Linux installation scripts**](./arch) in this repository.
 

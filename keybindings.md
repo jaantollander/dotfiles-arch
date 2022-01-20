@@ -29,7 +29,12 @@ Container Layout
 - `MOD+w` : Switch to tabbed layout
 
 
-# URxvt 
+# URxvt
+Search 
+
+- `CTRL+r` : Search command history
+- `CTRL+t` : Search filesystem 
+
 Copy and paste
 
 - `CTRL+ALT+c` : Copy
