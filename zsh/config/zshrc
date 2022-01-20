@@ -59,18 +59,15 @@ if [ $(command -v "fzf") ]; then
 fi
 
 
-## --- Startup ---
-if [ "$(tty)" = "/dev/tty1" ]; then
-    pgrep i3 || exec startx "$XDG_CONFIG_HOME/X11/.xinitrc"
-fi
-
-
 ## --- Key Bindings ---
 # Unbind clearing shell from CTRL+l
 bindkey -r '^l'
 # Bind clearing shell to CTRL+g
 bindkey -r '^g'
 bindkey -s '^g' 'clear\n'
+# Open tmux
+bindkey -r '^p'
+bindkey -s '^p' 'tmux\n'
 
 
 ## --- Syntax Highlighting ---
