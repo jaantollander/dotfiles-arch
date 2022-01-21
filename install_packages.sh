@@ -48,6 +48,9 @@ sudo pacman -S keepassxc
 # Accounting
 sudo pacman -S hledger hledger-ui
 
+# Communication
+sudo pacman -S telegram-desktop
+
 # File Sharing 
 # source $DOTFILES/rtorrent/packages.sh
 sudo pacman -S qbittorrent

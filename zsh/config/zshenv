@@ -1,4 +1,4 @@
-# For dotfiles
+# For configuration files 
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # For user specific data
