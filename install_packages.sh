@@ -20,6 +20,7 @@ source $DOTFILES/yay/packages.sh
 
 # Desktop, Terminal and Shell
 source $DOTFILES/X11/packages.sh
+source $DOTFILES/udiskie/packages.sh
 source $DOTFILES/xrandr/packages.sh
 source $DOTFILES/i3/packages.sh
 source $DOTFILES/rofi/packages.sh
