@@ -27,7 +27,12 @@ List of the hardware I am using with my setup.
 
 ---
 
-System startup works as follow. First, we boot the computer and login, which starts the login shell. We have set it to `zsh`. Starting zsh first sets environment variables from [`zshenv`](./zsh/config/zshenv) file. Then, it executes the [`zprofile`](./zsh/config/zprofile) file, which contains code to run `xinit` via `startx` command with programs configured in [`xinitrc`](./X11/config/xinitrc). Finally, the last command in `xinitrc` starts `i3` window manager with i3's [`config`](./i3/config/config)s.
+System startup works as follow. 
+
+1) First, we boot the computer and login, which starts the login shell. We have set it to `zsh`. 
+2) Starting zsh first sets environment variables from [`zshenv`](./zsh/config/zshenv) file. 
+3) Then, it executes the [`zprofile`](./zsh/config/zprofile) file, which contains code to run `xinit` via `startx` command with programs configured in [`xinitrc`](./X11/config/xinitrc). 
+4) Finally, the last command in `xinitrc` starts `i3` window manager with i3's [`config`](./i3/config/config)s.
 
 ---
 
