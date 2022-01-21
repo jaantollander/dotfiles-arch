@@ -1,17 +1,26 @@
+# Merge Xresources
 xrdb -merge $HOME/.config/X11/.Xresources
-urxvtd -o -q -f
 
 # TODO: map caps to super
 #setxkbmap -option 'caps:ctrl_modifier'
 #xcape -e 'Caps_Lock=Escape' &
 
+# Map Caps Lock to Escape
 setxkbmap -option caps:escape
 
+# Disable screen saver
 xset s off
 xset s noblank
 xset -dpms
 
+# Start rxvt-unicode daemon
+urxvtd -o -q -f
+
+# Start udiskie on the background
 udiskie &
+
+# Start redshift on the background
 redshift &
 
+# Start i3 window manager
 exec i3

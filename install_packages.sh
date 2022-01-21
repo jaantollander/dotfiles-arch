@@ -1,8 +1,10 @@
 #!/bin/bash
 sudo pacman --sync --refresh --sysupgrade 
 
-# Manuals
-sudo pacman -S man man-pages tldr
+# Manuals and Help
+sudo pacman -S man man-pages 
+sudo pacman -S tldr
+sudo pacman -S arch-wiki-docs arch-wiki-lite
 
 # Networking
 sudo pacman -S networkmanager openssh openvpn
@@ -18,6 +20,7 @@ source $DOTFILES/yay/packages.sh
 
 # Desktop, Terminal and Shell
 source $DOTFILES/X11/packages.sh
+source $DOTFILES/xrandr/packages.sh
 source $DOTFILES/i3/packages.sh
 source $DOTFILES/rofi/packages.sh
 source $DOTFILES/dunst/packages.sh
@@ -48,6 +51,16 @@ sudo pacman -S hledger hledger-ui
 # source $DOTFILES/rtorrent/packages.sh
 sudo pacman -S qbittorrent
 
-# Programming
+# Documents
+source $DOTFILES/zathura/packages.sh
+sudo pacman -S pandoc
+# TODO: confirm "all" automatically
+sudo pacman -S texlive-most
+sudo pacman -S k2pdfopt
+
+# Programming and Development
 source $DOTFILES/julia/packages.sh
-#pacman -S nodejs yarn
+sudo pacman -S nodejs #yarn
+sudo pacman -S podman
+yay -S netlify
+sudo pacman -S hugo

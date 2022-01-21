@@ -278,7 +278,7 @@ for_window [class="URxvt*"] border pixel 1
 
 # i3bar
 bar {
-    status_command i3status --config ~/.config/i3/i3status.conf
+    status_command i3status --config "$XDG_CONFIG_HOME/i3/i3status.conf"
     
     # Disable all tray icons
     tray_output none
@@ -301,8 +301,8 @@ bar {
 set $mode_display Config monitor: Laptop (l), External (e)
 
 mode "$mode_display" {
-    bindsym l exec --no-startup-id sh "$HOME/.config/X11/monitor_laptop.sh", mode "default"
-    bindsym e exec --no-startup-id sh "$HOME/.config/X11/monitor_external.sh", mode "default"
+    bindsym l exec --no-startup-id sh "$XDG_CONFIG_HOME/xrandr/laptop.sh", mode "default"
+    bindsym e exec --no-startup-id sh "$XDG_CONFIG_HOME/xrandr/external.sh", mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
