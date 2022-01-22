@@ -1,39 +1,11 @@
 # i3 config file (v4)
-#
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# Set the modifier key
 set $mod Mod4
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-# font pango:monospace 8
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
+# Font for window titles. 
 font pango:Inconsolata NF 18 
-
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-#exec --no-startup-id nm-applet
-
-# Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
-# Control backlights 
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 100+ -d intel_backlight && $refresh_i3status
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 100- -d intel_backlight && $refresh_i3status
-#bindsym XF86KbdLightOnOff exec --no-startup-id brightnessctl set 1+ -d tpacpi::kbd_backlight && $refresh_i3status
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -43,13 +15,6 @@ bindsym $mod+Return exec urxvtc
 
 # kill focused window
 bindsym $mod+Shift+q kill
-
-# start dmenu (a program launcher)
-# bindsym $mod+d exec --no-startup-id dmenu_run
-
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec rofi -modi drun,run -show drun
-bindsym $mod+d exec --no-startup-id rofi -modi run -show run
 
 # change focus
 bindsym $mod+h focus left
@@ -101,6 +66,17 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+
+## Workspaces
+workspace_auto_back_and_forth yes
+focus_follows_mouse no
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1  "
@@ -138,22 +114,13 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-workspace_auto_back_and_forth yes
+#assign [class="firefox" instance="Navigator"] $ws2
+#assign [class="brave" instance="Navigator"] $ws2
 
-assign [class="firefox" instance="Navigator"] $ws2
-assign [class="brave" instance="Navigator"] $ws2
 
-focus_follows_mouse no
-
+## Shutdown, Restart and Lock Screen
 set $i3lockwall i3lock -c 000000
 bindsym $mod+CTRL+Shift+l exec --no-startup-id $i3lockwall
-
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-
-# shutdown / restart / suspend...
 
 #set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (CTRL+s) shutdown
 set $mode_system System (l) lock, (e) logout, (r) reboot, (CTRL+s) shutdown
@@ -176,7 +143,7 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
 # Example of defining a floating window
-for_window [class="Arandr"] floating enable
+#for_window [class="Arandr"] floating enable
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -205,6 +172,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+
+## Colors and Design
 # special
 set_from_resource $foreground foreground #C6C6C6
 set_from_resource $background background #1C1C1C
@@ -243,10 +212,6 @@ set_from_resource $cyan2 color14 #afd7ff
 set_from_resource $white1 color7 #4E4E4E
 set_from_resource $white2 color15 #ffffff
 
-##########
-# DESIGN #
-##########
-
 # hide borders
 hide_edge_borders both
 
@@ -259,6 +224,7 @@ client.placeholder 	#000000 #0c0c0c $white2 #000000 0c0c0c
 
 for_window [class="URxvt*"] border pixel 1
 
+
 # Terminal scratchpad
 #for_window [instance="urxvt_scratchpad"] move to scratchpad, border none
 #bindsym $mod+Shift+t [instance="urxvt_scratchpad"] scratchpad show
@@ -269,9 +235,10 @@ for_window [class="URxvt*"] border pixel 1
 #bindsym $mod+Shift+p [instance="htop_scratchpad"] scratchpad show
 #exec urxvtc -name htop_scratchpad -e htop
 
-# i3bar
+
+## i3bar
 bar {
-    status_command i3status --config "$XDG_CONFIG_HOME/i3/i3status.conf"
+    status_command i3status --config "$XDG_CONFIG_HOME/i3/status.conf"
     
     # Disable all tray icons
     tray_output none
@@ -291,19 +258,27 @@ bar {
     }
 }
 
-set $mode_display Config monitor: Laptop (l), External (e)
-
-mode "$mode_display" {
-    bindsym l exec --no-startup-id sh "$XDG_CONFIG_HOME/xrandr/laptop.sh", mode "default"
-    bindsym e exec --no-startup-id sh "$XDG_CONFIG_HOME/xrandr/external.sh", mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+x mode "$mode_display"
-
-exec --no-startup-id dunst
 
 # Remap Caps Lock key when external keyboard is plugged
 #bindsym $mod+z exec "setxkbmap -option 'caps:ctrl_modifier';xcape -e 'Caps_Lock=Escape' &"
+
+
+## Program Launcher
+# bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id rofi -modi run -show run
+
+
+## Monitors
+include $XDG_CONFIG_HOME/xrandr/i3.conf
+
+
+## Audio
+include $XDG_CONFIG_HOME/pulse/i3.conf
+
+
+## Backlights
+include $XDG_CONFIG_HOME/brightnessctl/i3.conf
+
+
+## Notifications
+exec --no-startup-id dunst

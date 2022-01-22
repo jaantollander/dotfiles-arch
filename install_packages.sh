@@ -23,6 +23,8 @@ source $DOTFILES/X11/packages.sh
 source $DOTFILES/udiskie/packages.sh
 source $DOTFILES/xrandr/packages.sh
 source $DOTFILES/i3/packages.sh
+source $DOTFILES/pulse/packages.sh
+source $DOTFILES/brightnessctl/packages.sh
 source $DOTFILES/rofi/packages.sh
 source $DOTFILES/dunst/packages.sh
 source $DOTFILES/redshift/packages.sh
