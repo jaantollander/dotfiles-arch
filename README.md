@@ -5,18 +5,18 @@ My installation and configuration scripts and files for [Arch Linux](https://arc
 
 List of the Arch Linux setup, configured with VIM like [**key bindings**](./keybindings.md).
 
-- Font: *Inconsolata Nerd Font*
+- Font: [*Inconsolata Nerd Font*](https://www.nerdfonts.com/)
 - Desktop: 
-    - Window system: *X11* (xorg)
-    - Tiling window manager: *i3*
-    - Application launcher: *Rofi*
-    - Notifications: *Dunst*
+    - Window system: [*X11*](https://www.x.org/)
+    - Tiling window manager: [*i3*](https://i3wm.org/)
+    - Application launcher: [*Rofi*](https://github.com/davatorium/rofi)
+    - Notifications: [*Dunst*](https://dunst-project.org/)
 - Terminal:
-    - Emulator: *rxvt-unicode*
-    - Multiplexer: *tmux*
-- Shell: *Zsh*
-- Editor: *Neovim*
-- Fuzzy finder: *fzf*
+    - Emulator: [*rxvt-unicode*](https://wiki.archlinux.org/title/rxvt-unicode)
+    - Multiplexer: [*tmux*](https://github.com/tmux/tmux)
+- Shell: [*Zsh*](https://wiki.archlinux.org/title/zsh)
+- Editor: [*Neovim*](https://neovim.io/)
+- Fuzzy finder: [*fzf*](https://github.com/junegunn/fzf)
 
 ---
 
