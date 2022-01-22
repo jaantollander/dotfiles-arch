@@ -23,8 +23,8 @@ List of the Arch Linux setup, configured with VIM like [**key bindings**](./keyb
 List of the hardware I am using with my setup.
 
 - Laptop: *Lenovo T480s*
-- Keyboard: *Kinesis Advantage 2*
-- Mouse: *Death Adder Elite*
+- Keyboard: [*Kinesis Advantage 2*](https://kinesis-ergo.com/keyboards/advantage2-keyboard/)
+- Mouse: *Razer DeathAdder Elite*
 
 ---
 
