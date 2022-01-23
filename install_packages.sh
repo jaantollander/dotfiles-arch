@@ -15,6 +15,9 @@ sudo pacman -S rsync
 # Command-line Utilities 
 sudo pacman -S tree 
 
+# Display Images
+sudo pacman -S feh
+
 # Arch User Repository (AUR)
 source $DOTFILES/yay/packages.sh
 

@@ -1,8 +1,11 @@
 # i3 config file (v4)
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-# Set the modifier key
+# The modifier key
 set $mod Mod4
+
+# Terminal
+set $terminal urxvtc
 
 # Font for window titles. 
 font pango:Inconsolata NF 18 
@@ -11,7 +14,7 @@ font pango:Inconsolata NF 18
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvtc
+bindsym $mod+Return exec $terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -114,16 +117,10 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-#assign [class="firefox" instance="Navigator"] $ws2
-#assign [class="brave" instance="Navigator"] $ws2
-
 
 ## Shutdown, Restart and Lock Screen
 set $i3lockwall i3lock -c 000000
-bindsym $mod+CTRL+Shift+l exec --no-startup-id $i3lockwall
-
-#set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (CTRL+s) shutdown
-set $mode_system System (l) lock, (e) logout, (r) reboot, (CTRL+s) shutdown
+set $mode_system Lock (l) | Logout (e) | Reboot (r) | Shutdown (CTRL+s)
 
 mode "$mode_system" {
 	bindsym l exec --no-startup-id $i3lockwall, mode "default"
@@ -134,9 +131,11 @@ mode "$mode_system" {
 	bindsym CTRL+s exec --no-startup-id systemctl poweroff -i, mode "default"
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
+    bindsym $mod+BackSpace mode "default"
 }
 
 bindsym $mod+BackSpace mode "$mode_system"
+
 
 # floating pop up automatically
 for_window [window_role="pop-up"] floating enable
@@ -228,12 +227,12 @@ for_window [class="URxvt*"] border pixel 1
 # Terminal scratchpad
 #for_window [instance="urxvt_scratchpad"] move to scratchpad, border none
 #bindsym $mod+Shift+t [instance="urxvt_scratchpad"] scratchpad show
-#exec urxvtc -name urxvt_scratchpad
+#exec $terminal -name urxvt_scratchpad
 
 # htop scratchpad
 #for_window [instance="htop_scratchpad"] move to scratchpad, border none
 #bindsym $mod+Shift+p [instance="htop_scratchpad"] scratchpad show
-#exec urxvtc -name htop_scratchpad -e htop
+#exec $terminal -name htop_scratchpad -e htop
 
 
 ## i3bar
@@ -259,12 +258,8 @@ bar {
 }
 
 
-# Remap Caps Lock key when external keyboard is plugged
-#bindsym $mod+z exec "setxkbmap -option 'caps:ctrl_modifier';xcape -e 'Caps_Lock=Escape' &"
-
 
 ## Program Launcher
-# bindsym $mod+d exec --no-startup-id dmenu_run
 bindsym $mod+d exec --no-startup-id rofi -modi run -show run
 
 
