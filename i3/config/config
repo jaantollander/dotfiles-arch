@@ -277,3 +277,7 @@ include $XDG_CONFIG_HOME/brightnessctl/i3.conf
 
 ## Notifications
 include $XDG_CONFIG_HOME/dunst/i3.conf
+
+
+## Screenshot
+include $XDG_CONFIG_HOME/scrot/i3.conf
