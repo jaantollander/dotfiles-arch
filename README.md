@@ -1,4 +1,6 @@
 # Dotfiles
+![](./images/desktop.png)
+
 My installation and configuration scripts and files for [Arch Linux](https://archlinux.org/). They are largely influenced by [Matthieu Cneude](https://github.com/Phantas0s) and his book [Building your Mouseless Development Environment](https://themouseless.dev/).
 
 ---
@@ -21,6 +23,8 @@ List of the Arch Linux setup, configured with VIM like [**key bindings**](./keyb
 - Editor: [*Neovim*](https://neovim.io/)
 - Fuzzy finder: [*fzf*](https://github.com/junegunn/fzf)
 - Document viewer: *Zathura*
+- Screen capture:
+    - Screenshot: *scrot*
 
 ---
 
