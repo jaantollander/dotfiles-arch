@@ -1,5 +1,5 @@
 [global]
-    font = Inconsolata 12
+    font = Inconsolata 18
     icon_position = left
     allow_markup = yes
     format = "<b>%s</b>\n%b"
@@ -29,7 +29,7 @@
     separator_color = "#444444"
     startup_notification = false
 
-    dmenu = /usr/bin/dmenu -p dunst:
+    dmenu = /usr/bin/rofi -p dunst:
     browser = /usr/bin/firefox -new-tab
  
 [frame]

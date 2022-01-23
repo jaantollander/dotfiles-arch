@@ -260,7 +260,7 @@ bar {
 
 
 ## Program Launcher
-bindsym $mod+d exec --no-startup-id rofi -modi run -show run
+include $XDG_CONFIG_HOME/rofi/i3.conf
 
 
 ## Monitors
@@ -276,4 +276,4 @@ include $XDG_CONFIG_HOME/brightnessctl/i3.conf
 
 
 ## Notifications
-exec --no-startup-id dunst
+include $XDG_CONFIG_HOME/dunst/i3.conf
