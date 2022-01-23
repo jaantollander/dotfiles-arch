@@ -1,10 +1,12 @@
 # Dotfiles
 ![](./images/desktop.png)
 
+
+## About
 My installation and configuration scripts and files for [Arch Linux](https://archlinux.org/). They are largely influenced by [Matthieu Cneude](https://github.com/Phantas0s) and his book [Building your Mouseless Development Environment](https://themouseless.dev/).
 
----
 
+## Arch Linux Setup
 List of the Arch Linux setup, configured with VIM like [**key bindings**](./keybindings.md).
 
 - Font: [*Inconsolata Nerd Font*](https://www.nerdfonts.com/)
@@ -26,17 +28,17 @@ List of the Arch Linux setup, configured with VIM like [**key bindings**](./keyb
 - Screen capture:
     - Screenshot: *scrot*
 
----
 
+## Hardware
 List of the hardware I am using with my setup.
 
 - Laptop: *Lenovo T480s*
 - Keyboard: [*Kinesis Advantage 2*](https://kinesis-ergo.com/keyboards/advantage2-keyboard/)
 - Mouse: *Razer DeathAdder Elite*
 
----
 
-System startup works as follow. 
+## System Startup
+It is useful to understand the execution order of configuration files on system startup. Here is a summary:
 
 1) First, we boot the computer and login, which starts the login shell. We have set it to `zsh`. 
 2) Starting zsh first sets environment variables from [`zshenv`](./zsh/config/zshenv) file. 
@@ -44,9 +46,9 @@ System startup works as follow.
 4) The `startx` command runs programs configured in [`xinitrc`](./X11/config/xinitrc) such as setting key maps and starting background processes and daemons. 
 5) Finally, the last command in `xinitrc` starts `i3` window manager with i3's [`config`](./i3/config/config).
 
----
 
-I have structured the configurations as below.
+## Configuration Files
+I aim to structure the configuration files into modules. Each program contains its configuration and data files, and (indempotent) scripts for installing the packages and configuring the program as below.
 
 ```text
 <program>
@@ -65,9 +67,7 @@ Configurations for each program are located in `<program>` directory, named afte
 - The `config.sh` script, which creates configuration and data directories and copies or links the configuration and data files to their appropriate locations such as `$HOME` or `$XDG_CONFIG_HOME` for configuration files or `$XDG_DATA_HOME` for data files.
 - The `packages.sh` script installs the required packages for the program with `pacman` or `yay`.
 
-I aim to keep the configurations as modular as possible and the configuration scripts indempotent.
 
----
-
+## Arch Linux Installation Scripts
 I have also included my [**Arch Linux installation scripts**](./arch) in this repository.
 
