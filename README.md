@@ -11,12 +11,16 @@ List of the Arch Linux setup, configured with VIM like [**key bindings**](./keyb
     - Tiling window manager: [*i3*](https://i3wm.org/)
     - Application launcher: [*Rofi*](https://github.com/davatorium/rofi)
     - Notifications: [*Dunst*](https://dunst-project.org/)
+    - Audio: *PulseAudio*
+    - Backlights: *brightnessctl*
+    - Bluetooth: *bluez*
 - Terminal:
     - Emulator: [*rxvt-unicode*](https://wiki.archlinux.org/title/rxvt-unicode)
     - Multiplexer: [*tmux*](https://github.com/tmux/tmux)
 - Shell: [*Zsh*](https://wiki.archlinux.org/title/zsh)
 - Editor: [*Neovim*](https://neovim.io/)
 - Fuzzy finder: [*fzf*](https://github.com/junegunn/fzf)
+- Document viewer: *Zathura*
 
 ---
 
