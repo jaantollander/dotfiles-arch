@@ -1,5 +1,10 @@
 #!/bin/zsh
 
+
+# Restrict the default read and write permissions only for the user.
+umask 077
+
+
 ## --- Startup ---
 if [ "$(tty)" = "/dev/tty1" ]; then
     pgrep i3 || exec startx "$XDG_CONFIG_HOME/X11/.xinitrc"
