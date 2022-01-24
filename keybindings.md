@@ -46,26 +46,28 @@ Container Layout
 
 
 ## URxvt
-Search 
-
-- `CTRL+r` : Search command history
-- `CTRL+t` : Search filesystem 
-
 Copy and paste
 
 - `CTRL+ALT+c` : Copy
 - `CTRL+ALT+v` : Paste
 
-Resize Font
+Resize font
 
 - `CTRL++` : Increase font size
 - `CTRL+-` : Decrease font size
 - `CTRL+=` : Reset font size to default
 - `CTRL+?` : See current font settings
 
+
+## Zsh
 Clearing shell
 
 - `CTRL+g` : Clear shell's output
+
+Search with fzf 
+
+- `CTRL+r` : Search command history
+- `CTRL+t` : Search filesystem 
 
 
 ## Neovim

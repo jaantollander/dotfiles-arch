@@ -19,7 +19,7 @@ List of the Arch Linux setup, configured with VIM like [**key bindings**](./keyb
     - Backlights: *brightnessctl*
     - Bluetooth: *bluez*
 - Terminal:
-    - Emulator: [*rxvt-unicode*](https://wiki.archlinux.org/title/rxvt-unicode)
+    - Emulator: [*rxvt-unicode*](https://wiki.archlinux.org/title/rxvt-unicode) with [resize-font](https://github.com/simmel/urxvt-resize-font) plugin
     - Multiplexer: [*tmux*](https://github.com/tmux/tmux)
 - Shell: [*Zsh*](https://wiki.archlinux.org/title/zsh)
 - Editor: [*Neovim*](https://neovim.io/)
@@ -32,7 +32,7 @@ List of the Arch Linux setup, configured with VIM like [**key bindings**](./keyb
 ## Hardware
 List of the hardware I am using with my setup.
 
-- Laptop: *Lenovo T480s*
+- Laptop: *Lenovo Thinkpad T480s*
 - Keyboard: [*Kinesis Advantage 2*](https://kinesis-ergo.com/keyboards/advantage2-keyboard/)
 - Mouse: *Razer DeathAdder Elite*
 
