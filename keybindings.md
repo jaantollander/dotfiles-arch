@@ -2,10 +2,16 @@
 ## Config Files
 We define custom key bindings in the following files. 
 
+- For X11: [xinitrc](./X11/config/xinitrc)
+- For URxvt: [xresources](./X11/config/xresources)
 - For i3 (whole desktop): [i3 config](./i3/config/config)
 - For zsh: [zshrc](./zsh/config/zshrc)
 - For tmux: [tmux.conf](./tmux/config/tmux.conf)
 - For neovim: [init.vim](./nvim/config/init.vim)
+
+
+## X11
+- `Caps Lock` is remapped to `Escape`
 
 
 ## i3 
@@ -49,6 +55,13 @@ Copy and paste
 
 - `CTRL+ALT+c` : Copy
 - `CTRL+ALT+v` : Paste
+
+Resize Font
+
+- `CTRL++` : Increase font size
+- `CTRL+-` : Decrease font size
+- `CTRL+=` : Reset font size to default
+- `CTRL+?` : See current font settings
 
 Clearing shell
 

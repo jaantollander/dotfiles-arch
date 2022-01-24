@@ -1,7 +1,7 @@
 # Merge Xresources
 xrdb -merge $HOME/.config/X11/.Xresources
 
-# TODO: map caps to super
+# TODO: map Caps_Lock to Super_L
 #setxkbmap -option 'caps:ctrl_modifier'
 #xcape -e 'Caps_Lock=Escape' &
 

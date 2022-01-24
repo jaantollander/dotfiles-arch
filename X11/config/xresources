@@ -33,3 +33,12 @@ URxvt*externalBorder: 0
 URxvt*internalBorder: 4
 URxvt*scrollBar: false
 URxvt*saveLines: 5000
+
+URxvt.perl-ext-common: resize-font
+URxvt.keysym.C-minus: resize-font:smaller
+URxvt.keysym.C-plus: resize-font:bigger
+URxvt.keysym.C-equal: resize-font:reset
+URxvt.keysym.C-question: resize-font:show
+URxvt.resize-font.step: 1
+URxvt.iso14755: false
+URxvt.iso14755_52: false
