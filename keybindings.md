@@ -1,32 +1,24 @@
 # Key Bindings
-## Config Files
-We define custom key bindings in the following files. 
-
-- For X11: [xinitrc](./X11/config/xinitrc)
-- For URxvt: [xresources](./X11/config/xresources)
-- For i3 (whole desktop): [i3 config](./i3/config/config)
-- For zsh: [zshrc](./zsh/config/zshrc)
-- For tmux: [tmux.conf](./tmux/config/tmux.conf)
-- For neovim: [init.vim](./nvim/config/init.vim)
-
-
 ## X11
+We define key bindings for X11 in [xinitrc](./X11/config/xinitrc).
+
 - `Caps Lock` is remapped to `Escape`
 
 
 ## i3 
+We define key bindings for i3 in [i3's config](./i3/config/config). Additionally, the configuration files included with the `include` directive may define key bindings.
+
 General
 
 - `WIN` : Modifier key, denote as MOD
 - `MOD+ENTER` : Open a new terminal
 - `MOD+SHIFT+q` : Quit the focused window
-- `MOD+d` : Open the launcher (i.e. dmenu or rofi)
+- `MOD+d` : Open the application launcher
 - `MOD+SHIFT+c` : Reload i3's configuration
 - `MOD+SHIFT+r` : Restart i3
 - `MOD+BACKSPACE` : Lock, shutdown, or reboot menu
 - `MOD+CTRL+SHIFT+l` : Lock the system
 - `MOD+x` : Open the screen management menu
-- `MOD+z` : Remap CAPS LOCK to CTRL and ESC
 
 Moving
 
@@ -46,6 +38,8 @@ Container Layout
 
 
 ## URxvt
+We define key bindings for URxvt in [xresources](./X11/config/xresources).
+
 Copy and paste
 
 - `CTRL+ALT+c` : Copy
@@ -60,6 +54,8 @@ Resize font
 
 
 ## Zsh
+We define key bindings for zsh in [zshrc](./zsh/config/zshrc).
+
 Clearing shell
 
 - `CTRL+g` : Clear shell's output
@@ -71,6 +67,8 @@ Search with fzf
 
 
 ## Neovim
+We define key bindings for neovim in [init.vim](./nvim/config/init.vim).
+
 Basic horizontal motions
 
 - `[h,j,k,l]` : Move cursor: left (h), down (j), up(k), right (l)
@@ -145,6 +143,8 @@ Writing buffers and closing windows
 
 
 ## tmux
+We define key bindings for tmux in [tmux.conf](./tmux/config/tmux.conf).
+
 General
 
 - `CTRL+SPACE` : Prefix key, denote as PREFIX
@@ -187,3 +187,7 @@ Plugin: copycat
 Plugin: extrakto
 
 - `PREFIX TAB` : Select and copy output with fzf
+
+
+## Dunst
+We define key bindings for Dunst in [`dunstrc`](./dunst/config/dunstrc).
