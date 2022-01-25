@@ -8,19 +8,17 @@ We define key bindings for X11 in [xinitrc](./X11/config/xinitrc).
 ## i3 
 We define key bindings for i3 in [i3's config](./i3/config/config). Additionally, the configuration files included with the `include` directive may define key bindings.
 
-General
+### General
 
 - `WIN` : Modifier key, denote as MOD
 - `MOD+ENTER` : Open a new terminal
 - `MOD+SHIFT+q` : Quit the focused window
-- `MOD+d` : Open the application launcher
 - `MOD+SHIFT+c` : Reload i3's configuration
 - `MOD+SHIFT+r` : Restart i3
 - `MOD+BACKSPACE` : Lock, shutdown, or reboot menu
 - `MOD+CTRL+SHIFT+l` : Lock the system
-- `MOD+x` : Open the screen management menu
 
-Moving
+### Moving
 
 - `MOD+[h,j,k,l]` : Focus window left (h), down (j), up (k), right (l)
 - `MOD+SHIFT+[h,j,k,l]` : Move window
@@ -30,11 +28,40 @@ Moving
 - `MOD+<number>` : Move to workspace <number>
 - `MOD+SHIFT+<number>` : Move container to workspace <number>
 
-Container Layout
+### Container Layout
 
 - `MOD+e` : Switch to split layout
 - `MOD+s` : Switch to stacked layout
 - `MOD+w` : Switch to tabbed layout
+
+### Manage Displays
+xrandr, [i3.conf](./xrandr/config/i3.conf)
+
+- `MOD+x` : Open the screen management menu
+
+### Application Launcher
+Rofi, [i3.conf](./rofi/config/i3.conf)
+
+- `MOD+d` : Open the application launcher
+
+### Audio
+PulseAudio, [i3.conf](./pulse/config/i3.conf)
+
+- `XF86AudioRaiseVolume` : Raise volume
+- `XF86AudioLowerVolume` : Lower volume
+- `XF86AudioMute` : Mute on/off audio
+- `XF86AudioMicMute` : Mute on/off microphone
+
+### Backlights
+Brightnessctl, [i3.conf](./brightnessctl/config/i3.conf)
+
+- `XF86MonBrightnessUp` : Increase monitor brightness
+- `XF86MonBrightnessDown` : Decrease monitor brightness
+
+### Screenshot
+Maim, [i3.conf](./maim/config/i3.conf)
+
+- `Print` : Take a screenshot
 
 
 ## URxvt
