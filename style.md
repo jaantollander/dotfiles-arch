@@ -1,4 +1,5 @@
 # Style
+- fonts: `fonts/data/`
 - urxvt: `xresources`
 - i3: i3's config
 - rofi: rofi's config.rasi

@@ -7,7 +7,7 @@ My installation and configuration scripts and files for [Arch Linux](https://arc
 
 
 ## Arch Linux Setup
-List of the Arch Linux setup, configured with VIM like [**key bindings**](./keybindings.md).
+List of the Arch Linux setup, configured with VIM like [**key bindings**](./keybindings.md) and minimalistic, dark [**style**](./style.md).
 
 - Font: [*Inconsolata Nerd Font*](https://www.nerdfonts.com/)
 - Desktop: 
