@@ -1,32 +1,31 @@
 # Key Bindings
 ## X11
-We define key bindings for X11 in [xinitrc](./X11/config/xinitrc).
+We define key bindings for X11 in [`xinitrc`](./X11/config/xinitrc).
 
 - `Caps Lock` is remapped to `Escape`
 
 
 ## i3 
-We define key bindings for i3 in [i3's config](./i3/config/config). Additionally, the configuration files included with the `include` directive may define key bindings.
+We define key bindings for i3 in its [`config`](./i3/config/config) file. Additionally, the configuration files included with the `include` directive may define key bindings.
 
 ### General
 
-- `WIN` : Modifier key, denote as MOD
+- `WIN` : Modifier key, denote as `MOD`
 - `MOD+ENTER` : Open a new terminal
 - `MOD+SHIFT+q` : Quit the focused window
 - `MOD+SHIFT+c` : Reload i3's configuration
 - `MOD+SHIFT+r` : Restart i3
 - `MOD+BACKSPACE` : Lock, shutdown, or reboot menu
-- `MOD+CTRL+SHIFT+l` : Lock the system
 
 ### Moving
 
 - `MOD+[h,j,k,l]` : Focus window left (h), down (j), up (k), right (l)
 - `MOD+SHIFT+[h,j,k,l]` : Move window
-- `MOD+r` : Switch to resize mode, use h,j,k,l to resize
+- `MOD+r` : Switch to resize mode, use `h,j,k,l` to resize
 - `MOD+CTRL+h` : Split container horizontally
 - `MOD+CTRL+v` : Split container vertically
-- `MOD+<number>` : Move to workspace <number>
-- `MOD+SHIFT+<number>` : Move container to workspace <number>
+- `MOD+<number>` : Move to workspace `<number>`
+- `MOD+SHIFT+<number>` : Move container to workspace `<number>`
 
 ### Container Layout
 
@@ -35,37 +34,37 @@ We define key bindings for i3 in [i3's config](./i3/config/config). Additionally
 - `MOD+w` : Switch to tabbed layout
 
 ### Manage Displays
-xrandr, [i3.conf](./xrandr/config/i3.conf)
+We manage displays using XRandR by including the [`i3.conf`](./xrandr/config/i3.conf) file.
 
 - `MOD+x` : Open the screen management menu
 
 ### Application Launcher
-Rofi, [i3.conf](./rofi/config/i3.conf)
+We use Rofi as the application launcher by including the [`i3.conf`](./rofi/config/i3.conf) file.
 
 - `MOD+d` : Open the application launcher
 
 ### Audio
-PulseAudio, [i3.conf](./pulse/config/i3.conf)
+We manage audio with PulseAudio by including the [`i3.conf`](./pulse/config/i3.conf) file.
 
 - `XF86AudioRaiseVolume` : Raise volume
 - `XF86AudioLowerVolume` : Lower volume
-- `XF86AudioMute` : Mute on/off audio
-- `XF86AudioMicMute` : Mute on/off microphone
+- `XF86AudioMute` : Mute audio on/off
+- `XF86AudioMicMute` : Mute microphone on/off
 
 ### Backlights
-Brightnessctl, [i3.conf](./brightnessctl/config/i3.conf)
+We manage backlight with Brightnessctl by including the [`i3.conf`](./brightnessctl/config/i3.conf) file.
 
 - `XF86MonBrightnessUp` : Increase monitor brightness
 - `XF86MonBrightnessDown` : Decrease monitor brightness
 
 ### Screenshot
-Maim, [i3.conf](./maim/config/i3.conf)
+We use Maim for taking screenshots by including the [`i3.conf`](./maim/config/i3.conf) file.
 
 - `Print` : Take a screenshot
 
 
 ## URxvt
-We define key bindings for URxvt in [xresources](./X11/config/xresources).
+We define key bindings for URxvt in [`xresources`](./X11/config/xresources).
 
 Copy and paste
 
@@ -81,7 +80,7 @@ Resize font
 
 
 ## Zsh
-We define key bindings for zsh in [zshrc](./zsh/config/zshrc).
+We define key bindings for zsh in [`zshrc`](./zsh/config/zshrc).
 
 Clearing shell
 
@@ -94,7 +93,7 @@ Search with fzf
 
 
 ## Neovim
-We define key bindings for neovim in [init.vim](./nvim/config/init.vim).
+We define key bindings for neovim in [`init.vim`](./nvim/config/init.vim).
 
 Basic horizontal motions
 
@@ -170,7 +169,7 @@ Writing buffers and closing windows
 
 
 ## tmux
-We define key bindings for tmux in [tmux.conf](./tmux/config/tmux.conf).
+We define key bindings for tmux in [`tmux.conf`](./tmux/config/tmux.conf).
 
 General
 
