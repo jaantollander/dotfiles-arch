@@ -18,7 +18,7 @@ xset -dpms
 urxvtd -o -q -f
 
 # Start udiskie on the background
-udiskie &
+#udiskie --no-automount &
 
 # Start i3 window manager
 exec i3

@@ -285,3 +285,7 @@ include $XDG_CONFIG_HOME/maim/i3.conf
 
 ## Adjust Screen Color Temperature
 include $XDG_CONFIG_HOME/redshift/i3.conf
+
+
+## Udiskie
+include $XDG_CONFIG_HOME/udiskie/i3.conf
