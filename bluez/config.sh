@@ -1,3 +1,3 @@
 #!/bin/bash
-# TODO: check if btusb kernel module exists
+rfkill unblock bluetooth
 sudo systemctl enable --now bluetooth.service

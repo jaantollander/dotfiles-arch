@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo pacman -S bluez bluez-utils
+sudo pacman -S bluez bluez-utils pulseaudio-bluetooth

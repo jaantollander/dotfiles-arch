@@ -235,7 +235,7 @@ for_window [class="URxvt*"] border pixel 1
 #exec $terminal -name htop_scratchpad -e htop
 
 
-## i3bar
+## i3bar and i3status
 bar {
     status_command i3status --config "$XDG_CONFIG_HOME/i3/status.conf"
     
@@ -257,6 +257,7 @@ bar {
     }
 }
 
+set $refresh_i3status killall -SIGUSR1 i3status
 
 
 ## Program Launcher
