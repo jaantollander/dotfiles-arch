@@ -17,8 +17,5 @@ xset -dpms
 # Start rxvt-unicode daemon
 urxvtd -o -q -f
 
-# Start udiskie on the background
-#udiskie --no-automount &
-
 # Start i3 window manager
 exec i3
