@@ -4,7 +4,7 @@ fpath=($ZDOTDIR/external $fpath)
 
 
 ## --- Aliases ---
-source $XDG_CONFIG_HOME/zsh/aliases
+source $XDG_CONFIG_HOME/zsh/aliases.sh
 
 
 ## --- Custom Scripts ---
