@@ -18,6 +18,7 @@ List of the Arch Linux setup, configured with VIM like [**key bindings**](./keyb
     - Audio: *PulseAudio*
     - Backlights: [*brightnessctl*](https://github.com/Hummer12007/brightnessctl)
     - Bluetooth: [*bluez*](http://www.bluez.org/)
+    - Screenshot: [*maim*](https://github.com/naelstrof/maim)
 - Terminal:
     - Emulator: [*rxvt-unicode*](https://wiki.archlinux.org/title/rxvt-unicode) with [*resize-font*](https://github.com/simmel/urxvt-resize-font) plugin
     - Multiplexer: [*tmux*](https://github.com/tmux/tmux)
@@ -25,8 +26,6 @@ List of the Arch Linux setup, configured with VIM like [**key bindings**](./keyb
     - Editor: [*Neovim*](https://neovim.io/)
     - Fuzzy finder: [*fzf*](https://github.com/junegunn/fzf)
 - Document viewer: [*Zathura*](https://pwmt.org/projects/zathura/)
-- Screen capture:
-    - Screenshot: [*maim*](https://github.com/naelstrof/maim)
 
 
 ## Hardware Setup
