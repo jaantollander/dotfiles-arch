@@ -246,7 +246,8 @@ bar {
     colors {
         background $black2
         statusline $white2
-        separator $white2
+        #separator $white2
+        separator $black2
 
         # border background text
         focused_workspace 	$background $background $red1
