@@ -62,7 +62,7 @@ Configurations for each program are located in `<program>` directory, named afte
 - The `config.sh` script, which creates configuration and data directories and copies or links the configuration and data files to their appropriate locations such as `$HOME` or `$XDG_CONFIG_HOME` for configuration files or `$XDG_DATA_HOME` for data files.
 - The `packages.sh` script installs the required packages for the program with `pacman` or `yay`.
 
-## System Startup
+### System Startup
 It is useful to understand the execution order of configuration files on system startup. Here is a summary:
 
 1) First, we boot the computer and login, which starts the login shell. We have set it to `zsh`. 
