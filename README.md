@@ -16,20 +16,20 @@ List of the Arch Linux setup, configured with VIM like [**key bindings**](./keyb
     - Application launcher: [*Rofi*](https://github.com/davatorium/rofi)
     - Notifications: [*Dunst*](https://dunst-project.org/)
     - Audio: *PulseAudio*
-    - Backlights: *brightnessctl*
-    - Bluetooth: *bluez*
+    - Backlights: [*brightnessctl*](https://github.com/Hummer12007/brightnessctl)
+    - Bluetooth: [*bluez*](http://www.bluez.org/)
 - Terminal:
     - Emulator: [*rxvt-unicode*](https://wiki.archlinux.org/title/rxvt-unicode) with [*resize-font*](https://github.com/simmel/urxvt-resize-font) plugin
     - Multiplexer: [*tmux*](https://github.com/tmux/tmux)
-- Shell: [*Zsh*](https://wiki.archlinux.org/title/zsh)
-- Editor: [*Neovim*](https://neovim.io/)
-- Fuzzy finder: [*fzf*](https://github.com/junegunn/fzf)
+    - Shell: [*Zsh*](https://wiki.archlinux.org/title/zsh)
+    - Editor: [*Neovim*](https://neovim.io/)
+    - Fuzzy finder: [*fzf*](https://github.com/junegunn/fzf)
 - Document viewer: [*Zathura*](https://pwmt.org/projects/zathura/)
 - Screen capture:
     - Screenshot: [*maim*](https://github.com/naelstrof/maim)
 
 
-## Hardware
+## Hardware Setup
 List of the hardware I am using with my setup.
 
 - Laptop: *Lenovo Thinkpad T480s*
