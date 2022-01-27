@@ -27,14 +27,18 @@
 *.color7: #e4e4e4
 *.color15: #ffffff
 
-URxvt*font: xft:Inconsolata Nerd Font Mono:style=Medium:size=27:pixelsize=27:antialias=true
+! URxvt settings
+URxvt*font: xft:Inconsolata Nerd Font Mono:style=Medium:size=30:pixelsize=30:antialias=true
 URxvt*borderLess: false
 URxvt*externalBorder: 0
 URxvt*internalBorder: 4
 URxvt*scrollBar: false
 URxvt*saveLines: 5000
 
+! URxvt extensions
 URxvt.perl-ext-common: resize-font
+
+! Settings for resize-font extension
 URxvt.keysym.C-minus: resize-font:smaller
 URxvt.keysym.C-plus: resize-font:bigger
 URxvt.keysym.C-equal: resize-font:reset

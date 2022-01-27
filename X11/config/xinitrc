@@ -3,6 +3,7 @@ xrdb -merge $HOME/.config/X11/.Xresources
 
 # TODO: map Caps_Lock to Super_L
 #setxkbmap -option 'caps:ctrl_modifier'
+#setxkbmap -option 'caps:win_space_toggle'
 #xcape -e 'Caps_Lock=Escape' &
 
 # Map Caps Lock to Escape
@@ -18,9 +19,6 @@ urxvtd -o -q -f
 
 # Start udiskie on the background
 udiskie &
-
-# Start redshift on the background
-redshift &
 
 # Start i3 window manager
 exec i3

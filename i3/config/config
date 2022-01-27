@@ -172,7 +172,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
-## Colors and Design
+## Style 
 # special
 set_from_resource $foreground foreground #C6C6C6
 set_from_resource $background background #1C1C1C
@@ -281,3 +281,7 @@ include $XDG_CONFIG_HOME/dunst/i3.conf
 
 ## Screenshot
 include $XDG_CONFIG_HOME/maim/i3.conf
+
+
+## Adjust Screen Color Temperature
+include $XDG_CONFIG_HOME/redshift/i3.conf
