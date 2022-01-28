@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo pacman --sync --refresh --sysupgrade 
 
-# Manuals and Help
+# Manuals
 sudo pacman -S man man-pages 
 sudo pacman -S tldr
 sudo pacman -S arch-wiki-docs arch-wiki-lite
@@ -11,6 +11,9 @@ sudo pacman -S networkmanager openssh openvpn
 
 # File Synchronization
 sudo pacman -S rsync 
+
+# File Archiving
+sudo pacman -S unzip
 
 # Command-line Utilities 
 sudo pacman -S tree 
@@ -33,7 +36,7 @@ source $DOTFILES/dunst/packages.sh
 source $DOTFILES/redshift/packages.sh
 source $DOTFILES/tmux/packages.sh
 source $DOTFILES/zsh/packages.sh
-sudo pacman -S scrot htop 
+sudo pacman -S htop neofetch
 
 # Text Editors and Manipulation
 source $DOTFILES/nvim/packages.sh
