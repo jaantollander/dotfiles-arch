@@ -4,16 +4,19 @@ fpath=($ZDOTDIR/external $fpath)
 
 
 ## --- Aliases ---
-source "$XDG_CONFIG_HOME/zsh/aliases.sh"
-source "$XDG_CONFIG_HOME/pacman/aliases.sh"
-source "$XDG_CONFIG_HOME/yay/aliases.sh"
-source "$XDG_CONFIG_HOME/tmux/aliases.sh"
-source "$XDG_CONFIG_HOME/git/aliases.sh"
+if [ -d $XDG_CONFIG_HOME/aliases ]; then
+    for x in $XDG_CONFIG_HOME/aliases/*.sh; do
+        source $x
+    done
+fi
 
 
 ## --- Custom Scripts ---
-source "$XDG_CONFIG_HOME/zsh/scripts.sh"
-source "$XDG_CONFIG_HOME/tmux/scripts.sh"
+if [ -d $XDG_CONFIG_HOME/scripts ]; then
+    for x in $XDG_CONFIG_HOME/scripts/*.sh; do
+        source $x
+    done
+fi
 
 
 ## --- Colors ---

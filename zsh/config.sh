@@ -8,14 +8,11 @@ ln -sf "$DOTFILES/zsh/config/dircolors" "$XDG_CONFIG_HOME/zsh/dircolors"
 rm -rf "$XDG_CONFIG_HOME/zsh/external"
 ln -sf "$DOTFILES/zsh/config/external" "$XDG_CONFIG_HOME/zsh"
 
-ln -sf "$DOTFILES/zsh/config/aliases.sh" "$XDG_CONFIG_HOME/zsh/aliases.sh"
-ln -sf "$DOTFILES/zsh/config/scripts.sh" "$XDG_CONFIG_HOME/zsh/scripts.sh"
+mkdir -p "$XDG_CONFIG_HOME/aliases"
+ln -sf "$DOTFILES/zsh/config/aliases.sh" "$XDG_CONFIG_HOME/aliases/zsh.sh"
 
-#mkdir -p "$XDG_CONFIG_HOME/zsh/aliases"
-#ln -sf "$DOTFILES/zsh/config/aliases.sh" "$XDG_CONFIG_HOME/zsh/aliases/common.sh"
-
-#mkdir -p "$XDG_CONFIG_HOME/zsh/scripts"
-#ln -sf "$DOTFILES/zsh/config/scripts.sh" "$XDG_CONFIG_HOME/zsh/scripts/common.sh"
+mkdir -p "$XDG_CONFIG_HOME/scripts"
+ln -sf "$DOTFILES/zsh/config/scripts.sh" "$XDG_CONFIG_HOME/scripts/zsh.sh"
 
 # If login shell is not zsh change it to zsh.
 if [[ $SHELL =~ "zsh" ]]; then
