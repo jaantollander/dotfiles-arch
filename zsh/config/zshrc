@@ -4,11 +4,16 @@ fpath=($ZDOTDIR/external $fpath)
 
 
 ## --- Aliases ---
-source $XDG_CONFIG_HOME/zsh/aliases.sh
+source "$XDG_CONFIG_HOME/zsh/aliases.sh"
+source "$XDG_CONFIG_HOME/pacman/aliases.sh"
+source "$XDG_CONFIG_HOME/yay/aliases.sh"
+source "$XDG_CONFIG_HOME/tmux/aliases.sh"
+source "$XDG_CONFIG_HOME/git/aliases.sh"
 
 
 ## --- Custom Scripts ---
-source $XDG_CONFIG_HOME/zsh/scripts.sh
+source "$XDG_CONFIG_HOME/zsh/scripts.sh"
+source "$XDG_CONFIG_HOME/tmux/scripts.sh"
 
 
 ## --- Colors ---
@@ -16,7 +21,7 @@ eval "$(dircolors -b $XDG_CONFIG_HOME/zsh/dircolors)"
 
 
 ## --- Filesystem Navigation ---
-source $XDG_CONFIG_HOME/zsh/external/bd.zsh
+source "$XDG_CONFIG_HOME/zsh/external/bd.zsh"
 
 # Push the current directory visited on to the stack.
 setopt AUTO_PUSHD

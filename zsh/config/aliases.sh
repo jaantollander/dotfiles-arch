@@ -10,9 +10,3 @@ alias ll='ls -lah --group-directories-first'
 
 ## grep
 alias grep='grep --color=auto'
-
-# included aliases
-source "$XDG_CONFIG_HOME/pacman/aliases.sh"
-source "$XDG_CONFIG_HOME/yay/aliases.sh"
-source "$XDG_CONFIG_HOME/tmux/aliases.sh"
-source "$XDG_CONFIG_HOME/git/aliases.sh"
