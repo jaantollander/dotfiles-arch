@@ -64,7 +64,7 @@ We use Maim for taking screenshots by including the [`i3.conf`](./maim/config/i3
 
 
 ## URxvt
-We define key bindings for URxvt in [`xresources`](./X11/config/xresources).
+We define key bindings for URxvt in [`urxvt.xresources`](./X11/config/urxvt.xresources).
 
 Copy and paste
 

@@ -1,5 +1,7 @@
 # Merge Xresources
-xrdb -merge $HOME/.config/X11/.Xresources
+#xrdb -merge $HOME/.config/X11/.Xresources
+xrdb -merge $HOME/.config/X11/style.xresources
+xrdb -merge $HOME/.config/X11/urxvt.xresources
 
 # TODO: map Caps_Lock to Super_L
 #setxkbmap -option 'caps:ctrl_modifier'

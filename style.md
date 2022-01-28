@@ -3,7 +3,8 @@ We store font files to [`fonts/data`](`./fonts/data/`).
 
 We define colors and font in following files.
 
-- urxvt: [`xresources`](./X11/config/xresources)
+- X11 style: [`style.xresources`](./X11/config/style.xresources)
+- urxvt: [`urxvt.xresources`](./X11/config/urxvt.xresources)
 - i3: [`config`](./i3/config/config)
 - zsh:
     - [`dircolors`](./zsh/config/dircolors)
