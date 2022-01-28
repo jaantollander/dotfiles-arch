@@ -13,6 +13,12 @@ export XDG_DOWNLOAD_DIR="$HOME/downloads"
 # Dotfiles
 export DOTFILES="$HOME/dotfiles"
 
+# Aliases
+export ALIASES_DIR="$XDG_CONFIG_HOME/aliases"
+
+# Scripts
+export SCRIPTS_DIR="$XDG_CONFIG_HOME/scripts"
+
 # Set the default editor
 export EDITOR="nvim"
 export VISUAL="nvim"
