@@ -25,6 +25,7 @@ sudo pacman -S feh
 source $DOTFILES/yay/packages.sh
 
 # Desktop, Terminal and Shell
+source $DOTFILES/urxvt/packages.sh
 source $DOTFILES/X11/packages.sh
 source $DOTFILES/udiskie/packages.sh
 source $DOTFILES/xrandr/packages.sh
