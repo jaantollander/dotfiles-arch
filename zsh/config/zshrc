@@ -3,22 +3,6 @@
 fpath=($ZDOTDIR/external $fpath)
 
 
-## --- Aliases ---
-if [ -d $XDG_CONFIG_HOME/aliases ]; then
-    for x in $XDG_CONFIG_HOME/aliases/*.sh; do
-        source $x
-    done
-fi
-
-
-## --- Custom Scripts ---
-if [ -d $XDG_CONFIG_HOME/scripts ]; then
-    for x in $XDG_CONFIG_HOME/scripts/*.sh; do
-        source $x
-    done
-fi
-
-
 ## --- Colors ---
 eval "$(dircolors -b $XDG_CONFIG_HOME/zsh/dircolors)"
 
@@ -47,7 +31,7 @@ _comp_options+=(globdots) # With hidden files
 autoload -Uz prompt_purification_setup; prompt_purification_setup
 
 
-## --- VIM Keymap ---
+## --- VIM Key Bindings ---
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
@@ -58,13 +42,6 @@ autoload -Uz cursor_mode && cursor_mode
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
-
-
-## --- FZF ---
-if [ $(command -v "fzf") ]; then
-    source /usr/share/fzf/completion.zsh
-    source /usr/share/fzf/key-bindings.zsh
-fi
 
 
 ## --- Key Bindings ---
@@ -81,3 +58,21 @@ bindkey -s '^p' 'tmux\n'
 ## --- Syntax Highlighting ---
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+
+## --- FZF ---
+# TODO: move to fzf directory, include as a custom script
+if [ $(command -v "fzf") ]; then
+    source /usr/share/fzf/completion.zsh
+    source /usr/share/fzf/key-bindings.zsh
+fi
+
+
+## --- Custom Scripts ---
+# Source custom scripts from "*.sh" and "*.zsh" files in "$SCRIPTS_DIR"
+# TODO: source .zsh files
+# TODO: skip if directory does not have any shell files
+if [[ -d $SCRIPTS_DIR ]]; then
+    for x in $SCRIPTS_DIR/*.sh; do
+        source $x
+    done
+fi

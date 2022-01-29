@@ -1,4 +1,4 @@
 #!/bin/bash
 #mkdir -p "$XDG_CONFIG_HOME/pacman"
-mkdir -p $XDG_CONFIG_HOME/aliases
-ln -sf "$DOTFILES/pacman/config/aliases.sh" "$XDG_CONFIG_HOME/aliases/pacman.sh"
+mkdir -p $SCRIPTS_DIR
+ln -sf "$DOTFILES/pacman/config/aliases.sh" "$SCRIPTS_DIR/pacman-aliases.sh"

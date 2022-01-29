@@ -2,12 +2,11 @@
 mkdir -p "$XDG_CONFIG_HOME/tmux"
 ln -sf "$DOTFILES/tmux/config/tmux.conf" "$XDG_CONFIG_HOME/tmux/tmux.conf"
 
-mkdir -p $XDG_CONFIG_HOME/aliases
-ln -sf "$DOTFILES/tmux/config/aliases.sh" "$XDG_CONFIG_HOME/aliases/tmux.sh"
-
-mkdir -p $XDG_CONFIG_HOME/scripts
-ln -sf "$DOTFILES/tmux/config/scripts.sh" "$XDG_CONFIG_HOME/scripts/tmux.sh"
+mkdir -p $SCRIPTS_DIR
+ln -sf "$DOTFILES/tmux/config/aliases.sh" "$SCRIPTS_DIR/tmux-aliases.sh"
+ln -sf "$DOTFILES/tmux/config/scripts.sh" "$SCRIPTS_DIR/tmux-scripts.sh"
 
 if [ ! -d "$XDG_CONFIG_HOME/tmux/plugins" ]; then
+    # TODO: use curl instead of git to avoid dependency
     git clone "https://github.com/tmux-plugins/tpm" "$XDG_CONFIG_HOME/tmux/plugins/tpm"
 fi
