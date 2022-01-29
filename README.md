@@ -3,7 +3,7 @@
 
 
 ## About
-My installation and configuration scripts and files for [Arch Linux](https://archlinux.org/). They are largely influenced by [Matthieu Cneude](https://github.com/Phantas0s) and his book [Building your Mouseless Development Environment](https://themouseless.dev/).
+My installation and configuration scripts and files for [Arch Linux](https://archlinux.org/). They are largely influenced by [Matthieu Cneude](https://github.com/Phantas0s) and his book [Building your Mouseless Development Environment](https://themouseless.dev/), [articles](https://thevaluable.dev/), and [dotfiles](https://github.com/Phantas0s/.dotfiles). If you are interested in building similar configuration, I recommend to read his book first!
 
 
 ## Arch Linux Setup
