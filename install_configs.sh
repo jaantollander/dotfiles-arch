@@ -17,6 +17,7 @@ config pulse
 config brightnessctl
 config bluez
 config maim
+config fzf
 config zsh
 config git
 config gh

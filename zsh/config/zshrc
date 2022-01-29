@@ -59,14 +59,6 @@ bindkey -s '^p' 'tmux\n'
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
-## --- FZF ---
-# TODO: move to fzf directory, include as a custom script
-if [ $(command -v "fzf") ]; then
-    source /usr/share/fzf/completion.zsh
-    source /usr/share/fzf/key-bindings.zsh
-fi
-
-
 ## --- Custom Scripts ---
 # Source custom scripts from "*.sh" and "*.zsh" files in "$SCRIPTS_DIR"
 # TODO: source .zsh files

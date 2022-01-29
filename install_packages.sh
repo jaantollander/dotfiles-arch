@@ -40,6 +40,7 @@ packages rofi
 packages dunst
 packages redshift
 packages tmux
+packages fzf
 packages zsh
 sudo pacman -S htop neofetch
 
