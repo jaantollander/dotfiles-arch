@@ -1,5 +1,6 @@
 #!/bin/bash
 source $DOTFILES/bash/config.sh
+source $DOTFILES/urxvt/config.sh
 source $DOTFILES/X11/config.sh
 source $DOTFILES/xrandr/config.sh
 source $DOTFILES/udiskie/config.sh

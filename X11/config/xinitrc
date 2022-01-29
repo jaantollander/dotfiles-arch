@@ -1,7 +1,9 @@
 # Merge Xresources
-#xrdb -merge $HOME/.config/X11/.Xresources
 xrdb -merge $HOME/.config/X11/style.xresources
-xrdb -merge $HOME/.config/X11/urxvt.xresources
+xrdb -merge $HOME/.config/urxvt/urxvt.xresources
+
+# Start rxvt-unicode daemon
+urxvtd -o -q -f
 
 # TODO: map Caps_Lock to Super_L
 #setxkbmap -option 'caps:ctrl_modifier'
@@ -15,9 +17,6 @@ setxkbmap -option caps:escape
 xset s off
 xset s noblank
 xset -dpms
-
-# Start rxvt-unicode daemon
-urxvtd -o -q -f
 
 # Start i3 window manager
 exec i3
