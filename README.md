@@ -75,3 +75,9 @@ Check out [**style**](./style.md) section for explanation of style configuration
 
 ### Key Bindings
 Check out [**keybindings**](./keybindings.md) section for key binding configurations.
+
+
+## Resources
+Here is a list of some useful resources for developing dotfiles.
+
+- An excellent [Bash scripting cheatsheet](https://devhints.io/bash) from *devhints*.

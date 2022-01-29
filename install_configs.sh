@@ -1,20 +1,27 @@
 #!/bin/bash
-source $DOTFILES/bash/config.sh
-source $DOTFILES/urxvt/config.sh
-source $DOTFILES/X11/config.sh
-source $DOTFILES/xrandr/config.sh
-source $DOTFILES/udiskie/config.sh
-source $DOTFILES/fonts/config.sh
-source $DOTFILES/i3/config.sh
-source $DOTFILES/pulse/config.sh
-source $DOTFILES/brightnessctl/config.sh
-source $DOTFILES/rofi/config.sh
-source $DOTFILES/zsh/config.sh
-source $DOTFILES/dunst/config.sh
-source $DOTFILES/git/config.sh
-source $DOTFILES/nvim/config.sh
-source $DOTFILES/tmux/config.sh
-source $DOTFILES/redshift/config.sh
-source $DOTFILES/rtorrent/config.sh
-source $DOTFILES/julia/config.sh
-source $DOTFILES/zathura/config.sh
+config() {
+    source "$DOTFILES/$1/config.sh"
+}
+
+config pacman
+config fonts
+config bash
+config urxvt
+config X11
+config xrandr
+config i3
+config rofi
+config dunst
+config udiskie
+config pulse
+config brightnessctl
+config bluez
+config maim
+config zsh
+config git
+config gh
+config nvim
+config tmux
+config redshift
+config zathura
+config julia
