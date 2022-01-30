@@ -42,6 +42,7 @@ List of the Arch Linux setup, configured with VIM like [**key bindings**](./keyb
     - Shell: [*Zsh*](https://wiki.archlinux.org/title/zsh)
     - Editor: [*Neovim*](https://neovim.io/)
     - Fuzzy finder: [*fzf*](https://github.com/junegunn/fzf)
+    - Improved `ls`: [*lsd*](https://github.com/Peltoche/lsd)
 - Document viewer: [*Zathura*](https://pwmt.org/projects/zathura/)
 
 

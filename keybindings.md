@@ -90,6 +90,7 @@ Search with fzf
 
 - `CTRL+r` : Search command history
 - `CTRL+t` : Search filesystem 
+- `ALT+c` : Fuzzy change directory
 
 
 ## Neovim
