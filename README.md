@@ -7,15 +7,19 @@ My installation and configuration scripts and files for [Arch Linux](https://arc
 
 
 ## Philosophy
-My configuration philosophy is to strive for simple and effective configuration by avoiding skeuomorphic design and accepting that such configuration requires effort to learn.
+My configuration philosophy is to strive for simple, effective and ergonomic configuration by avoiding skeuomorphic design and accepting that such configuration requires effort to learn.
 
-- *Keyboard over mouse*: We should be able to use our configuration effectively without leaving the keyboard.
-- *CLIs over GUIs*: CLIs are simpler and more effective than GUIs for most tasks.
-- *Search over navigation*: We should use search whenever possible instead of having to navigate through menus.
-- *Text over binary*: We should use text files whenever binary format is not truly necessary.
-- *Strive for modular configuration*: Modularity makes it easier to change components and reason about dependencies.
-- *Take security seriously*
-- *Cognitive ergonomics matters*
+- **Keyboard over mouse**: We should be able to use our configuration effectively without leaving the keyboard.
+
+- **CLIs over GUIs**: CLIs are simpler and more effective than GUIs for most tasks.
+
+- **Search over navigation**: We should use search whenever possible instead of having to navigate through menus.
+
+- **Text over binary**: We should use text files whenever binary format is not truly necessary.
+
+- **Strive for modular configuration**: Modularity makes it easier to change components and reason about dependencies.
+
+- **Take security seriously**: 
 
 
 ## Arch Linux Setup
