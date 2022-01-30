@@ -19,7 +19,7 @@ My configuration philosophy is to strive for simple, effective and ergonomic con
 
 - **Strive for modular configuration**: Modularity makes it easier to change components and reason about dependencies.
 
-- **Take security seriously**: 
+- **Take security seriously**: Your data could get lost, be stolen or hacked unless you protect it.
 
 
 ## Arch Linux Setup
