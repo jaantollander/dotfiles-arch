@@ -18,6 +18,7 @@ config brightnessctl
 config bluez
 config maim
 config fzf
+config lsd
 config zsh
 config git
 config gh

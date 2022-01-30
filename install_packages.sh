@@ -19,9 +19,6 @@ sudo pacman -S rsync
 # File Archiving
 sudo pacman -S unzip
 
-# Command-line Utilities 
-sudo pacman -S tree 
-
 # Display Images
 sudo pacman -S feh
 
@@ -42,6 +39,7 @@ packages redshift
 packages tmux
 packages fzf
 packages zsh
+packages lsd
 sudo pacman -S htop neofetch
 
 # Text Editors and Manipulation
