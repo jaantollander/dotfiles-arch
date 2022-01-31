@@ -23,7 +23,7 @@ My configuration philosophy is to strive for simple, effective and ergonomic con
 
 
 ## Arch Linux Setup
-List of the Arch Linux setup, configured with VIM like [**key bindings**](./keybindings.md) and minimalistic, dark [**style**](./style.md).
+List of the Arch Linux setup, configured with VIM like [**key bindings**](./key-bindings.md) and minimalistic, dark [**style**](./style.md).
 
 - Font: [*Nerd Fonts*](https://www.nerdfonts.com/)
     - *Inconsolata*
@@ -92,10 +92,11 @@ It is useful to understand the execution order of configuration files on system 
 Check out [**style**](./style.md) section for explanation of style configurations.
 
 ### Key Bindings
-Check out [**keybindings**](./keybindings.md) section for key binding configurations.
+Check out [**keybindings**](./key-bindings.md) section for key binding configurations.
 
 
 ## Resources
 Here is a list of some useful resources for developing dotfiles.
 
 - An excellent [Bash scripting cheatsheet](https://devhints.io/bash) from *devhints*.
+- [Efficient UEFI Encrypted Root and Swap Arch Linux Installation Procedure with an ENCRYPTED BOOT](https://gist.github.com/HardenedArray/ee3041c04165926fca02deca675effe1) by *HardenedArray*
