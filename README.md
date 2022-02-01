@@ -3,7 +3,7 @@
 
 
 ## About
-My installation and configuration scripts and files for [Arch Linux](https://archlinux.org/). They are largely influenced by [Matthieu Cneude](https://github.com/Phantas0s) and his book [Building your Mouseless Development Environment](https://themouseless.dev/), [articles](https://thevaluable.dev/), and [dotfiles](https://github.com/Phantas0s/.dotfiles). If you are interested in building similar configuration, I recommend to read his book first!
+My installation and configuration scripts and files for [Arch Linux](https://archlinux.org/). They are largely influenced by [Matthieu Cneude](https://github.com/Phantas0s) and his book [Building your Mouseless Development Environment](https://themouseless.dev/). If you are interested in building similar configuration, I recommend to read his book first!
 
 
 ## Philosophy
@@ -42,7 +42,7 @@ List of the Arch Linux setup, configured with VIM like [**key bindings**](./key-
     - Shell: [*Zsh*](https://wiki.archlinux.org/title/zsh)
     - Editor: [*Neovim*](https://neovim.io/)
     - Fuzzy finder: [*fzf*](https://github.com/junegunn/fzf)
-    - Improved `ls`: [*lsd*](https://github.com/Peltoche/lsd)
+    - Improved ls: [*lsd*](https://github.com/Peltoche/lsd)
 - Document viewer: [*Zathura*](https://pwmt.org/projects/zathura/)
 
 
@@ -83,9 +83,13 @@ Configurations for each program are located in `<program>` directory, named afte
 It is useful to understand the execution order of configuration files on system startup. Here is a summary:
 
 1) First, we boot the computer and login, which starts the login shell. We have set it to `zsh`. 
+
 2) Starting zsh first sets environment variables from [`zshenv`](./zsh/config/zshenv) file. 
+
 3) Then, it executes the [`zprofile`](./zsh/config/zprofile) file, which contains code to run `xinit` via `startx` to start X11. 
+
 4) The `startx` command runs programs configured in [`xinitrc`](./X11/config/xinitrc) such as setting key maps and starting background processes and daemons. 
+
 5) Finally, the last command in `xinitrc` starts `i3` window manager with i3's [`config`](./i3/config/config).
 
 ### Style
@@ -98,5 +102,8 @@ Check out [**keybindings**](./key-bindings.md) section for key binding configura
 ## Resources
 Here is a list of some useful resources for developing dotfiles.
 
+- *Matthieu Cneude* also has great [articles](https://thevaluable.dev/) on his website and his [dotfiles](https://github.com/Phantas0s/.dotfiles) are also useful. 
+
 - An excellent [Bash scripting cheatsheet](https://devhints.io/bash) from *devhints*.
+
 - [Efficient UEFI Encrypted Root and Swap Arch Linux Installation Procedure with an ENCRYPTED BOOT](https://gist.github.com/HardenedArray/ee3041c04165926fca02deca675effe1) by *HardenedArray*
