@@ -8,22 +8,16 @@ sudo pacman --sync --refresh --sysupgrade
 # Manuals
 sudo pacman -S man man-pages 
 sudo pacman -S tldr
-sudo pacman -S arch-wiki-docs arch-wiki-lite
+#sudo pacman -S arch-wiki-docs arch-wiki-lite
 
 # Networking
 sudo pacman -S networkmanager openssh openvpn
 
-# File Synchronization
-sudo pacman -S rsync 
-
-# File Archiving
-sudo pacman -S unzip
-
-# Display Images
-sudo pacman -S feh
-
-# Arch User Repository (AUR)
-packages yay
+# If "yay" is not installed, install it.
+# Yay is an helper for installing packages from Arch User Repository (AUR).
+if [[ ! $(command -v "yay") ]]; then
+    bash $DOTFILES/yay/install.sh
+fi
 
 # Desktop, Terminal and Shell
 packages urxvt
@@ -40,7 +34,6 @@ packages tmux
 packages fzf
 packages zsh
 packages lsd
-sudo pacman -S htop neofetch
 
 # Text Editors and Manipulation
 packages nvim
@@ -49,6 +42,21 @@ sudo pacman -S dos2unix
 # Version Control
 packages git
 packages gh
+
+# Process Information
+sudo pacman -S htop
+
+# System Information
+sudo pacman -S neofetch
+
+# File Synchronization
+sudo pacman -S rsync 
+
+# File Archiving
+sudo pacman -S unzip
+
+# Display Images
+sudo pacman -S feh
 
 # Browsers
 sudo pacman -S firefox 
@@ -66,8 +74,10 @@ sudo pacman -S telegram-desktop
 # File Sharing 
 sudo pacman -S qbittorrent
 
-# Documents
+# Document Viewer
 packages zathura
+
+# Creating Documents
 sudo pacman -S pandoc
 # TODO: confirm "all" automatically
 sudo pacman -S texlive-most
