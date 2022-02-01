@@ -96,7 +96,7 @@ It is useful to understand the execution order of configuration files on system 
 Check out [**style**](./style.md) section for explanation of style configurations.
 
 ### Key Bindings
-Check out [**keybindings**](./key-bindings.md) section for key binding configurations.
+Check out [**key bindings**](./key-bindings.md) section for key binding configurations.
 
 
 ## Resources
