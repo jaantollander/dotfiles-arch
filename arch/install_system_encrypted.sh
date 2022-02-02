@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# This script is based on "Efficient UEFI Encrypted Root and Swap Arch Linux Installation with an ENCRYPTED BOOT" by HardenedArray. I highly recommend to read it for more detailed explanations.
+# This script is based on "Efficient UEFI Encrypted Root and Swap Arch Linux Installation 
+# with an ENCRYPTED BOOT" by HardenedArray. 
+# I highly recommend to read it for more detailed explanations.
 # https://gist.github.com/HardenedArray/ee3041c04165926fca02deca675effe1
 
 
@@ -21,7 +23,8 @@ HARD_DISK="/dev/sdX"
 
 # Create EFI and ROOT partitions
 # - Partition 1: 100 MiB EFI partition. Hex code EF00
-# - Partition 2: Choose a reasonable size for your encrypted root and swap system partition, or just size it to the last sector of your drive. Hex code 8300.  
+# - Partition 2: Choose a reasonable size for your encrypted root and swap system partition, 
+#   or just size it to the last sector of your drive. Hex code 8300.  
 gdisk $HARD_DISK
 
 # We'll use the following variables to to denote the partitions.
@@ -58,7 +61,7 @@ mkdir /mnt/efi
 mount $EFI /mnt/efi
 
 # Install Arch system
-pacstrap /mnt base base-devel grub efibootmgr dialog wpa_supplicant linux linux-headers nano dhcpcd iwd lvm2 linux-firmware man-pages
+pacstrap /mnt base base-devel grub efibootmgr dialog wpa_supplicant linux linux-headers nvim dhcpcd iwd lvm2 linux-firmware man-pages
 
 # Create and review file system table (fstab)
 # The -U option pulls in all the correct UUIDs for your mounted filesystems.
@@ -102,7 +105,7 @@ cryptsetup luksAddKey $ROOT /crypto_keyfile.bin
 cryptsetup luksDump $ROOT  # You should now see that LUKS Key Slots 0 and 1 are both occupied
 
 # Configure mkinitcpio with the correct FILES statement and proper HOOKS required for your initrd image:
-nano /etc/mkinitcpio.conf
+nvim /etc/mkinitcpio.conf
 # Add the lines inside `` to the config.
 # `FILES=(/crypto_keyfile.bin)`
 # `HOOKS=(base udev autodetect modconf block keymap encrypt lvm2 resume filesystems keyboard fsck)`
@@ -111,14 +114,14 @@ nano /etc/mkinitcpio.conf
 mkinitcpio -p linux
 
 # Install and Configure Grub-EFI
-nano /etc/default/grub
+nvim /etc/default/grub
 # Uncomment "GRUB_ENABLE_CRYPTODISK=y" in the config
 
 # Install GRUB on an UEFI computer 
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=ArchLinux
 
 # Edit the default grub
-nano /etc/default/grub
+nvim /etc/default/grub
 # Add the line inside `` and substitute the correct values for the variables.
 # `GRUB_CMDLINE_LINUX="cryptdevice=/dev/$ROOT:$EBOOT resume=/dev/mapper/Arch-swap"`
 

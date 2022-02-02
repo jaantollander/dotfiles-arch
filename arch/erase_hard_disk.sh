@@ -10,8 +10,8 @@ hd_eraser=$2
 
 ## --- Erase Hard Disk ---
 if [ $hd_eraser = "zeros" ]; then
-    dd if=/dev/zero of=$hard_disk status=progress
+    dd status=progress bs=4M if=/dev/zero of=$hard_disk 
 elif [ $hd_eraser = "random" ]; then
-    dd if=/dev/urandom of=$hard_disk status=progress
+    dd status=progress bs=4M if=/dev/urandom of=$hard_disk
 fi
 

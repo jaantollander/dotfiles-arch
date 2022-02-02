@@ -19,8 +19,8 @@ usb_device=$2
 umount ${usb_device}* 2> /dev/null
 
 # Make FAT32 filesystem on the USB device
-mkfs.vfat $usb_device 2> /dev/null
+mkfs.fat -F 32 $usb_device 2> /dev/null
 
 # Copy the Arch Linux ISO file to the USB device.
-cp $arch_iso $usb_device
+cat $arch_iso > $usb_device
 
