@@ -8,7 +8,6 @@ sudo pacman --sync --refresh --sysupgrade
 # Manuals
 sudo pacman -S man man-pages 
 sudo pacman -S tldr
-#sudo pacman -S arch-wiki-docs arch-wiki-lite
 
 # Networking
 sudo pacman -S networkmanager openssh openvpn
@@ -58,34 +57,34 @@ sudo pacman -S unzip
 # Display Images
 sudo pacman -S feh
 
+# Document Viewer
+packages zathura
+
 # Browsers
 sudo pacman -S firefox 
 sudo pacman -S brave-bin
 
 # Password Manager
-sudo pacman -S keepassxc
+#sudo pacman -S keepassxc
 
 # Accounting
-sudo pacman -S hledger hledger-ui
+#sudo pacman -S hledger hledger-ui
 
 # Communication
-sudo pacman -S telegram-desktop
+#sudo pacman -S telegram-desktop
 
 # File Sharing 
-sudo pacman -S qbittorrent
-
-# Document Viewer
-packages zathura
+#sudo pacman -S qbittorrent
 
 # Creating Documents
-sudo pacman -S pandoc
+#sudo pacman -S pandoc
 # TODO: confirm "all" automatically
-sudo pacman -S texlive-most
-sudo pacman -S k2pdfopt
+#sudo pacman -S texlive-most
+#sudo pacman -S k2pdfopt
 
 # Programming and Development
-packages julia
-sudo pacman -S nodejs #yarn
-sudo pacman -S podman
-yay -S netlify
-sudo pacman -S hugo
+#packages julia
+#sudo pacman -S nodejs #yarn
+#sudo pacman -S podman
+#yay -S netlify
+#sudo pacman -S hugo
