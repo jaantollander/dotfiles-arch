@@ -28,17 +28,17 @@ gdisk $HARD_DISK
 # Clear all current partition data
 # 1) `o`
 # Create first partition for EFI.
-# 2) `n`       Create new partition
-# 3) `1`       Partition number
-# 4) `<default>` First sector
-# 5) `+100M`   Last sector
-# 6) `ef00`    Hex code for EFI partition type
+# 2) `n`           Create new partition
+# 3) `1`           Partition number
+# 4) `<default>`   First sector
+# 5) `+100M`       Last sector
+# 6) `ef00`        Hex code for EFI partition type
 # Create second partition for encrypted root and swap. 
-# 7) `n`         Create new partition
-# 8) `2`         Partition number
+# 7) `n`           Create new partition
+# 8) `2`           Partition number
 # 9) `<default>`   First sector
 # 10) `<default>`  Last sector
-# 11) `8300` :   Linux filesystem partition type 
+# 11) `8300`       Linux filesystem partition type 
 # Write partitions to disk
 # 12) `w`
 
