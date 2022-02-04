@@ -14,26 +14,37 @@
 ## --- On Live Booted Arch Linux ---
 # Connect to WiFi
 iwctl
+# station <wlan-device-name> connect <wifi-station-name>
 
-# Then to connect to your WiFi station
-station <wlan-device-name> connect <wifi-station-name>
+# Choose a hard disk. 
+HARD_DISK=""  # For example, "/dev/sda" or "/dev/nvme0n1".
 
-# Choose a hard disk. For example, "/dev/sda".
-HARD_DISK="/dev/sdX"
+# Over write the hard disk
+dd if=/dev/zero of=$HARD_DISK status=progress bs=4M
 
 # Create EFI and ROOT partitions
-# - Partition 1: 100 MiB EFI partition. Hex code EF00
-# - Partition 2: Choose a reasonable size for your encrypted root and swap system partition, 
-#   or just size it to the last sector of your drive. Hex code 8300.  
 gdisk $HARD_DISK
 
-# We'll use the following variables to to denote the partitions.
-EFI="${HARD_DISK}1"
-ROOT="${HARD_DISK}2"
+# Clear all current partition data
+# 1) `o`
+# Create first partition for EFI.
+# 2) `n`       Create new partition
+# 3) `1`       Partition number
+# 4) `<default>` First sector
+# 5) `+100M`   Last sector
+# 6) `ef00`    Hex code for EFI partition type
+# Create second partition for encrypted root and swap. 
+# 7) `n`         Create new partition
+# 8) `2`         Partition number
+# 9) `<default>`   First sector
+# 10) `<default>`  Last sector
+# 11) `8300` :   Linux filesystem partition type 
+# Write partitions to disk
+# 12) `w`
 
-# Overwrite the partitions with zeros
-cat /dev/zero $EFI
-cat /dev/zero $ROOT
+# We'll use the following variables to to denote the partitions.
+EFI=""  # For example: "/dev/sda1" or "/dev/nvme0n1p1"
+ROOT="" # For example: "/dev/sda2" or "/dev/nvme0n1p2"
 
 # Create FAT32 filesystem for the EFI partition 
 mkfs.vfat -F 32 $EFI 
@@ -61,7 +72,7 @@ mkdir /mnt/efi
 mount $EFI /mnt/efi
 
 # Install Arch system
-pacstrap /mnt base base-devel grub efibootmgr dialog wpa_supplicant linux linux-headers nvim dhcpcd iwd lvm2 linux-firmware man-pages
+pacstrap /mnt base base-devel grub efibootmgr dialog wpa_supplicant linux linux-headers nano dhcpcd iwd lvm2 linux-firmware man-pages
 
 # Create and review file system table (fstab)
 # The -U option pulls in all the correct UUIDs for your mounted filesystems.
@@ -105,25 +116,26 @@ cryptsetup luksAddKey $ROOT /crypto_keyfile.bin
 cryptsetup luksDump $ROOT  # You should now see that LUKS Key Slots 0 and 1 are both occupied
 
 # Configure mkinitcpio with the correct FILES statement and proper HOOKS required for your initrd image:
-nvim /etc/mkinitcpio.conf
-# Add the lines inside `` to the config.
-# `FILES=(/crypto_keyfile.bin)`
-# `HOOKS=(base udev autodetect modconf block keymap encrypt lvm2 resume filesystems keyboard fsck)`
+nano /etc/mkinitcpio.conf
+# Add or modify the following lines to the config:
+# FILES=(/crypto_keyfile.bin)
+# HOOKS=(base udev autodetect modconf block keymap encrypt lvm2 resume filesystems keyboard fsck)
 
 # Generate your initrd image
 mkinitcpio -p linux
 
 # Install and Configure Grub-EFI
-nvim /etc/default/grub
-# Uncomment "GRUB_ENABLE_CRYPTODISK=y" in the config
+nano /etc/default/grub
+# Uncomment the following line in the config:
+# GRUB_ENABLE_CRYPTODISK=y
 
 # Install GRUB on an UEFI computer 
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=ArchLinux
 
 # Edit the default grub
-nvim /etc/default/grub
-# Add the line inside `` and substitute the correct values for the variables.
-# `GRUB_CMDLINE_LINUX="cryptdevice=/dev/$ROOT:$EBOOT resume=/dev/mapper/Arch-swap"`
+nano /etc/default/grub
+# Substitute the correct values for the variables and add the line to the config:
+# GRUB_CMDLINE_LINUX="cryptdevice=$ROOT:$EBOOT resume=/dev/mapper/Arch-swap"
 
 # Generate Your Final Grub Configuration:
 grub-mkconfig -o /boot/grub/grub.cfg
