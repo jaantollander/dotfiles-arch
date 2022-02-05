@@ -108,7 +108,7 @@ if [ $boot_type = "uefi" ]; then
         --bootloader-id=GRUB \
         --efi-directory=/boot/efi
 elif [ $boot_type = "bios" ]; then  
-    grub-install "$hard_disk"
+    grub-install "$HARD_DISK"
 fi
 
 grub-mkconfig -o /boot/grub/grub.cfg
