@@ -25,25 +25,33 @@ My configuration philosophy is to strive for simple, effective and ergonomic con
 ## Arch Linux Setup
 List of the Arch Linux setup, configured with VIM like [**key bindings**](./key-bindings.md) and minimalistic, dark [**style**](./style.md).
 
-- Font: [*Nerd Fonts*](https://www.nerdfonts.com/)
-    - *Inconsolata*
-- Desktop: 
-    - Window system: [*X11*](https://www.x.org/)
-    - Tiling window manager: [*i3*](https://i3wm.org/)
-    - Application launcher: [*Rofi*](https://github.com/davatorium/rofi)
-    - Notifications: [*Dunst*](https://dunst-project.org/)
-    - Audio: *PulseAudio*
-    - Backlights: [*brightnessctl*](https://github.com/Hummer12007/brightnessctl)
-    - Bluetooth: [*bluez*](http://www.bluez.org/)
-    - Screenshot: [*maim*](https://github.com/naelstrof/maim)
-- Terminal:
-    - Emulator: [*rxvt-unicode*](https://wiki.archlinux.org/title/rxvt-unicode) with [*resize-font*](https://github.com/simmel/urxvt-resize-font) plugin
-    - Multiplexer: [*tmux*](https://github.com/tmux/tmux)
-    - Shell: [*Zsh*](https://wiki.archlinux.org/title/zsh)
-    - Editor: [*Neovim*](https://neovim.io/)
-    - Fuzzy finder: [*fzf*](https://github.com/junegunn/fzf)
-    - Improved ls: [*lsd*](https://github.com/Peltoche/lsd)
-- Document viewer: [*Zathura*](https://pwmt.org/projects/zathura/)
+Font: 
+
+- [*Nerd Fonts*](https://www.nerdfonts.com/): *Inconsolata*
+
+Desktop:
+
+- Window system: [*X11*](https://www.x.org/)
+- Tiling window manager: [*i3*](https://i3wm.org/)
+- Application launcher: [*Rofi*](https://github.com/davatorium/rofi)
+- Notifications: [*Dunst*](https://dunst-project.org/)
+- Audio: *PulseAudio*
+- Backlights: [*brightnessctl*](https://github.com/Hummer12007/brightnessctl)
+- Bluetooth: [*bluez*](http://www.bluez.org/)
+- Screenshot: [*maim*](https://github.com/naelstrof/maim)
+
+Terminal:
+
+- Emulator: [*rxvt-unicode*](https://wiki.archlinux.org/title/rxvt-unicode) with [*resize-font*](https://github.com/simmel/urxvt-resize-font) plugin
+- Multiplexer: [*tmux*](https://github.com/tmux/tmux)
+- Shell: [*Zsh*](https://wiki.archlinux.org/title/zsh)
+- Editor: [*Neovim*](https://neovim.io/)
+- Fuzzy finder: [*fzf*](https://github.com/junegunn/fzf)
+- Improved ls: [*lsd*](https://github.com/Peltoche/lsd)
+
+Document viewer: 
+
+- [*Zathura*](https://pwmt.org/projects/zathura/)
 
 
 ## Hardware Setup
