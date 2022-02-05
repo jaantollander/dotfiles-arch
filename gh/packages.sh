@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo pacman -S gh
+sudo pacman -S github-cli
