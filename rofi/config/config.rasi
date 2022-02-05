@@ -1,6 +1,6 @@
 configuration {
 /*	modi: "window,run,ssh";*/
-	font: "mono 18";
+    font: "Inconsolata NF 20";
 /*	location: 0;*/
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
@@ -144,6 +144,7 @@ configuration {
       sorting-method:    "name";
   }
 }
+
 /* Try themes using `rofi-theme-selector` command */
 /* Find theme files using `ls /usr/share/rofi/themes` command */
 @theme "gruvbox-dark-hard.rasi"
