@@ -34,7 +34,7 @@ We can now remove the USB drive and attach it to the computer where we want to b
 
 
 ## Installing System
-We can follow the instructions on the [`install_system.sh`](./install_system.sh) file for normal system installation or the instructions on the [`install_system_encrypted.sh`](./install_system_encrypted) file for installing system with encrypted boot and hard drive.
+We can follow the instructions on the [`install_system.sh`](./install_system.sh) file for normal system installation or the instructions on the [`install_system_encrypted.sh`](./install_system_encrypted.sh) file for installing system with encrypted boot and hard drive.
 
 
 ## Post Installation
