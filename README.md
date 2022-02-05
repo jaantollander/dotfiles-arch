@@ -15,7 +15,7 @@ My configuration philosophy is to strive for simple, effective and ergonomic con
 
 - **Search over navigation**: We should use search whenever possible instead of having to navigate through menus.
 
-- **Text over binary**: We should use text files whenever binary format is not necessary.
+- **Text over binary**: We should use text files whenever binary format is not necessary. Also, it ieasier to search text files than binary files.
 
 - **Modular configuration**: Modularity makes it easier to change components and reason about dependencies.
 
