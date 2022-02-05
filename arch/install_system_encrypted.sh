@@ -7,8 +7,7 @@
 
 
 ## --- Preparation ---
-# 1) Create live bootable Arch Linux to USB stick.
-# 2) Securely create three strong password for LUKS, root and user. Write them on paper.
+# Securely create three strong password for LUKS, root and user. Write them on paper.
 
 
 ## --- On Live Booted Arch Linux ---
@@ -20,7 +19,7 @@ iwctl
 HARD_DISK=""  # For example, "/dev/sda" or "/dev/nvme0n1".
 
 # Over write the hard disk
-dd if=/dev/zero of=$HARD_DISK status=progress bs=4M
+dd if=/dev/zero of=$HARD_DISK bs=4M status=progress
 
 # Create EFI and ROOT partitions
 gdisk $HARD_DISK
@@ -91,8 +90,8 @@ hwclock --systohc --utc
 #systemctl enable iwd
 
 # Create a hostname
-HOSTNAME="arch"
-echo $HOSTNAME > /etc/hostname
+HOST_NAME="arch"
+echo $HOST_NAME > /etc/hostname
 
 # Set locale
 echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
