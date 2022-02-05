@@ -1,11 +1,27 @@
 #!/bin/bash
+
+# Include common environment variables
+export DOTFILES=$HOME/dotfiles
+
+# For configuration files 
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# For user specific data
+export XDG_DATA_HOME="$XDG_CONFIG_HOME/local/share"
+
+# For user cached files
+export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
+
+# Directory for custom scripts
+export SCRIPTS_DIR="$XDG_CONFIG_HOME/scripts"
+
 config() {
     source "$DOTFILES/$1/config.sh"
 }
 
+config bash
 config pacman
 config fonts
-config bash
 config urxvt
 config X11
 config xrandr
@@ -26,4 +42,4 @@ config nvim
 config tmux
 config redshift
 config zathura
-config julia
+#config julia

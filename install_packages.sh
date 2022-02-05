@@ -1,4 +1,7 @@
 #!/bin/bash
+
+export DOTFILES=$HOME/dotfiles
+
 packages() {
     source $DOTFILES/$1/packages.sh
 }
@@ -14,9 +17,9 @@ sudo pacman -S networkmanager openssh openvpn
 
 # If "yay" is not installed, install it.
 # Yay is an helper for installing packages from Arch User Repository (AUR).
-if [[ ! $(command -v "yay") ]]; then
-    bash $DOTFILES/yay/install.sh
-fi
+#if [[ ! $(command -v "yay") ]]; then
+#    bash $DOTFILES/yay/install.sh
+#fi
 
 # Desktop, Terminal and Shell
 packages urxvt
@@ -33,6 +36,8 @@ packages tmux
 packages fzf
 packages zsh
 packages lsd
+packages bluez
+packages maim
 
 # Text Editors and Manipulation
 packages nvim
@@ -62,19 +67,19 @@ packages zathura
 
 # Browsers
 sudo pacman -S firefox 
-sudo pacman -S brave-bin
+yay -S brave-bin
 
 # Password Manager
-#sudo pacman -S keepassxc
+sudo pacman -S keepassxc
 
 # Accounting
-#sudo pacman -S hledger hledger-ui
+sudo pacman -S hledger hledger-ui
 
 # Communication
-#sudo pacman -S telegram-desktop
+sudo pacman -S telegram-desktop
 
 # File Sharing 
-#sudo pacman -S qbittorrent
+sudo pacman -S qbittorrent
 
 # Creating Documents
 #sudo pacman -S pandoc
