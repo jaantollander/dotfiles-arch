@@ -108,4 +108,4 @@ Here is a list of some useful resources for developing dotfiles.
 
 - [Efficient UEFI Encrypted Root and Swap Arch Linux Installation Procedure with an ENCRYPTED BOOT](https://gist.github.com/HardenedArray/ee3041c04165926fca02deca675effe1) by *HardenedArray*
 
-- *Mazimbaz* has [dotfiles](https://github.com/maximbaz/dotfiles) for Arch Linux with Wayland, Kitty and Kakoune.
+- *Maxim Baz* has [dotfiles](https://github.com/maximbaz/dotfiles) for Arch Linux with Wayland, Kitty and Kakoune.
