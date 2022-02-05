@@ -17,9 +17,9 @@ My configuration philosophy is to strive for simple, effective and ergonomic con
 
 - **Text over binary**: We should use text files whenever binary format is not truly necessary.
 
-- **Strive for modular configuration**: Modularity makes it easier to change components and reason about dependencies.
+- **Modular configuration**: Modularity makes it easier to change components and reason about dependencies.
 
-- **Take security seriously**: Your data could get lost, be stolen or hacked unless you protect it.
+- **Security is essential**: Your data could get lost, be stolen or hacked unless you protect it with encryption.
 
 
 ## Arch Linux Setup
@@ -107,3 +107,5 @@ Here is a list of some useful resources for developing dotfiles.
 - An excellent [Bash scripting cheatsheet](https://devhints.io/bash) from *devhints*.
 
 - [Efficient UEFI Encrypted Root and Swap Arch Linux Installation Procedure with an ENCRYPTED BOOT](https://gist.github.com/HardenedArray/ee3041c04165926fca02deca675effe1) by *HardenedArray*
+
+- Mazimbaz has [dotfiles](https://github.com/maximbaz/dotfiles) for Arch Linux with Wayland, Kitty and Kakoune.

@@ -34,8 +34,36 @@ We can now remove the USB drive and attach it to the computer where we want to b
 
 
 ## Installing System
-Follow the instructions on the `install_system.sh` file.
+We can follow the instructions on the [`install_system.sh`](./install_system.sh) file for normal system installation or the instructions on the [`install_system_encrypted.sh`](./install_system_encrypted) file for installing system with encrypted boot and hard drive.
 
 
-## Installing Encrypted System
-Follow the instructions on the `install_system_encrypted.sh` file.
+## Post Installation
+Log into the `root` user and enable internet.
+
+```bash
+systemctl enable iwd --now
+dhcpcd &
+iwctl
+```
+
+Install Git and Neovim.
+
+```bash
+pacman -Suy git neovim
+```
+
+Edit the `/etc/sudoers' file.
+
+```bash
+export EDITOR=nvim
+visudo
+```
+
+Uncomment the line `%wheel ALL=(ALL:ALL) ALL`.
+
+```bash
+nvim /etc/profile
+```
+
+Change `umask 022` to `umask 077`.
+
