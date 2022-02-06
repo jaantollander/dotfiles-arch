@@ -52,7 +52,7 @@ Install Git and Neovim.
 pacman -Suy git neovim
 ```
 
-Edit the `/etc/sudoers' file.
+Edit the `/etc/sudoers` file.
 
 ```bash
 export EDITOR=nvim
