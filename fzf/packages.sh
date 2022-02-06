@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo pacman -S fzf ripgrep
+sudo pacman -S fzf

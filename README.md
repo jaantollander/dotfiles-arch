@@ -46,6 +46,7 @@ Terminal:
 - Multiplexer: [*tmux*](https://github.com/tmux/tmux)
 - Shell: [*Zsh*](https://wiki.archlinux.org/title/zsh)
 - Editor: [*Neovim*](https://neovim.io/)
+- Search tools: [*ripgrep*](https://github.com/BurntSushi/ripgrep), [*ripgrep-all*](https://github.com/phiresky/ripgrep-all)
 - Fuzzy finder: [*fzf*](https://github.com/junegunn/fzf)
 - Improved ls: [*lsd*](https://github.com/Peltoche/lsd)
 
@@ -107,6 +108,8 @@ Check out [**key bindings**](./key-bindings.md) section for key binding configur
 
 ## Resources
 Here is a list of some useful resources for developing dotfiles.
+
+- [ArchWiki](https://wiki.archlinux.org/) is the official resource for everything related to Arch Linux.
 
 - *Matthieu Cneude* also has great [articles](https://thevaluable.dev/) on his website and his [dotfiles](https://github.com/Phantas0s/.dotfiles) are also useful. 
 

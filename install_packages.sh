@@ -33,6 +33,7 @@ packages rofi
 packages dunst
 packages redshift
 packages tmux
+packages ripgrep
 packages fzf
 packages zsh
 packages lsd
