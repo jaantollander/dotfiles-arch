@@ -19,8 +19,11 @@ config() {
     source "$DOTFILES/$1/config.sh"
 }
 
+config xdg
 config bash
 config pacman
+config yay
+
 config fonts
 config urxvt
 config X11
