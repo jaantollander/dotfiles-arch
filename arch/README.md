@@ -64,18 +64,16 @@ Next, we need to install Git and text editor such as Neovim for editing configur
 pacman -Suy git neovim
 ```
 
-Let's securely edit the `/etc/sudoers' file `visudo` to allow users on the `wheel` group to use `sudo`.
+Let's securely edit the `/etc/sudoers` file `visudo` to allow users on the `wheel` group to use `sudo` by uncommenting the line `%wheel ALL=(ALL:ALL) ALL`.
 
 ```bash
 export EDITOR=nvim
 visudo
-# Uncomment the line `%wheel ALL=(ALL:ALL) ALL`.
 ```
 
-Next, let's change the default `umask` to `077` which improved security by changing the default file permissions to read and write and additionally execute permission to directories only for the owner. 
+Next, let's change the default `umask 022` to `umask 077` which improves security by changing the default file permissions to read and write and additionally execute permission to directories only for the owner. 
 
 ```bash
 nvim /etc/profile
-# Change `umask 022` to `umask 077`.
 ```
 
