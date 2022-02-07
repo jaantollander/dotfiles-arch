@@ -16,33 +16,35 @@ export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
 export SCRIPTS_DIR="$XDG_CONFIG_HOME/scripts"
 
 config() {
-    source "$DOTFILES/$1/config.sh"
+    for c in $@; do
+        source "$DOTFILES/$c/config.sh"
+    done
 }
 
-config xdg
-config bash
-config pacman
-config yay
+config pacman \
+       yay \
+       bash \
+       xdg \
+       fonts \
+       X11 \
+       urxvt \
+       xrandr \
+       i3 \
+       rofi \
+       dunst \
+       udiskie \
+       pulse \
+       brightnessctl \
+       bluez \
+       maim \
+       fzf \
+       lsd \
+       zsh \
+       git \
+       gh \
+       nvim \
+       tmux \
+       redshift \
+       zathura
 
-config fonts
-config urxvt
-config X11
-config xrandr
-config i3
-config rofi
-config dunst
-config udiskie
-config pulse
-config brightnessctl
-config bluez
-config maim
-config fzf
-config lsd
-config zsh
-config git
-config gh
-config nvim
-config tmux
-config redshift
-config zathura
 #config julia
