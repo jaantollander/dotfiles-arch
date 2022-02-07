@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# If "yay" is not installed exit with error.
+if [[ ! $(command -v "yay") ]]; then
+    echo "Install Yay before trying to install packages."
+    exit 1
+fi
+
 export DOTFILES=$HOME/dotfiles
 
 packages() {
@@ -14,12 +20,6 @@ sudo pacman -S tldr
 
 # Networking
 sudo pacman -S networkmanager openssh openvpn
-
-# If "yay" is not installed, install it.
-# Yay is an helper for installing packages from Arch User Repository (AUR).
-#if [[ ! $(command -v "yay") ]]; then
-#    bash $DOTFILES/yay/install.sh
-#fi
 
 # Desktop, Terminal and Shell
 packages urxvt

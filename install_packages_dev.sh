@@ -8,15 +8,23 @@ packages() {
 
 sudo pacman --sync --refresh --sysupgrade 
 
+# PDF Tools
+sudo pacman -S k2pdfopt ghostscript
+
 # Creating Documents
-sudo pacman -S pandoc
-# TODO: confirm "all" automatically
-sudo pacman -S texlive-most
-sudo pacman -S k2pdfopt
+sudo pacman -S texlive-most pandoc hugo
 
 # Programming and Development
+sudo pacman -S python
 packages julia
-sudo pacman -S nodejs #yarn
-sudo pacman -S podman
+sudo pacman -S nodejs yarn
+# go
+# rust
+# haskell
+
+# Cloud
 yay -S netlify
-sudo pacman -S hugo
+# podman
+# openstack
+# openshift
+# kubernetes

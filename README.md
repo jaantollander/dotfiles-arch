@@ -61,8 +61,40 @@ List of the hardware I am using with my setup.
 - Mouse: *Razer DeathAdder Elite*
 
 
-## Arch Linux Installation Scripts
+## Installation Scripts
+### Arch Linux
 You can read my instructions for installing Arch Linux in the [`arch`](./arch) directory. It includes instructions with and without encryption and the post installation steps.
+
+### Configurations 
+First, we need to clone the dotfiles repository to the home directory. 
+
+```bash
+git clone git@github.com:jaantollander/dotfiles.git $HOME
+```
+
+Next, let's define the location of the dotfiles as an environment variable.
+
+```bash
+export DOTFILES=$HOME/dotfiles
+```
+
+Let's install Yay as an helper for installing packages from the Arch User Repository (AUR).
+
+```bash
+bash $DOTFILES/yay/install.sh
+```
+
+Next, install all packages.
+
+```bash
+bash $DOTFILES/install_packages.sh
+```
+
+Finally, install all configs.
+
+```bash
+bash $DOTFILES/install_configs.sh
+```
 
 
 ## Configuration Files
