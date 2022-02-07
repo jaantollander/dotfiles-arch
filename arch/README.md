@@ -38,32 +38,44 @@ We can follow the instructions on the [`install_system.sh`](./install_system.sh)
 
 
 ## Post Installation
-Log into the `root` user and enable internet.
+First, log into the `root` user. Then, enable internet by plugging ethernet cable or using wi-fi. Let's start the `iw` and `dhcpc` daemons.
 
 ```bash
 systemctl enable iwd --now
 dhcpcd &
+```
+
+We can connect to wi-fi using `iwctl`.
+
+```bash
 iwctl
 ```
 
-Install Git and Neovim.
+List available timezones and set a new timezone if needed.
+
+```bash
+timedatectl list-timezones
+timedatectl set-timezone "Europe/Helsinki"
+```
+
+Next, we need to install Git and text editor such as Neovim for editing configuration files.
 
 ```bash
 pacman -Suy git neovim
 ```
 
-Edit the `/etc/sudoers' file.
+Let's securely edit the `/etc/sudoers' file `visudo` to allow users on the `wheel` group to use `sudo`.
 
 ```bash
 export EDITOR=nvim
 visudo
+# Uncomment the line `%wheel ALL=(ALL:ALL) ALL`.
 ```
 
-Uncomment the line `%wheel ALL=(ALL:ALL) ALL`.
+Next, let's change the default `umask` to `077` which improved security by changing the default file permissions to read and write and additionally execute permission to directories only for the owner. 
 
 ```bash
 nvim /etc/profile
+# Change `umask 022` to `umask 077`.
 ```
-
-Change `umask 022` to `umask 077`.
 
