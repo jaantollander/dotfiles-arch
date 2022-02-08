@@ -241,13 +241,13 @@ bar {
     
     # Disable all tray icons
     tray_output none
+    separator_symbol " "
 
     # tray_output primary
     colors {
         background $black2
         statusline $white2
-        #separator $white2
-        separator $black2
+        separator $white2
 
         # border background text
         focused_workspace 	$background $background $red1
