@@ -1,2 +1,2 @@
 #!/bin/bash
-pacman -S julia
+sudo pacman -S julia
