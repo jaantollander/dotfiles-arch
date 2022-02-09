@@ -1,10 +1,11 @@
 #!/bin/bash
-alias ls='lsd'
-alias l='lsd -l --total-size'
-alias la='lsd -A'
-alias ll='lsd -lA --total-size'
+alias ls='lsd --total-size --date="+%Y-%m-%d"'
 
-alias lt='lsd --tree'
-alias lta='lsd --tree -A'
-alias ltl='lsd --tree -l --total-size'
-alias ltla='lsd --tree -lA --total-size'
+alias l='ls -l'
+alias la='ls -A'
+alias ll='ls -lA'
+
+alias lt='ls --tree'
+alias lta='lt -A'
+alias ltl='lt -l'
+alias ltla='lt -lA'
