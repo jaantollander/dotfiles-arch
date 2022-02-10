@@ -3,20 +3,17 @@
 # Include common environment variables
 export DOTFILES=$HOME/dotfiles
 
-# For configuration files 
-export XDG_CONFIG_HOME="$HOME/.config"
+# Define and create base directories
+source $DOTFILES/xdg/config/base-dirs-env.sh
+source $DOTFILES/xdg/config/base-dirs-mk.sh
 
-# For user specific data
-export XDG_DATA_HOME="$XDG_CONFIG_HOME/local/share"
-
-# For user cached files
-export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
-
-# Directory for custom scripts
-export SCRIPTS_DIR="$XDG_CONFIG_HOME/scripts"
+# Define and create user directories
+source $DOTFILES/xdg/config/user-dirs-env.sh
+source $DOTFILES/xdg/config/user-dirs-mk.sh
 
 config() {
     for c in $@; do
+        echo "Installing configs for $c"
         source "$DOTFILES/$c/config.sh"
     done
 }
@@ -24,7 +21,6 @@ config() {
 config pacman \
        yay \
        bash \
-       xdg \
        fonts \
        X11 \
        urxvt \

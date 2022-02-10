@@ -1,9 +1,7 @@
 #!/bin/zsh
 
-
-# Restrict the default read and write permissions only for the user.
-umask 077
-
+# TODO: base directories
+# TODO: user directories
 
 ## --- Startup ---
 if [ "$(tty)" = "/dev/tty1" ]; then

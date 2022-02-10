@@ -2,5 +2,4 @@
 mkdir -p $XDG_CONFIG_HOME/lsd
 ln -sf $DOTFILES/lsd/config/config.yaml $XDG_CONFIG_HOME/lsd/config.yaml
 
-mkdir -p $SCRIPTS_DIR
-ln -sf $DOTFILES/lsd/config/aliases.sh $SCRIPTS_DIR/lsd-aliases.sh
+ln -sf $DOTFILES/lsd/config/aliases.sh $XDG_SCRIPTS_HOME/lsd-aliases.sh

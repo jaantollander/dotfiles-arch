@@ -1,3 +1,2 @@
 #!/bin/bash
-mkdir -p $SCRIPTS_DIR
-ln -sf $DOTFILES/fzf/config/scripts.sh $SCRIPTS_DIR/fzf-scripts.sh
+ln -sf $DOTFILES/fzf/config/scripts.sh $XDG_SCRIPTS_HOME/fzf-scripts.sh

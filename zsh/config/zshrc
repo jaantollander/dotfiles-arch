@@ -60,11 +60,11 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 
 ## --- Custom Scripts ---
-# Source custom scripts from "*.sh" and "*.zsh" files in "$SCRIPTS_DIR"
+# Source custom scripts from "*.sh" and "*.zsh" files.
 # TODO: source .zsh files
 # TODO: skip if directory does not have any shell files
-if [[ -d $SCRIPTS_DIR ]]; then
-    for x in $SCRIPTS_DIR/*.sh; do
+if [[ -d $XDG_SCRIPTS_HOME ]]; then
+    for x in $XDG_SCRIPTS_HOME/*.sh; do
         source $x
     done
 fi

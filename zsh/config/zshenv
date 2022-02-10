@@ -1,17 +1,12 @@
-# For configuration files 
 export XDG_CONFIG_HOME="$HOME/.config"
-
-# For user specific data
-export XDG_DATA_HOME="$XDG_CONFIG_HOME/local/share"
-
-# For user cached files
-export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_LOCAL_HOME="$HOME/.local"
+export XDG_DATA_HOME="$XDG_LOCAL_HOME/share"
+export XDG_STATE_HOME="$XDG_LOCAL_HOME/state"
+export XDG_SCRIPTS_HOME="$XDG_CONFIG_HOME/scripts"
 
 # Dotfiles
 export DOTFILES="$HOME/dotfiles"
-
-# Directory for custom scripts
-export SCRIPTS_DIR="$XDG_CONFIG_HOME/scripts"
 
 # Set the default editor
 export EDITOR="nvim"
