@@ -38,7 +38,7 @@ color:
 # When "classic" is set, this is set to "date".
 # Possible values: date, relative, '+<date_format>'
 # `date_format` will be a `strftime` formatted value. e.g. `date: '+%d %b %y %X'` will give you a date like this: 17 Jun 21 20:14:55
-date: date
+date: "+%Y-%m-%d" 
 
 # == Dereference ==
 # Whether to dereference symbolic links.
@@ -114,7 +114,7 @@ no-symlink: false
 # == Total size ==
 # Whether to display the total size of directories.
 # Possible values: false, true
-total-size: false
+total-size: true
 
 # == Symlink arrow ==
 # Specifies how the symlink arrow display, chars in both ascii and utf8
