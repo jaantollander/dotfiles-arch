@@ -7,11 +7,13 @@ My installation and configuration scripts and files for [Arch Linux](https://arc
 
 
 ## Philosophy
-My configuration philosophy is to strive for simple, effective and ergonomic configuration by avoiding skeuomorphic design and accepting that such configuration requires effort to learn. Here are the main principles:
+My configuration philosophy is to strive for effective, ergonomic and composable configuration by avoiding skeuomorphic design and accepting that such configuration requires effort to learn. It is inspired by the [Unix Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy). Here are the main principles:
 
 - **Keyboard over Mouse**: We should be able to use our configuration effectively without leaving the keyboard.
 
-- **CLIs over GUIs**: CLIs are simpler, more composable and more effective than GUIs for most tasks.
+- **Command-line Driven**: We should primarily use programs via a command-line shell and master the built-in software tools. Command-Line Clients (CLIs) are simpler, more composable and more effective than Graphical User Interfaces (GUIs) for most tasks.
+
+- **Shell Scripting**: We should create shell scripts for repetitive or complex tasks. We should link the scripts to a single location and make them available throughout the system similar to built-in commands.
 
 - **Search over Navigation**: We should use search whenever possible instead of having to navigate through menus.
 
@@ -19,9 +21,7 @@ My configuration philosophy is to strive for simple, effective and ergonomic con
 
 - **Modular Configuration**: Modularity makes it easier to change components and reason about dependencies.
 
-- **Security is Essential**: Your data could get lost, be stolen or hacked unless you protect it with encryption.
-
-- **Automate Repetitive Tasks**: We should automate repetitive tasks by creating custom scripts which can be linked to a single location making them available throughout the system similar to built-in commands.
+- **Information Security is Critical**: Your data could get lost, be stolen or hacked unless you protect it with encryption and backups.
 
 
 ## Arch Linux Setup
@@ -114,8 +114,11 @@ I aim to structure the configuration files into modules. Each program contains i
 Configurations for each program are located in `<program>` directory, named after the program, such as `nvim` for Neovim. 
 
 - The `config` (optional) subdirectory contains the config files.
+
 - The `data` (optional) subdirectory contains the data files. 
+
 - The `config.sh` script, which creates configuration and data directories and copies or links the configuration and data files to their appropriate locations such as `$HOME` or `$XDG_CONFIG_HOME` for configuration files or `$XDG_DATA_HOME` for data files.
+
 - The `packages.sh` script installs the required packages for the program with `pacman` or `yay`.
 
 ### System Startup
