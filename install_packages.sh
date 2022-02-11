@@ -18,6 +18,9 @@ sudo pacman --sync --refresh --sysupgrade
 sudo pacman -S man man-pages 
 sudo pacman -S tldr
 
+# Packaging
+sudo pacman -S pkgstats
+
 # Networking
 sudo pacman -S networkmanager openssh openvpn
 
@@ -81,3 +84,30 @@ sudo pacman -S telegram-desktop
 
 # File Sharing 
 sudo pacman -S qbittorrent
+
+# Screencast
+yay -S screencast
+
+# PDF Tools
+sudo pacman -S ghostscript
+yay -S k2pdfopt
+
+# Creating Documents
+# Choose relevant packages from "textlive-most" group
+sudo pacman -S texlive-core texlive-science
+sudo pacman -S pandoc hugo
+
+# Programming and Development
+sudo pacman -S python
+sudo pacman -S nodejs yarn
+packages julia
+# go
+# rust
+# haskell
+
+# Cloud
+yay -S netlify
+# podman
+# kubernetes
+# openstack
+# openshift
