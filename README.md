@@ -27,7 +27,7 @@ My configuration philosophy is to strive for effective, ergonomic and composable
 ## Arch Linux Setup
 List of the Arch Linux setup, configured with VIM like [**key bindings**](./key-bindings.md) and minimalistic, dark [**style**](./style.md).
 
-Font: *Inconsolata* [*Nerd Font*](https://www.nerdfonts.com/) 
+Font: [*Inconsolata*](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Inconsolata) [*Nerd Font*](https://www.nerdfonts.com/) 
 
 Desktop:
 

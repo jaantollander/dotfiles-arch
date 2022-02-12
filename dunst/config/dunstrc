@@ -1,5 +1,5 @@
 [global]
-    font = Inconsolata 18
+    font = Inconsolata Nerd Font 18
     icon_position = left
     allow_markup = yes
     format = "<b>%s</b>\n%b"
