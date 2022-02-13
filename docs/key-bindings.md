@@ -1,12 +1,12 @@
 # Key Bindings
 ## X11
-We define key bindings for X11 in [`xinitrc`](./X11/config/xinitrc).
+We define key bindings for X11 in [`xinitrc`](../X11/config/xinitrc).
 
 - `Caps Lock` is remapped to `Escape`
 
 
 ## i3 
-We define key bindings for i3 in its [`config`](./i3/config/config) file. Additionally, the configuration files included with the `include` directive may define key bindings.
+We define key bindings for i3 in its [`config`](../i3/config/config) file. Additionally, the configuration files included with the `include` directive may define key bindings.
 
 ### General
 
@@ -34,17 +34,17 @@ We define key bindings for i3 in its [`config`](./i3/config/config) file. Additi
 - `MOD+w` : Switch to tabbed layout
 
 ### Manage Displays
-We manage displays using XRandR by including the [`i3.conf`](./xrandr/config/i3.conf) file.
+We manage displays using XRandR by including the. [`i3.conf`](../xrandr/config/i3.conf) file.
 
 - `MOD+x` : Open the screen management menu
 
 ### Application Launcher
-We use Rofi as the application launcher by including the [`i3.conf`](./rofi/config/i3.conf) file.
+We use Rofi as the application launcher by including the [`i3.conf`](../rofi/config/i3.conf) file.
 
 - `MOD+d` : Open the application launcher
 
 ### Audio
-We manage audio with PulseAudio by including the [`i3.conf`](./pulse/config/i3.conf) file.
+We manage audio with PulseAudio by including the [`i3.conf`](../pulse/config/i3.conf) file.
 
 - `XF86AudioRaiseVolume` : Raise volume
 - `XF86AudioLowerVolume` : Lower volume
@@ -52,19 +52,19 @@ We manage audio with PulseAudio by including the [`i3.conf`](./pulse/config/i3.c
 - `XF86AudioMicMute` : Mute microphone on/off
 
 ### Backlights
-We manage backlight with Brightnessctl by including the [`i3.conf`](./brightnessctl/config/i3.conf) file.
+We manage backlight with Brightnessctl by including the [`i3.conf`](../brightnessctl/config/i3.conf) file.
 
 - `XF86MonBrightnessUp` : Increase monitor brightness
 - `XF86MonBrightnessDown` : Decrease monitor brightness
 
 ### Screenshot
-We use Maim for taking screenshots by including the [`i3.conf`](./maim/config/i3.conf) file.
+We use Maim for taking screenshots by including the [`i3.conf`](../maim/config/i3.conf) file.
 
 - `Print` : Take a screenshot
 
 
 ## URxvt
-We define key bindings for URxvt in [`urxvt.xresources`](./urxvt/config/urxvt.xresources).
+We define key bindings for URxvt in [`urxvt.xresources`](../urxvt/config/urxvt.xresources).
 
 Copy and paste
 
@@ -80,7 +80,7 @@ Resize font
 
 
 ## Zsh
-We define key bindings for zsh in [`zshrc`](./zsh/config/zshrc).
+We define key bindings for zsh in [`zshrc`](../zsh/config/zshrc).
 
 Clearing shell
 
@@ -94,7 +94,7 @@ Search with fzf
 
 
 ## Neovim
-We define key bindings for neovim in [`init.vim`](./nvim/config/init.vim).
+We define key bindings for neovim in [`init.vim`](../nvim/config/init.vim).
 
 Basic horizontal motions
 
@@ -170,7 +170,7 @@ Writing buffers and closing windows
 
 
 ## tmux
-We define key bindings for tmux in [`tmux.conf`](./tmux/config/tmux.conf).
+We define key bindings for tmux in [`tmux.conf`](../tmux/config/tmux.conf).
 
 General
 
@@ -217,4 +217,4 @@ Plugin: extrakto
 
 
 ## Dunst
-We define key bindings for Dunst in [`dunstrc`](./dunst/config/dunstrc).
+We define key bindings for Dunst in [`dunstrc`](../dunst/config/dunstrc).
