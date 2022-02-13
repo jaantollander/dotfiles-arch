@@ -25,7 +25,7 @@ My configuration philosophy is to strive for effective, ergonomic and composable
 
 
 ## Arch Linux Setup
-Here is a brief overview of the setup and configurations. 
+Here is an overview of the setup and configurations. I will write more detailed documentation to the [**docs**](./docs).
 
 [Key Bindings](./docs/key-bindings.md): VIM like key bindings
 
@@ -68,7 +68,7 @@ List of the hardware I am using with my setup.
 
 ## Installation Scripts
 ### Arch Linux
-You can read my instructions for installing Arch Linux in the [`arch`](./arch) directory. It includes instructions with and without encryption and the post installation steps.
+You can read my instructions for installing Arch Linux in the [**arch**](./arch) directory. It includes instructions with and without encryption and the post installation steps.
 
 ### Configurations 
 First, we need to clone the dotfiles repository to the home directory. 
