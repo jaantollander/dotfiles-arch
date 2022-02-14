@@ -25,7 +25,7 @@ My configuration philosophy is to strive for effective, ergonomic and composable
 
 
 ## Arch Linux Setup
-Here is an overview of the setup and configurations. I will write more detailed documentation to the [**docs**](./docs).
+Here is an overview of the setup and configurations. 
 
 [Key Bindings](./docs/key-bindings.md): VIM like key bindings
 
@@ -100,6 +100,15 @@ Finally, install all configs.
 ```bash
 bash $DOTFILES/install_configs.sh
 ```
+
+
+## Documentation
+The [**documentation**](./docs) contains more detailed overview of the configuration.
+
+- [Key bindings](./docs/key-bindings.md)
+- [Style](./docs/style.md)
+- [System startup](./docs/system-startup.md)
+- [Config files](./docs/config-files.md)
 
 
 ## Resources
