@@ -5,9 +5,11 @@ mkdir -p "$XDG_CONFIG_HOME/nvim/undo"
 ln -sf "$DOTFILES/nvim/config/init.vim" "$XDG_CONFIG_HOME/nvim"
 
 # install neovim plugin manager
-[ ! -f "$DOTFILES/nvim/config/autoload/plug.vim" ] \
-    && curl -fLo "$DOTFILES/nvim/config/autoload/plug.vim" --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if [ ! -f "$DOTFILES/nvim/config/autoload/plug.vim" ]; then
+    curl -fLo --create-dirs \
+       "$DOTFILES/nvim/config/autoload/plug.vim" \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
 
 mkdir -p "$XDG_CONFIG_HOME/nvim/autoload"
 ln -sf "$DOTFILES/nvim/config/autoload/plug.vim" "$XDG_CONFIG_HOME/nvim/autoload/plug.vim"
