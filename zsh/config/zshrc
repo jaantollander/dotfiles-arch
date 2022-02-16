@@ -68,3 +68,19 @@ if [[ -d $XDG_SCRIPTS_HOME ]]; then
         source $x
     done
 fi
+
+
+## --- PATH ---
+# Copied from "/etc/profile"
+# Append "$1" to $PATH when not already in.
+append_path () {
+    case ":$PATH:" in
+        *:"$1":*)
+            ;;
+        *)
+            PATH="${PATH:+$PATH:}$1"
+    esac
+}
+
+# Append local binaries to path
+append_path $XDG_BIN_HOME
