@@ -27,9 +27,11 @@ My configuration philosophy is to strive for effective, ergonomic and composable
 ## Arch Linux Setup
 Here is an overview of the setup and configurations. 
 
-[Key Bindings](./docs/key-bindings.md): VIM like key bindings
+Key Bindings: 
 
-[Style](./docs/style.md): 
+- VIM like key bindings
+
+Style: 
 
 - Font: *Inconsolata* [*Nerd Font*](https://www.nerdfonts.com/) 
 - Theme: Dark, minimalistic theme.
@@ -92,13 +94,13 @@ bash $DOTFILES/yay/install.sh
 Next, install all packages.
 
 ```bash
-bash $DOTFILES/install_packages.sh
+bash $DOTFILES/install/packages.sh
 ```
 
 Finally, install all configs.
 
 ```bash
-bash $DOTFILES/install_configs.sh
+bash $DOTFILES/install/configs.sh
 ```
 
 

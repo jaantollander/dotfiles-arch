@@ -68,10 +68,13 @@ sudo pacman -S feh
 
 # Document Viewer
 packages zathura
+sudo pacman -S mupdf
 
 # Browsers
 sudo pacman -S firefox 
 yay -S brave-bin
+#yay -S browsh
+
 
 # Password Manager
 sudo pacman -S keepassxc
@@ -89,13 +92,13 @@ sudo pacman -S qbittorrent
 yay -S screencast
 
 # PDF Tools
-sudo pacman -S ghostscript
+sudo pacman -S ghostscript poppler
 yay -S k2pdfopt
 
 # Creating Documents
 # Choose relevant packages from "textlive-most" group
 sudo pacman -S texlive-core texlive-science
-sudo pacman -S pandoc hugo
+sudo pacman -S pandoc
 
 # Programming and Development
 sudo pacman -S python
