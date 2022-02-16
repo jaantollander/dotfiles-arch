@@ -1,10 +1,8 @@
 #!/bin/zsh
 
-# TODO: base directories
-# TODO: user directories
-
 ## --- Startup ---
-if [ "$(tty)" = "/dev/tty1" ]; then
-    pgrep i3 || exec startx "$XDG_CONFIG_HOME/X11/.xinitrc"
+# If TTY is "tty1" and i3 is not started, start X11.
+if [[ "$(tty)" = "/dev/tty1" && -z $(pgrep i3) ]]; then
+    exec startx "$XDG_CONFIG_HOME/X11/.xinitrc"
 fi
 
