@@ -55,13 +55,18 @@ Terminal:
 - Multiplexer: [*tmux*](https://github.com/tmux/tmux)
 - Shell: [*Zsh*](https://wiki.archlinux.org/title/zsh)
 - Editor: [*Neovim*](https://neovim.io/)
+
+Utilities: 
+
+- [*Core Utilities*](https://wiki.archlinux.org/title/Core_utilities)
 - Search tools: [*ripgrep*](https://github.com/BurntSushi/ripgrep), [*ripgrep-all*](https://github.com/phiresky/ripgrep-all)
 - Fuzzy finder: [*fzf*](https://github.com/junegunn/fzf)
 - Improved ls: [*lsd*](https://github.com/Peltoche/lsd)
+- Version Control: [*Git*](https://git-scm.com/)
+- File transfer: *rsync*
 
-Version Control:
+CLIs:
 
-- [*Git*](https://git-scm.com/)
 - [*GitHub CLI*](https://cli.github.com/)
 
 Document viewer: [*Zathura*](https://pwmt.org/projects/zathura/)
