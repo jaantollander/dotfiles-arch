@@ -24,6 +24,9 @@ sudo pacman -S pkgstats
 # Networking
 sudo pacman -S networkmanager openssh openvpn
 
+# Version Control
+packages git
+
 # Desktop, Terminal and Shell
 packages urxvt
 packages X11
@@ -46,10 +49,6 @@ packages maim
 # Text Editors and Manipulation
 packages nvim
 sudo pacman -S dos2unix
-
-# Version Control
-packages git
-packages gh
 
 # Process Information
 sudo pacman -S htop
@@ -75,7 +74,6 @@ sudo pacman -S firefox
 yay -S brave-bin
 #yay -S browsh
 
-
 # Password Manager
 sudo pacman -S keepassxc
 
@@ -99,6 +97,9 @@ yay -S k2pdfopt
 # Choose relevant packages from "textlive-most" group
 sudo pacman -S texlive-core texlive-science
 sudo pacman -S pandoc
+
+# GitHub Client
+packages gh
 
 # Programming and Development
 sudo pacman -S python
