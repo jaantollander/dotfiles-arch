@@ -237,7 +237,7 @@ for_window [class="URxvt*"] border pixel 1
 
 ## i3bar and i3status
 bar {
-    status_command i3status --config "$XDG_CONFIG_HOME/i3/status.conf"
+    status_command i3status
     
     # Disable all tray icons
     tray_output none
