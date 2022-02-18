@@ -26,6 +26,7 @@ config pacman \
        urxvt \
        xrandr \
        i3 \
+       i3status \
        rofi \
        dunst \
        udiskie \

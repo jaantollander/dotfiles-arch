@@ -33,6 +33,7 @@ packages X11
 packages udiskie
 packages xrandr
 packages i3
+packages i3status
 packages pulse
 packages brightnessctl
 packages rofi
