@@ -15,7 +15,7 @@ We define key bindings for i3 in its [`config`](../i3/config/config) file. Addit
 - `MOD+SHIFT+q` : Quit the focused window
 - `MOD+SHIFT+c` : Reload i3's configuration
 - `MOD+SHIFT+r` : Restart i3
-- `MOD+BACKSPACE` : Lock, shutdown, or reboot menu
+- `MOD+SHIFT+BACKSPACE` : Lock, shutdown, or reboot menu
 
 ### Moving
 
