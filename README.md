@@ -29,6 +29,10 @@ My configuration philosophy is to strive for a minimal, ergonomic, and composabl
 ## Arch Linux Setup
 Here is an overview of the setup and configurations. 
 
+System:
+
+- LUKS encrypted UEFI boot and hard-drive.
+
 Key Bindings: 
 
 - VIM like key bindings
@@ -59,17 +63,20 @@ Terminal:
 Utilities: 
 
 - [*Core Utilities*](https://wiki.archlinux.org/title/Core_utilities)
+- Version Control: [*Git*](https://git-scm.com/)
+- File transfer: [*rsync*](https://rsync.samba.org/)
 - Search tools: [*ripgrep*](https://github.com/BurntSushi/ripgrep), [*ripgrep-all*](https://github.com/phiresky/ripgrep-all)
 - Fuzzy finder: [*fzf*](https://github.com/junegunn/fzf)
 - Improved ls: [*lsd*](https://github.com/Peltoche/lsd)
-- Version Control: [*Git*](https://git-scm.com/)
-- File transfer: *rsync*
+- Improved cat: [*bat*](https://github.com/sharkdp/bat)
+
+Password manager: [*KeePassXC*](https://keepassxc.org)
+
+Document viewer: [*Zathura*](https://pwmt.org/projects/zathura/)
 
 CLIs:
 
 - [*GitHub CLI*](https://cli.github.com/)
-
-Document viewer: [*Zathura*](https://pwmt.org/projects/zathura/)
 
 
 ## Hardware Setup

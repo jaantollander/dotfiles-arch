@@ -36,6 +36,7 @@ config pacman \
        maim \
        fzf \
        lsd \
+       bat \
        zsh \
        git \
        gh \

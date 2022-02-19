@@ -44,6 +44,7 @@ packages ripgrep
 packages fzf
 packages zsh
 packages lsd
+packages bat
 packages bluez
 packages maim
 
@@ -95,8 +96,7 @@ sudo pacman -S ghostscript poppler
 yay -S k2pdfopt
 
 # Creating Documents
-# Choose relevant packages from "textlive-most" group
-sudo pacman -S texlive-core texlive-science
+sudo pacman -S texlive-most
 sudo pacman -S pandoc
 
 # GitHub Client
