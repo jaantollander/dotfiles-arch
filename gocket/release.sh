@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-REPO="gohugoio/hugo"
+REPO="Phantas0s/gocket"
 
 
 # List releases.
@@ -23,12 +23,12 @@ view() {
 # `install 0.1.0`
 install() {
     VERSION=$1
-    ARCHIVE="hugo_extended_${VERSION}_Linux-64bit.tar.gz"
+    ARCHIVE="gocket_${VERSION}_Linux_x86_64.tar.gz"
     cd `mktemp -d`
     gh release download "v$VERSION" --repo $REPO --pattern $ARCHIVE
-    tar xvf $ARCHIVE
-    sudo cp hugo "/usr/local/bin/hugo-v$VERSION"
-    sudo chmod 755 "/usr/local/bin/hugo-v$VERSION"
+    tar xvf $ARCHIVE 
+    sudo cp gocket "/usr/local/bin/gocket-v$VERSION"
+    sudo chmod 755 "/usr/local/bin/gocket-v$VERSION"
 }
 
 
