@@ -11,11 +11,7 @@ source $DOTFILES/xdg/config/base-dirs-mk.sh
 source $DOTFILES/xdg/config/user-dirs-env.sh
 source $DOTFILES/xdg/config/user-dirs-mk.sh
 
-config() {
-    for c in $@; do
-        echo "Installing configs for $c"
-        source "$DOTFILES/$c/config.sh"
-    done
-}
-
-config `cat $DOTFILES/install/dependencies`
+for c in `cat $DOTFILES/install/dependencies`; do
+    echo "Installing configs for $c"
+    source "$DOTFILES/$c/config.sh"
+done
