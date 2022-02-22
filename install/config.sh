@@ -18,31 +18,4 @@ config() {
     done
 }
 
-config pacman \
-       yay \
-       bash \
-       fonts \
-       X11 \
-       urxvt \
-       xrandr \
-       i3 \
-       i3status \
-       rofi \
-       dunst \
-       udiskie \
-       pulse \
-       brightnessctl \
-       bluez \
-       maim \
-       fzf \
-       lsd \
-       bat \
-       zsh \
-       git \
-       gh \
-       nvim \
-       tmux \
-       redshift \
-       zathura
-
-#config julia
+config `cat $DOTFILES/install/dependencies`
