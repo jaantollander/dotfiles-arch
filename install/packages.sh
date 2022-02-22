@@ -8,11 +8,16 @@ fi
 
 export DOTFILES=$HOME/dotfiles
 
-packages() {
-    source $DOTFILES/$1/packages.sh
-}
-
 sudo pacman --sync --refresh --sysupgrade 
+
+# Install packages from official repositories
 sudo pacman -S `cat $DOTFILES/install/packages/official`
-packages `cat $DOTFILES/install/dependencies`
+for DEP in $DOTFILES/install/dependencies; do
+    sudo pacman -S `cat $DOTFILES/$DEP/packages/official`
+done
+
+# Install packages from AUR
 yay -S `cat $DOTFILES/install/packages/aur`
+for DEP in $DOTFILES/install/dependencies; do
+    sudo pacman -S `cat $DOTFILES/$DEP/packages/aur`
+done
