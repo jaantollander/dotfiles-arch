@@ -128,10 +128,10 @@ bash $DOTFILES/config.sh "thinkpad_t480s"
 ## Documentation
 The [**documentation**](./docs) contains a more detailed configuration overview.
 
-- [Key bindings](./docs/key-bindings.md)
+- [Key Bindings](./docs/key-bindings.md)
 - [Style](./docs/style.md)
-- [System startup](./docs/system-startup.md)
-- [Config files](./docs/config-files.md)
+- [System Startup](./docs/system-startup.md)
+- [Modules](./docs/modules.md)
 
 
 ## Resources
