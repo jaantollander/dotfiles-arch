@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 REPO="Phantas0s/gocket"
+PATTERN="gocket_${VERSION}_Linux_x86_64.tar.gz"
+BINARY="gocket"
 
 
 # List releases.
@@ -23,12 +25,19 @@ view() {
 # `install 0.1.0`
 install() {
     VERSION=$1
-    ARCHIVE="gocket_${VERSION}_Linux_x86_64.tar.gz"
     cd `mktemp -d`
-    gh release download "v$VERSION" --repo $REPO --pattern $ARCHIVE
-    tar xvf $ARCHIVE 
-    sudo cp gocket "/usr/local/bin/gocket-v$VERSION"
-    sudo chmod 755 "/usr/local/bin/gocket-v$VERSION"
+    gh release download "v$VERSION" --repo $REPO --pattern $PATTERN
+    tar xvf $PATTERN
+    sudo cp $BINARY "/usr/local/bin/$BINARY-v$VERSION"
+    sudo chmod 755 "/usr/local/bin/$BINARY-v$VERSION"
+}
+
+
+# Link name without version to specific version
+# `link 0.1.0`
+link() {
+    VERSION=$1
+    sudo ln -sf "/usr/local/bin/$BINARY" "/usr/local/bin/$BINARY-v$VERSION"
 }
 
 

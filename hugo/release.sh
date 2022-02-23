@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 REPO="gohugoio/hugo"
+PATTERN="hugo_extended_${VERSION}_Linux-64bit.tar.gz"
+BINARY="hugo"
 
 
 # List releases.
@@ -23,12 +25,19 @@ view() {
 # `install 0.1.0`
 install() {
     VERSION=$1
-    ARCHIVE="hugo_extended_${VERSION}_Linux-64bit.tar.gz"
     cd `mktemp -d`
-    gh release download "v$VERSION" --repo $REPO --pattern $ARCHIVE
-    tar xvf $ARCHIVE
-    sudo cp hugo "/usr/local/bin/hugo-v$VERSION"
-    sudo chmod 755 "/usr/local/bin/hugo-v$VERSION"
+    gh release download "v$VERSION" --repo $REPO --pattern $PATTERN
+    tar xvf $PATTERN
+    sudo cp $BINARY "/usr/local/bin/$BINARY-v$VERSION"
+    sudo chmod 755 "/usr/local/bin/$BINARY-v$VERSION"
+}
+
+
+# Link name without version to specific version
+# `link 0.1.0`
+link() {
+    VERSION=$1
+    sudo ln -sf "/usr/local/bin/$BINARY" "/usr/local/bin/$BINARY-v$VERSION"
 }
 
 
