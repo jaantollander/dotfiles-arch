@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
 REPO="gohugoio/hugo"
-PATTERN="hugo_extended_${VERSION}_Linux-64bit.tar.gz"
 BINARY="hugo"
+
+pattern() {
+    VERSION=$1
+    echo "hugo_extended_${VERSION}_Linux-64bit.tar.gz"
+}
 
 
 # List releases.
@@ -26,7 +30,7 @@ view() {
 install() {
     VERSION=$1
     cd `mktemp -d`
-    gh release download "v$VERSION" --repo $REPO --pattern $PATTERN
+    gh release download "v$VERSION" --repo $REPO --pattern `pattern $VERSION`
     tar xvf $PATTERN
     sudo cp $BINARY "/usr/local/bin/$BINARY-v$VERSION"
     sudo chmod 755 "/usr/local/bin/$BINARY-v$VERSION"

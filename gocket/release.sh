@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 
 REPO="Phantas0s/gocket"
-PATTERN="gocket_${VERSION}_Linux_x86_64.tar.gz"
 BINARY="gocket"
 
+pattern() {
+    VERSION=$!
+    echo "gocket_${VERSION}_Linux_x86_64.tar.gz"
+}
 
 # List releases.
 # `list 10`
@@ -26,7 +29,7 @@ view() {
 install() {
     VERSION=$1
     cd `mktemp -d`
-    gh release download "v$VERSION" --repo $REPO --pattern $PATTERN
+    gh release download "v$VERSION" --repo $REPO --pattern `pattern $VERSION`
     tar xvf $PATTERN
     sudo cp $BINARY "/usr/local/bin/$BINARY-v$VERSION"
     sudo chmod 755 "/usr/local/bin/$BINARY-v$VERSION"
