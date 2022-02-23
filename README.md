@@ -64,7 +64,7 @@ Utilities:
 
 - [*Core Utilities*](https://wiki.archlinux.org/title/Core_utilities)
 - Version Control: [*Git*](https://git-scm.com/)
-- File transfer: [*rsync*](https://rsync.samba.org/)
+- File transfer and backup: [*rsync*](https://rsync.samba.org/)
 - Search tools: [*ripgrep*](https://github.com/BurntSushi/ripgrep), [*ripgrep-all*](https://github.com/phiresky/ripgrep-all)
 - Fuzzy finder: [*fzf*](https://github.com/junegunn/fzf)
 - Improved ls: [*lsd*](https://github.com/Peltoche/lsd)
@@ -74,9 +74,10 @@ Password manager: [*KeePassXC*](https://keepassxc.org)
 
 Document viewer: [*Zathura*](https://pwmt.org/projects/zathura/)
 
-CLIs:
+Hosting:
 
-- [*GitHub CLI*](https://cli.github.com/)
+- Git repositories: [*GitHub CLI*](https://cli.github.com/)
+- Jamstack websites: [*Netlify CLI*](https://www.netlify.com/products/cli/)
 
 
 ## Hardware Setup
@@ -111,16 +112,16 @@ Let's install Yay as a helper for installing packages from the Arch User Reposit
 bash $DOTFILES/yay/install.sh
 ```
 
-Next, install all packages.
+Next, install packages for the target.
 
 ```bash
-bash $DOTFILES/install/packages.sh
+bash $DOTFILES/packages.sh "thinkpad_t480s"
 ```
 
-Finally, install all configs.
+Finally, install configs for the target.
 
 ```bash
-bash $DOTFILES/install/configs.sh
+bash $DOTFILES/configs.sh "thinkpad_t480s"
 ```
 
 
