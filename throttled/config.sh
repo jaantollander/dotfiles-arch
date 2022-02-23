@@ -1,2 +1,2 @@
 #!/bin/bash
-systemctl enable --now lenovo_fix.service
+sudo systemctl enable --now lenovo_fix.service
