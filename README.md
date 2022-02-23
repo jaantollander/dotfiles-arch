@@ -1,5 +1,5 @@
 # Dotfiles
-![](./images/desktop.png)
+![](./docs/images/desktop.png)
 
 
 ## About
