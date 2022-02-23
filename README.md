@@ -121,7 +121,7 @@ bash $DOTFILES/packages.sh "thinkpad_t480s"
 Finally, install configs for the target.
 
 ```bash
-bash $DOTFILES/configs.sh "thinkpad_t480s"
+bash $DOTFILES/config.sh "thinkpad_t480s"
 ```
 
 
