@@ -100,28 +100,28 @@ First, we need to clone the dotfiles repository to the home directory.
 git clone git@github.com:jaantollander/dotfiles.git $HOME
 ```
 
-Next, let's define the location of the dotfiles as an environment variable.
+Next, let's change working directory to dotfiles.
 
 ```bash
-export DOTFILES=$HOME/dotfiles
+cd $HOME/dotfiles
 ```
 
 Let's install Yay as a helper for installing packages from the Arch User Repository (AUR).
 
 ```bash
-bash $DOTFILES/yay/install.sh
+bash install.sh yay
 ```
 
-Next, install packages for the target.
+Next, install packages for the target module.
 
 ```bash
-bash $DOTFILES/packages.sh "thinkpad_t480s"
+bash install.sh packages "thinkpad_t480s"
 ```
 
-Finally, install configs for the target.
+Finally, install configs for the target module.
 
 ```bash
-bash $DOTFILES/config.sh "thinkpad_t480s"
+bash packages.sh config "thinkpad_t480s"
 ```
 
 

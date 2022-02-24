@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
-# Environment variables
 export DOTFILES="$HOME/dotfiles"
+
+
+yay() {
+    source $DOTFILES/yay/install.sh
+}
 
 
 _add_packages() {
@@ -85,6 +89,7 @@ config() {
 
 # Expose functions as arguments.
 # Example:
-# `install.sh packages <modules>`
-# `install.sh config <modules>`
+# `install.sh yay`
+# `install.sh packages <module1> <module2> ...`
+# `install.sh config <module1> <module2> ...`
 $*
