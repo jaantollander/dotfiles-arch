@@ -261,33 +261,5 @@ bar {
 set $refresh_i3status killall -SIGUSR1 i3status
 
 
-## Program Launcher
-include $XDG_CONFIG_HOME/rofi/i3.conf
-
-
-## Monitors
-include $XDG_CONFIG_HOME/xrandr/i3.conf
-
-
-## Audio
-include $XDG_CONFIG_HOME/pulse/i3.conf
-
-
-## Backlights
-include $XDG_CONFIG_HOME/brightnessctl/i3.conf
-
-
-## Notifications
-include $XDG_CONFIG_HOME/dunst/i3.conf
-
-
-## Screenshot
-include $XDG_CONFIG_HOME/maim/i3.conf
-
-
-## Adjust Screen Color Temperature
-include $XDG_CONFIG_HOME/redshift/i3.conf
-
-
-## Udiskie
-include $XDG_CONFIG_HOME/udiskie/i3.conf
+## Include
+include $XDG_CONFIG_HOME/i3/include/*.conf
