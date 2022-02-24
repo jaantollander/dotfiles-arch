@@ -3,7 +3,7 @@
 
 
 ## About
-This repository contains my scripts and files for installing [Arch Linux](https://archlinux.org/) and configuring various software tools. I began the journey to build a custom configuration by reading the book ["Building your Mouseless Development Environment"](https://themouseless.dev/) by [Matthieu Cneude](https://github.com/Phantas0s). So if you are interested in building your configuration, I recommend reading his book first! The contents of this repository will make much more sense afterward.
+This repository contains my scripts and files for installing [Arch Linux](https://archlinux.org/) and configuring various software tools. I began the journey to build a custom configuration by reading the book [**Building your Mouseless Development Environment**](https://themouseless.dev/) by [Matthieu Cneude](https://github.com/Phantas0s). So if you are interested in building your configuration, I recommend reading his book first! The contents of this repository will make much more sense afterward.
 
 
 ## Philosophy
@@ -94,7 +94,13 @@ List of the hardware I am using with my setup.
 You can read my instructions for installing Arch Linux in the [**arch**](./arch) directory. It includes instructions with and without encryption and the post-installation steps.
 
 ### Configurations 
-First, we need to clone the dotfiles repository to the home directory. 
+First, let's install Git if haven't already.
+
+```bash
+sudo pacman -S git
+```
+
+Then, we can clone the dotfiles repository to the home directory. 
 
 ```bash
 git clone git@github.com:jaantollander/dotfiles.git $HOME
