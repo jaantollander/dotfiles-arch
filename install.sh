@@ -49,8 +49,8 @@ packages() {
         fi
     done
 
-    sudo pacman --color=auto --sync `cat $TMP/official | sort | uniq`
-    yay --sync `cat $TMP/aur | sort | uniq`
+    sudo pacman --sync --needed --color=auto `cat $TMP/official | sort | uniq`
+    yay --sync --needed --color=auto `cat $TMP/aur | sort | uniq`
 }
 
 
@@ -88,8 +88,10 @@ config() {
 
 
 # Expose functions as arguments.
-# Example:
+# Usage:
+# `install.sh <operation> <args>`
+# Examples:
 # `install.sh yay`
-# `install.sh packages <module1> <module2> ...`
-# `install.sh config <module1> <module2> ...`
+# `install.sh packages <module1> <module2> <...>`
+# `install.sh config <module1> <module2> <...>`
 $*
