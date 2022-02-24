@@ -121,7 +121,7 @@ bash install.sh packages "thinkpad_t480s"
 Finally, install configs for the target module.
 
 ```bash
-bash packages.sh config "thinkpad_t480s"
+bash install.sh config "thinkpad_t480s"
 ```
 
 
