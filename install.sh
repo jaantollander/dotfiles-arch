@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export DOTFILES="$HOME/dotfiles"
+export DOTFILES="$HOME/dotfiles/module"
 
 
 yay() {
