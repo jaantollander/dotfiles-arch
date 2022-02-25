@@ -1,3 +1,6 @@
+manual
+network
+utility
 throttled
 pacman
 yay
@@ -25,4 +28,8 @@ nvim
 tmux
 redshift
 zathura
+keepassxc
+hledger
+browser
+development
 julia
