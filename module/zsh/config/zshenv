@@ -19,9 +19,6 @@ export XDG_DATA_DIR="$HOME/data"
 export XDG_RECORDINGS_DIR="$HOME/recordings"
 export XDG_SCREENSHOTS_DIR="$HOME/screenshots"
 
-# Dotfiles
-export DOTFILES="$HOME/dotfiles"
-
 # Set the default editor
 export EDITOR="nvim"
 export VISUAL="nvim"
@@ -37,3 +34,6 @@ export HISTSIZE=10000
 
 # Maximum events in history file
 export SAVEHIST=10000
+
+# Increase font size for QT applications
+export QT_SCALE_FACTOR=1.5
