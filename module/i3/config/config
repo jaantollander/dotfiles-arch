@@ -4,14 +4,14 @@
 # The modifier key
 set $mod Mod4
 
-# Terminal
-set $terminal urxvtc
-
 # Font for window titles. 
 font pango:Inconsolata Nerd Font 18 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
+# Terminal
+set $terminal urxvtc
 
 # start a terminal
 bindsym $mod+Return exec $terminal
@@ -84,7 +84,7 @@ focus_follows_mouse no
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1  "
 set $ws2 "2  "
-set $ws3 "3"
+set $ws3 "3  "
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
@@ -222,17 +222,6 @@ client.urgent 		$red1 $red1 $white2 $red1 $red1
 client.placeholder 	#000000 #0c0c0c $white2 #000000 0c0c0c
 
 for_window [class="URxvt*"] border pixel 1
-
-
-# Terminal scratchpad
-#for_window [instance="urxvt_scratchpad"] move to scratchpad, border none
-#bindsym $mod+Shift+t [instance="urxvt_scratchpad"] scratchpad show
-#exec $terminal -name urxvt_scratchpad
-
-# htop scratchpad
-#for_window [instance="htop_scratchpad"] move to scratchpad, border none
-#bindsym $mod+Shift+p [instance="htop_scratchpad"] scratchpad show
-#exec $terminal -name htop_scratchpad -e htop
 
 
 ## i3bar and i3status
