@@ -28,8 +28,9 @@ view() {
 # `install 0.1.0`
 install() {
     VERSION=$1
+    PATTERN=`pattern $VERSION`
     cd `mktemp -d`
-    gh release download "v$VERSION" --repo $REPO --pattern `pattern $VERSION`
+    gh release download "v$VERSION" --repo $REPO --pattern $PATTERN
     tar xvf $PATTERN
     sudo cp $BINARY "/usr/local/bin/$BINARY-v$VERSION"
     sudo chmod 755 "/usr/local/bin/$BINARY-v$VERSION"
@@ -40,7 +41,7 @@ install() {
 # `link 0.1.0`
 link() {
     VERSION=$1
-    sudo ln -sf "/usr/local/bin/$BINARY" "/usr/local/bin/$BINARY-v$VERSION"
+    sudo ln -sf "/usr/local/bin/$BINARY-v$VERSION" "/usr/local/bin/$BINARY"
 }
 
 

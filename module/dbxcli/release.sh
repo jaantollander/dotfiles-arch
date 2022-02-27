@@ -1,12 +1,8 @@
 #!/usr/bin/env bash
 
-REPO="gohugoio/hugo"
-BINARY="hugo"
-
-pattern() {
-    VERSION=$1
-    echo "hugo_extended_${VERSION}_Linux-64bit.tar.gz"
-}
+REPO="dropbox/dbxcli"
+BINARY="dbxcli"
+PATTERN="dbxcli-linux-amd64"
 
 
 # List releases.
@@ -29,11 +25,9 @@ view() {
 # `install 0.1.0`
 install() {
     VERSION=$1
-    PATTERN=`pattern $VERSION`
     cd `mktemp -d`
     gh release download "v$VERSION" --repo $REPO --pattern $PATTERN
-    tar xvf $PATTERN
-    sudo cp $BINARY "/usr/local/bin/$BINARY-v$VERSION"
+    sudo cp $PATTERN "/usr/local/bin/$BINARY-v$VERSION"
     sudo chmod 755 "/usr/local/bin/$BINARY-v$VERSION"
 }
 
