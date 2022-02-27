@@ -23,7 +23,7 @@ My configuration philosophy is to strive for a minimal, ergonomic, and composabl
 
 - **Modular Configuration**: Modularity makes it easier to change components and reason about dependencies.
 
-- **Information Security is Critical**: Your data could get lost, be stolen, or hacked unless you protect it with encryption and backups.
+- **Information Security is Essential**: Your data could get lost, be stolen, or hacked unless you protect it with encryption and backups.
 
 
 ## Arch Linux Setup
@@ -74,10 +74,9 @@ Password manager: [*KeePassXC*](https://keepassxc.org)
 
 Document viewer: [*Zathura*](https://pwmt.org/projects/zathura/)
 
-Hosting:
+Hosting Git repositories: [*GitHub CLI*](https://cli.github.com/)
 
-- Git repositories: [*GitHub CLI*](https://cli.github.com/)
-- Jamstack websites: [*Netlify CLI*](https://www.netlify.com/products/cli/)
+Plain text accounting: [*hledger*](https://hledger.org/)
 
 
 ## Hardware Setup
