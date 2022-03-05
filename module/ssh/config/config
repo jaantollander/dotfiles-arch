@@ -1,0 +1,5 @@
+# Write custom configurations before `Host *` configurations.
+# Read `man ssh_config` for more details.
+
+Host *
+    User root
