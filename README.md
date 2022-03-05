@@ -60,7 +60,7 @@ Terminal:
 - Shell: [*Zsh*](https://wiki.archlinux.org/title/zsh)
 - Editor: [*Neovim*](https://neovim.io/)
 
-Utilities: 
+Command-line utilities: 
 
 - [*Core Utilities*](https://wiki.archlinux.org/title/Core_utilities)
 - Version Control: [*Git*](https://git-scm.com/)
@@ -70,13 +70,13 @@ Utilities:
 - Improved ls: [*lsd*](https://github.com/Peltoche/lsd)
 - Improved cat: [*bat*](https://github.com/sharkdp/bat)
 
-Password manager: [*KeePassXC*](https://keepassxc.org)
+Other tools:
 
-Document viewer: [*Zathura*](https://pwmt.org/projects/zathura/)
-
-Hosting Git repositories: [*GitHub CLI*](https://cli.github.com/)
-
-Plain text accounting: [*hledger*](https://hledger.org/)
+- Process Viewer: [*htop*](https://htop.dev/)
+- Password manager: [*KeePassXC*](https://keepassxc.org)
+- Document viewer: [*Zathura*](https://pwmt.org/projects/zathura/)
+- Plain text accounting: [*hledger*](https://hledger.org/)
+- Hosting Git repositories: [*GitHub CLI*](https://cli.github.com/)
 
 
 ## Hardware Setup
@@ -85,7 +85,7 @@ List of the hardware I am using with my setup.
 - Laptop: *Lenovo Thinkpad T480s*
 - Keyboard: [*Kinesis Advantage 2*](https://kinesis-ergo.com/keyboards/advantage2-keyboard/)
 - Mouse: *Razer DeathAdder Elite*
-- USB Flash Drive: Kingston DataTraveler
+- USB Flash Drive: *Kingston DataTraveler*
 
 
 ## Installation Scripts
@@ -93,7 +93,7 @@ List of the hardware I am using with my setup.
 You can read my instructions for installing Arch Linux in the [**arch**](./arch) directory. It includes instructions with and without encryption and the post-installation steps.
 
 ### Configurations 
-First, let's install Git if haven't already.
+First, let's install Git if we haven't already.
 
 ```bash
 sudo pacman -S git
