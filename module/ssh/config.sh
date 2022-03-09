@@ -11,3 +11,6 @@ chmod u=rwx,g=,o=r $HOME/.ssh
 # User's configuration. Create if doesn't exist.
 touch $HOME/.ssh/config
 chmod u=rw,g=,o= $HOME/.ssh/config
+
+mkdir -p $XDG_SCRIPTS_HOME
+ln -sf $DOTFILES/ssh/config/start-ssh-agent.sh $XDG_SCRIPTS_HOME/start-ssh-agent.sh
