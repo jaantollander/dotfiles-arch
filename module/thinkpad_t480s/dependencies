@@ -1,5 +1,6 @@
 manual
 network
+ssh
 utility
 throttled
 pacman
@@ -23,7 +24,7 @@ lsd
 bat
 zsh
 git
-gh
+github
 nvim
 tmux
 redshift
