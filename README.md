@@ -69,6 +69,7 @@ Command-line utilities:
 - Fuzzy finder: [*fzf*](https://github.com/junegunn/fzf)
 - Improved ls: [*lsd*](https://github.com/Peltoche/lsd)
 - Improved cat: [*bat*](https://github.com/sharkdp/bat)
+- Simplified help pages: [*tldr*](https://tldr.sh/)
 
 Other tools:
 
@@ -146,8 +147,12 @@ Here is a list of some helpful resources for developing dotfiles.
 
 - *Matthieu Cneude* also has great [articles](https://thevaluable.dev/) on his website and his [dotfiles](https://github.com/Phantas0s/.dotfiles) are also useful. 
 
+- [Efficient UEFI Encrypted Root and Swap Arch Linux Installation Procedure with an Encrypted Boot](https://gist.github.com/HardenedArray/ee3041c04165926fca02deca675effe1) by *HardenedArray*
+
 - An excellent [Bash scripting cheatsheet](https://devhints.io/bash) from *devhints*.
 
-- [Efficient UEFI Encrypted Root and Swap Arch Linux Installation Procedure with an Encrypted Boot](https://gist.github.com/HardenedArray/ee3041c04165926fca02deca675effe1) by *HardenedArray*
+- The [Command Line Interface Guidelines](https://clig.dev/) is an excellent resource for writing command-line interfaces.
+
+- We can use [Argbash](https://argbash.io/) for adding command-line arguments to Bash scripts.
 
 - *Maxim Baz* has [dotfiles](https://github.com/maximbaz/dotfiles) for Arch Linux with Wayland, Kitty, and Kakoune.
