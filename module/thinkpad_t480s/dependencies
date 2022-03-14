@@ -1,6 +1,7 @@
 manual
 network
-ssh
+openssh
+openvpn
 utility
 throttled
 pacman
@@ -32,5 +33,6 @@ zathura
 keepassxc
 hledger
 browser
-development
+nodejs
+python
 julia
