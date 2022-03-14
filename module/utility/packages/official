@@ -1,3 +1,4 @@
+dialog
 imagemagick
 rsync
 unzip
@@ -9,3 +10,5 @@ pandoc
 texlive-most
 mupdf
 feh
+jq
+argbash
