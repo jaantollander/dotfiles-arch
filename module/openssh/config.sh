@@ -1,6 +1,6 @@
 #!/bin/bash
 mkdir -p $HOME/.ssh
-chmod u=rwx,g=,o=r $HOME/.ssh 
+chmod u=rwx,g=,o= $HOME/.ssh 
 
 # System-wide configuration
 #sudo mkdir -p /etc/ssh
