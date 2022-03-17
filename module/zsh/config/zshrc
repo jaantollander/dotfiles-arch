@@ -3,10 +3,6 @@
 fpath=($ZDOTDIR/external $fpath)
 
 
-## --- Colors ---
-eval "$(dircolors -b $XDG_CONFIG_HOME/zsh/dircolors)"
-
-
 ## --- Filesystem Navigation ---
 source "$XDG_CONFIG_HOME/zsh/external/bd.zsh"
 
@@ -60,11 +56,8 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 
 ## --- Custom Scripts ---
-# Source custom scripts from "*.sh" and "*.zsh" files.
-# TODO: source .zsh files
-# TODO: skip if directory does not have any shell files
-if [[ -d $XDG_SCRIPTS_HOME ]]; then
-    for x in $XDG_SCRIPTS_HOME/*.sh; do
+if [[ -d $XDG_SCRIPTS_HOME && -n `ls $XDG_SCRIPTS_HOME` ]]; then
+    for x in $XDG_SCRIPTS_HOME/*; do
         source $x
     done
 fi
