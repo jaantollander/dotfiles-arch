@@ -15,6 +15,10 @@ setopt PUSHD_IGNORE_DUPS
 # Do not print the directory stack after using
 setopt PUSHD_SILENT
 
+# list directories
+alias d='dirs -v'
+for index ({1..9}) alias "$index"="cd +${index}"; unset index
+
 
 ## --- Command Completion ---
 source $XDG_CONFIG_HOME/zsh/external/completion.zsh
