@@ -12,5 +12,5 @@ chmod u=rwx,g=,o= $HOME/.ssh
 touch $HOME/.ssh/config
 chmod u=rw,g=,o= $HOME/.ssh/config
 
-#mkdir -p $XDG_SCRIPTS_HOME
-#ln -sf $DOTFILES/openssh/config/start-ssh-agent.sh $XDG_SCRIPTS_HOME/start-ssh-agent.sh
+#mkdir -p $XDG_CONFIG_HOME
+#ln -sf $DOTFILES/openssh/config/start-ssh-agent.sh $XDG_CONFIG_HOME/start-ssh-agent.sh

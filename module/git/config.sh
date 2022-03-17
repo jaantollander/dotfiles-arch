@@ -1,4 +1,6 @@
 #!/bin/bash
 mkdir -p "$XDG_CONFIG_HOME/git"
 ln -sf "$DOTFILES/git/config/config" "$XDG_CONFIG_HOME/git/config"
-ln -sf $DOTFILES/git/config/aliases.sh $XDG_SCRIPTS_HOME/git-aliases.sh
+
+mkdir -p $XDG_CONFIG_HOME/shell/interactive
+ln -sf $DOTFILES/git/config/interactive.sh $XDG_CONFIG_HOME/shell/interactive/git.sh

@@ -3,6 +3,10 @@
 fpath=($ZDOTDIR/external $fpath)
 
 
+## Source common interactive scripts
+source $XDG_CONFIG_HOME/shell/interactive.sh
+
+
 ## --- Filesystem Navigation ---
 source "$XDG_CONFIG_HOME/zsh/external/bd.zsh"
 
@@ -57,14 +61,6 @@ bindkey -s '^p' 'tmux\n'
 
 ## --- Syntax Highlighting ---
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
-## --- Custom Scripts ---
-if [[ -d $XDG_SCRIPTS_HOME && -n `ls $XDG_SCRIPTS_HOME` ]]; then
-    for x in $XDG_SCRIPTS_HOME/*; do
-        source $x
-    done
-fi
 
 
 ## --- PATH ---

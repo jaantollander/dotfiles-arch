@@ -1,2 +1,3 @@
 #!/bin/bash
-ln -sf $DOTFILES/fzf/config/scripts.sh $XDG_SCRIPTS_HOME/fzf-scripts.sh
+mkdir -p $XDG_CONFIG_HOME/shell/interactive
+ln -sf $DOTFILES/fzf/config/interactive.sh $XDG_CONFIG_HOME/shell/interactive/fzf.sh
