@@ -92,27 +92,27 @@ function help() {
     echo "Manage the Arch Linux configuration."
     echo ""
     echo "Usage:"
-    echo "- install.sh <operation> <args>"
+    echo "- ./dotfiles.sh <operation> <args>"
     echo ""
     echo "Examples:"
     echo "- Print help message."
-    echo "  install.sh"
-    echo "  install.sh help"
+    echo "  ./dotfiles.sh"
+    echo "  ./dotfiles.sh help"
     echo ""
     echo "- Install yay."
-    echo "  install.sh yay"
+    echo "  ./dotfiles.sh yay"
     echo ""
     echo "- Install packages for one or more modules."
-    echo "  install.sh packages <module1> <module2> <...>"
+    echo "  ./dotfiles.sh packages <module1> <module2> <...>"
     echo ""
     echo "- Install configurations for one or more modules."
-    echo "  install.sh config <module1> <module2> <...>"
+    echo "  ./dotfiles.sh config <module1> <module2> <...>"
 }
 
 
 # Print help message on:
-# `install.sh`
-# `install.sh help`
+# `./dotfiles.sh`
+# `./dotfiles.sh help`
 if [[ -z $* ]]; then
     help
 fi
