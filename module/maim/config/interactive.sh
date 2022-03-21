@@ -1,5 +1,3 @@
-#!/bin/bash
-
 screenshot_display() {
     mkdir -p $HOME/screenshots
     maim $HOME/screenshots/$(date -Iseconds).png 

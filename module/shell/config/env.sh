@@ -23,7 +23,7 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 
 # Source other environment variables
-ENVIRONMENT=$XDG_CONFIG_HOME/shell/environment
+ENVIRONMENT=$XDG_CONFIG_HOME/shell/env
 if [[ -d $ENVIRONMENT && -n `ls $ENVIRONMENT` ]]; then
     for x in $ENVIRONMENT/*; do
         source $x
