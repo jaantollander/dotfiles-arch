@@ -1,3 +1,5 @@
+base-devel
+coreutils
 dialog
 imagemagick
 rsync
