@@ -3,8 +3,9 @@
 export DOTFILES="$HOME/dotfiles/module"
 
 
-yay() {
-    source $DOTFILES/yay/install.sh
+install() {
+    MODULE=$1
+    source $DOTFILES/$1/install.sh
 }
 
 
@@ -99,8 +100,8 @@ function help() {
     echo "  ./dotfiles.sh"
     echo "  ./dotfiles.sh help"
     echo ""
-    echo "- Install yay."
-    echo "  ./dotfiles.sh yay"
+    echo "- Run install script for a module."
+    echo "  ./dotfiles.sh install <module>"
     echo ""
     echo "- Install packages for one or more modules."
     echo "  ./dotfiles.sh packages <module1> <module2> <...>"

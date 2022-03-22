@@ -115,19 +115,19 @@ cd $HOME/dotfiles
 Let's install Yay as a helper for installing packages from the Arch User Repository (AUR).
 
 ```bash
-bash install.sh yay
+./dotfiles.sh install yay
 ```
 
 Next, install packages for the target module.
 
 ```bash
-bash install.sh packages "thinkpad_t480s"
+./dotfiles.sh packages "thinkpad_t480s"
 ```
 
 Finally, install configs for the target module.
 
 ```bash
-bash install.sh config "thinkpad_t480s"
+./dotfiles.sh config "thinkpad_t480s"
 ```
 
 
