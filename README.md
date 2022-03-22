@@ -156,3 +156,5 @@ Here is a list of some helpful resources for developing dotfiles.
 - We can use [Argbash](https://argbash.io/) for adding command-line arguments to Bash scripts.
 
 - *Maxim Baz* has [dotfiles](https://github.com/maximbaz/dotfiles) for Arch Linux with Wayland, Kitty, and Kakoune.
+
+- The [xsh](https://github.com/sgleizes/xsh) framework provides conventions for managing shell configuration consistently.

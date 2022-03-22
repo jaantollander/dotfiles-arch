@@ -1,8 +1,10 @@
 #!/bin/bash
 mkdir -p "$XDG_CONFIG_HOME/zsh"
-ln -sf "$DOTFILES/zsh/config/zshenv" "$HOME/.zshenv"
-ln -sf "$DOTFILES/zsh/config/zprofile" "$XDG_CONFIG_HOME/zsh/.zprofile"
-ln -sf "$DOTFILES/zsh/config/zshrc" "$XDG_CONFIG_HOME/zsh/.zshrc"
+ln -sf "$DOTFILES/zsh/config/@env.zsh" "$XDG_CONFIG_HOME/zsh/.zshenv"
+ln -sf "$DOTFILES/zsh/config/@login.zsh" "$XDG_CONFIG_HOME/zsh/.zprofile"
+ln -sf "$DOTFILES/zsh/config/@interactive.zsh" "$XDG_CONFIG_HOME/zsh/.zshrc"
+ln -sf "$XDG_CONFIG_HOME/zsh/.zshenv" "$HOME/.zshenv"
+
 rm -rf "$XDG_CONFIG_HOME/zsh/external"
 ln -sf "$DOTFILES/zsh/config/external" "$XDG_CONFIG_HOME/zsh"
 

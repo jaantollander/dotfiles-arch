@@ -1,5 +1,3 @@
-#!/bin/zsh 
-
 fpath=($ZDOTDIR/external $fpath)
 
 
