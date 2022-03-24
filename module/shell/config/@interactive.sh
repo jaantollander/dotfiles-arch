@@ -1,6 +1,3 @@
-## Specifies directory colors for `ls` and `lsd`
-eval "$(dircolors -b $XDG_CONFIG_HOME/shell/dircolors)"
-
 ## Configure `ls` if `lsd` is not installed
 if [[ ! $(command -v "lsd") ]]; then
     alias ls='ls --color=auto'

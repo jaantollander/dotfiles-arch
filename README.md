@@ -67,7 +67,7 @@ Command-line utilities:
 - File transfer and backup: [*rsync*](https://rsync.samba.org/)
 - Search tools: [*ripgrep*](https://github.com/BurntSushi/ripgrep), [*ripgrep-all*](https://github.com/phiresky/ripgrep-all)
 - Fuzzy finder: [*fzf*](https://github.com/junegunn/fzf)
-- Improved ls: [*lsd*](https://github.com/Peltoche/lsd)
+- Improved ls and coloring: [*lsd*](https://github.com/Peltoche/lsd) and [*LS_COLORS*](https://github.com/trapd00r/LS_COLORS)
 - Improved cat: [*bat*](https://github.com/sharkdp/bat)
 - Simplified help pages: [*tldr*](https://tldr.sh/)
 
