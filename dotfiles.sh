@@ -67,14 +67,10 @@ config() {
     # Arguments
     MODULES=$*
 
-    # Define and create base directories
-    source $DOTFILES/xdg/config/base-dirs-env.sh
-    source $DOTFILES/xdg/config/base-dirs-mk.sh
+    # Define and create base and user directories
+    source $DOTFILES/xdg/config/@env.sh
+    source $DOTFILES/xdg/config/@login.sh
     
-    # Define and create user directories
-    source $DOTFILES/xdg/config/user-dirs-env.sh
-    source $DOTFILES/xdg/config/user-dirs-mk.sh
-
     # Config modules
     for MODULE in $MODULES; do
         _config $MODULE

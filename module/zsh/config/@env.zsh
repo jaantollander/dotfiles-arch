@@ -1,7 +1,5 @@
-export XDG_CONFIG_HOME=$HOME/.config
-
 # Source common environment variables
-source $XDG_CONFIG_HOME/shell/env.sh
+source $HOME/.config/shell/env.sh
 
 # Zsh
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
