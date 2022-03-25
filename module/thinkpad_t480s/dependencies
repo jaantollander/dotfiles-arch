@@ -8,7 +8,7 @@ pacman
 yay
 bash
 fonts
-X11
+xorg
 urxvt
 xrandr
 i3
