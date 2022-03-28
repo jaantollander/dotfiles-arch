@@ -91,8 +91,8 @@ hwclock --systohc --utc
 #systemctl enable iwd
 
 # Create a hostname
-HOST_NAME="arch"
-echo $HOST_NAME > /etc/hostname
+HOSTNAME="arch"
+echo $HOSTNAME > /etc/hostname
 
 # Set locale
 echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
