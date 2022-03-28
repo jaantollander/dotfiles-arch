@@ -54,18 +54,19 @@ cryptsetup -c aes-xts-plain64 -h sha512 -s 512 --use-random --type luks1 luksFor
 cryptsetup luksOpen $ROOT $EBOOT
 
 # Create encrypted LVM partitions
+LVGROUP=arch
 pvcreate /dev/mapper/$EBOOT
-vgcreate Arch /dev/mapper/$EBOOT
-lvcreate -L 512M Arch -n swap
-lvcreate -l 100%FREE Arch -n root
+vgcreate $LVGROUP /dev/mapper/$EBOOT
+lvcreate -L 512M $LVGROUP -n swap
+lvcreate -l 100%FREE $LVGROUP -n root
 
 # Create filesystems on your encrypted partitions
-mkswap /dev/mapper/Arch-swap
-mkfs.ext4 /dev/mapper/Arch-root  
+mkswap /dev/mapper/$LVGROUP/swap
+mkfs.ext4 /dev/mapper/$LVGROUP/root  
 
 # Mount the new system
-mount /dev/mapper/Arch-root /mnt
-swapon /dev/mapper/Arch-swap
+mount /dev/mapper/$LVGROUP/root /mnt
+swapon /dev/mapper/$LVGROUP/swap
 mkdir /mnt/boot
 mkdir /mnt/efi
 mount $EFI /mnt/efi
@@ -134,7 +135,7 @@ grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=ArchLinux
 # Edit the default grub
 nano /etc/default/grub
 # Substitute the correct values for the variables and add the line to the config:
-# GRUB_CMDLINE_LINUX="cryptdevice=$ROOT:$EBOOT resume=/dev/mapper/Arch-swap"
+# GRUB_CMDLINE_LINUX="cryptdevice=$ROOT:$EBOOT resume=/dev/mapper/$LVGROUP/swap"
 
 # Generate Your Final Grub Configuration:
 grub-mkconfig -o /boot/grub/grub.cfg
