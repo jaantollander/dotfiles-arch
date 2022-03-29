@@ -61,12 +61,12 @@ lvcreate -L 512M $LVGROUP -n swap
 lvcreate -l 100%FREE $LVGROUP -n root
 
 # Create filesystems on your encrypted partitions
-mkswap /dev/mapper/$LVGROUP/swap
-mkfs.ext4 /dev/mapper/$LVGROUP/root  
+mkswap /dev/mapper/$LVGROUP-swap
+mkfs.ext4 /dev/mapper/$LVGROUP-root  
 
 # Mount the new system
-mount /dev/mapper/$LVGROUP/root /mnt
-swapon /dev/mapper/$LVGROUP/swap
+mount /dev/mapper/$LVGROUP-root /mnt
+swapon /dev/mapper/$LVGROUP-swap
 mkdir /mnt/boot
 mkdir /mnt/efi
 mount $EFI /mnt/efi
@@ -135,7 +135,7 @@ grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=ArchLinux
 # Edit the default grub
 nano /etc/default/grub
 # Substitute the correct values for the variables and add the line to the config:
-# GRUB_CMDLINE_LINUX="cryptdevice=$ROOT:$EBOOT resume=/dev/mapper/$LVGROUP/swap"
+# GRUB_CMDLINE_LINUX="cryptdevice=$ROOT:$EBOOT resume=/dev/mapper/$LVGROUP-swap"
 
 # Generate Your Final Grub Configuration:
 grub-mkconfig -o /boot/grub/grub.cfg
