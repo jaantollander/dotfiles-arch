@@ -1,7 +1,7 @@
 #!/bin/bash
 COMMENT=$1
 ALGORITHM="ed25519"
-SUFFIX="github"
+SUFFIX="git"
 IDFILE="$HOME/.ssh/id_${ALGORITHM}_${SUFFIX}"
 
 if [[ ! -f $IDFILE ]]; then
