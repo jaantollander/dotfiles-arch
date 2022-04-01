@@ -31,7 +31,7 @@ Here is an overview of the setup and configurations.
 
 System:
 
-- [Encrypted root and swap with encrypted boot](https://gist.github.com/HardenedArray/ee3041c04165926fca02deca675effe1)
+- Encrypted root and swap filesystems with an encrypted boot and boot from UEFI. Decrypts and mounts the entire encrypted system using a single LUKS passphrase entry. [Instructions by HardenedArray](https://gist.github.com/HardenedArray/ee3041c04165926fca02deca675effe1)
 - System and service manager: [systemd](https://systemd.io/)
 
 Key Bindings: 
@@ -147,8 +147,6 @@ Here is a list of some helpful resources for developing dotfiles.
 - [ArchWiki](https://wiki.archlinux.org/) is the official resource for everything related to Arch Linux.
 
 - *Matthieu Cneude* also has great [articles](https://thevaluable.dev/) on his website and his [dotfiles](https://github.com/Phantas0s/.dotfiles) are also useful. 
-
-- [Efficient UEFI Encrypted Root and Swap Arch Linux Installation Procedure with an Encrypted Boot](https://gist.github.com/HardenedArray/ee3041c04165926fca02deca675effe1) by *HardenedArray*
 
 - An excellent [Bash scripting cheatsheet](https://devhints.io/bash) from *devhints*.
 
