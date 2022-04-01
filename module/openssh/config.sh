@@ -2,15 +2,16 @@
 mkdir -p $HOME/.ssh
 chmod u=rwx,g=,o= $HOME/.ssh 
 
-# System-wide configuration
+mkdir -p $HOME/.ssh/config.d
+chmod u=rwx,g=,o= $HOME/.ssh/config.d 
+
 #sudo mkdir -p /etc/ssh
 #sudo chmod u=rwx,g=rx,o=rx /etc/ssh
-#sudo cp $DOTFILES/openssh/config/ssh_config /etc/ssh/ssh_config
+#sudo cp $DOTFILES/openssh/etc/ssh_config /etc/ssh/ssh_config
 #sudo chmod u=rw,g=r,o=r /etc/ssh/ssh_config
 
-# User's configuration. Create if doesn't exist.
-touch $HOME/.ssh/config
+ln -sf $DOTFILES/openssh/config/config $HOME/.ssh/config
 chmod u=rw,g=,o= $HOME/.ssh/config
 
-#mkdir -p $XDG_CONFIG_HOME
-#ln -sf $DOTFILES/openssh/config/start-ssh-agent.sh $XDG_CONFIG_HOME/start-ssh-agent.sh
+mkdir -p $XDG_CONFIG_HOME/shell/login
+ln -sf $DOTFILES/openssh/config/@login.sh $XDG_CONFIG_HOME/shell/login/ssh.sh

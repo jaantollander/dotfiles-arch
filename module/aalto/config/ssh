@@ -1,34 +1,32 @@
 # General login servers
 Host kosh
-    User <aalto-username>
+    User tolland1
     Hostname kosh.aalto.fi
     IdentityFile ~/.ssh/id_ed25519_aalto
 
 Host lyta
-    User <aalto-username>
+    User tolland1
     Hostname lyta.aalto.fi
     IdentityFile ~/.ssh/id_ed25519_aalto
 
 # Light-computing servers
 Host brute
-    User <aalto-username>
+    User tolland1
     Hostname brute.aalto.fi
     IdentityFile ~/.ssh/id_ed25519_aalto
 
 Host force
-    User <aalto-username>
+    User tolland1
     Hostname force.aalto.fi
     IdentityFile ~/.ssh/id_ed25519_aalto
 
 # HPC slurm cluster
-Host triton1
-    User <aalto-username>
+Host triton_via_kosh
+    User tolland1
     Hostname triton.aalto.fi
     ProxyJump kosh
-    # IdentityFile ~/.ssh/id_ed25519_triton
 
-Host triton2
-    User <aalto-username>
+Host triton_via_lyta
+    User tolland1
     Hostname triton.aalto.fi
     ProxyJump lyta
-    # IdentityFile ~/.ssh/id_ed25519_triton
