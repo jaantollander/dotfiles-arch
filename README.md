@@ -31,7 +31,8 @@ Here is an overview of the setup and configurations.
 
 System:
 
-- LUKS encrypted UEFI boot and hard-drive.
+- [Encrypted root and swap with encrypted boot](https://gist.github.com/HardenedArray/ee3041c04165926fca02deca675effe1)
+- System and service manager: [systemd](https://systemd.io/)
 
 Key Bindings: 
 
