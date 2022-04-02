@@ -19,7 +19,8 @@ order += "wireless wlan0"
 order += "ethernet eth0"
 order += "tztime local"
 
-# Use `nmcli device` to find the name of you wi-fi device.
+# Use `nmcli device` to find the name of you wireless or ethernet device.
+
 wireless wlan0 {
     format_up = "直"
     format_down = "睊"
