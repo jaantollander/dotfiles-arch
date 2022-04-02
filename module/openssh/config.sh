@@ -5,11 +5,6 @@ chmod u=rwx,g=,o= $HOME/.ssh
 mkdir -p $HOME/.ssh/config.d
 chmod u=rwx,g=,o= $HOME/.ssh/config.d 
 
-#sudo mkdir -p /etc/ssh
-#sudo chmod u=rwx,g=rx,o=rx /etc/ssh
-#sudo cp $DOTFILES/openssh/etc/ssh_config /etc/ssh/ssh_config
-#sudo chmod u=rw,g=r,o=r /etc/ssh/ssh_config
-
 ln -sf $DOTFILES/openssh/config/config $HOME/.ssh/config
 chmod u=rw,g=,o= $HOME/.ssh/config
 
