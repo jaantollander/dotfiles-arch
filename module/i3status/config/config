@@ -60,11 +60,11 @@ volume master {
 
 battery 0 {
     format = "%status %percentage "
-    format_down = ""
-    status_chr = ""
-    status_bat = ""
-    status_unk = ""
-    status_full = ""
+    format_down = "ﮣ"
+    status_chr = ""
+    status_bat = ""
+    status_unk = ""
+    status_full = ""
     path = "/sys/class/power_supply/BAT%d/uevent"
     low_threshold = 30
     integer_battery_capacity = true
