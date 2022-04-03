@@ -1,5 +1,22 @@
-# Merge X11 style
-xrdb -merge $HOME/.config/X11/style.xresources
+#!/bin/sh
+
+DIR=$HOME/.config/X11/xinitrc
+
+if [ -d $DIR ]; then
+    # Merge xresources
+    for f in $DIR/*.xresources; do
+        [ -f $f ] && xrdb -merge $f
+    done
+
+    # Source scripts
+    for f in $DIR/*.sh; do
+        [ -f $f ] && . $f
+    done
+
+    unset f
+fi
+
+unset DIR
 
 # TODO: change `ctrl_modifier` to Super_L
 #setxkbmap -option 'caps:ctrl_modifier'
@@ -12,12 +29,6 @@ setxkbmap -option caps:escape
 xset s off
 xset s noblank
 xset -dpms
-
-# Merge URxvt settings
-xrdb -merge $HOME/.config/urxvt/urxvt.xresources
-
-# Start URxvt daemon
-urxvtd -o -q -f
 
 # Start i3 window manager
 exec i3
