@@ -1,10 +1,12 @@
-# Source other environment variables
-ENVIRONMENT=$HOME/.config/shell/env
-if [[ -d $ENVIRONMENT && -n `ls $ENVIRONMENT` ]]; then
-    for x in $ENVIRONMENT/*; do
-        source $x
+# Source environment variables
+DIR=$HOME/.config/shell/env
+if test -d $DIR; then
+    for f in $DIR/*.sh; do
+        test -r "$f" && . "$f"
     done
+    unset f
 fi
+unset DIR
 
 # Set the default editor
 export EDITOR="nvim"
