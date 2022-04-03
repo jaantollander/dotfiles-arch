@@ -45,7 +45,7 @@ Style:
 
 Desktop:
 
-- Window system: [*X11*](https://www.x.org/)
+- Window system: [*xorg*](https://www.x.org/)
 - Tiling window manager: [*i3*](https://i3wm.org/)
 - Application launcher: [*Rofi*](https://github.com/davatorium/rofi)
 - Notifications: [*Dunst*](https://dunst-project.org/)
@@ -148,12 +148,16 @@ Here is a list of some helpful resources for developing dotfiles.
 
 - *Matthieu Cneude* also has great [articles](https://thevaluable.dev/) on his website and his [dotfiles](https://github.com/Phantas0s/.dotfiles) are also useful. 
 
+- *Maxim Baz* has useful [dotfiles](https://github.com/maximbaz/dotfiles) for Arch Linux.
+
 - An excellent [Bash scripting cheatsheet](https://devhints.io/bash) from *devhints*.
 
 - The [Command Line Interface Guidelines](https://clig.dev/) is an excellent resource for writing command-line interfaces.
 
 - We can use [Argbash](https://argbash.io/) for adding command-line arguments to Bash scripts.
 
-- *Maxim Baz* has [dotfiles](https://github.com/maximbaz/dotfiles) for Arch Linux with Wayland, Kitty, and Kakoune.
-
 - The [xsh](https://github.com/sgleizes/xsh) framework provides conventions for managing shell configuration consistently.
+
+- *Dylanaraps* has written the [pure bash bible](https://github.com/dylanaraps/pure-bash-bible) and the [pure sh bible](https://github.com/dylanaraps/pure-sh-bible) which are excellent resources for writing better bash and posix shell scripts.
+
+- [ShellCheck](https://github.com/koalaman/shellcheck) is a static analysis tool for shell scripts.
