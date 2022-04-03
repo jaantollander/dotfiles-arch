@@ -1,6 +1,10 @@
 fpath=($ZDOTDIR/external $fpath)
 
+## --- Source common interactive scripts ---
+source $XDG_CONFIG_HOME/shell/interactive.sh
 
+
+## --- Environment Variables ---
 # History filepath
 export HISTFILE="$ZDOTDIR/.zhistory"
 
@@ -9,10 +13,6 @@ export HISTSIZE=10000
 
 # Maximum events in history file
 export SAVEHIST=10000
-
-
-## Source common interactive scripts
-source $XDG_CONFIG_HOME/shell/interactive.sh
 
 
 ## --- Filesystem Navigation ---
