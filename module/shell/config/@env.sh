@@ -7,7 +7,3 @@ if test -d $DIR; then
     unset f
 fi
 unset DIR
-
-# Set the default editor
-export EDITOR="nvim"
-export VISUAL="nvim"

@@ -5,14 +5,12 @@ DIR=$HOME/.config/X11/xinitrc
 if [ -d $DIR ]; then
     # Merge xresources
     for f in $DIR/*.xresources; do
-        [ -f $f ] && xrdb -merge $f
+        [ -r $f ] && xrdb -merge $f
     done
-
     # Source scripts
     for f in $DIR/*.sh; do
-        [ -f $f ] && . $f
+        [ -r $f ] && . $f
     done
-
     unset f
 fi
 
@@ -30,5 +28,11 @@ xset s off
 xset s noblank
 xset -dpms
 
-# Start i3 window manager
-exec i3
+# Start Graphical User Interface (window manager or desktop environment)
+START_GUI=$HOME/.config/X11/start_gui.sh
+
+if test -r $START_GUI; then
+    . $START_GUI
+fi
+
+unset START_GUI

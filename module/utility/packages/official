@@ -14,3 +14,4 @@ mupdf
 feh
 jq
 argbash
+shellcheck
