@@ -8,8 +8,6 @@ dos2unix
 sqlite3
 ghostscript
 poppler
-pandoc
-texlive-most
 mupdf
 feh
 jq
