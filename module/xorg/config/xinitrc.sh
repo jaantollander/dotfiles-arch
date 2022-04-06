@@ -2,14 +2,14 @@
 
 DIR=$HOME/.config/X11/xinitrc
 
-if [ -d $DIR ]; then
+if test -d "$DIR"; then
     # Merge xresources
-    for f in $DIR/*.xresources; do
-        [ -r $f ] && xrdb -merge $f
+    for f in "$DIR"/*.xresources; do
+        test -r "$f" && xrdb -merge "$f"
     done
     # Source scripts
-    for f in $DIR/*.sh; do
-        [ -r $f ] && . $f
+    for f in "$DIR"/*.sh; do
+        test -r "$f" && . "$f"
     done
     unset f
 fi
@@ -31,8 +31,8 @@ xset -dpms
 # Start Graphical User Interface (window manager or desktop environment)
 START_GUI=$HOME/.config/X11/start_gui.sh
 
-if test -r $START_GUI; then
-    . $START_GUI
+if test -r "$START_GUI"; then
+    . "$START_GUI"
 fi
 
 unset START_GUI

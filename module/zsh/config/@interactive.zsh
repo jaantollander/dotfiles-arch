@@ -70,18 +70,3 @@ bindkey -s '^p' 'tmux\n'
 ## --- Syntax Highlighting ---
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-
-## --- PATH ---
-# Copied from "/etc/profile"
-# Append "$1" to $PATH when not already in.
-append_path () {
-    case ":$PATH:" in
-        *:"$1":*)
-            ;;
-        *)
-            PATH="${PATH:+$PATH:}$1"
-    esac
-}
-
-# Append local binaries to path
-append_path $XDG_BIN_HOME
