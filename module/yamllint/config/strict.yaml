@@ -1,0 +1,54 @@
+---
+# These rules are inspired by StrictYAML syntax.
+# https://hitchdev.com/strictyaml/
+
+yaml-files:
+  - '*.yaml'
+  - '*.yml'
+  - '.yamllint'
+
+rules:
+  braces:
+    forbid: true
+  brackets:
+    forbid: true
+  colons:
+    max-spaces-before: 0
+  commas: 'disable'
+  comments:
+    require-starting-space: true
+    ignore-shebangs: true
+    min-spaces-from-content: 2
+    level: 'warning'
+  comments-indentation:
+    level: 'warning'
+  document-end: 'disable'
+  document-start: 'disable'
+  empty-lines: 'enable'
+  empty-values:
+    forbid-in-block-mappings: true
+    forbid-in-flow-mappings: true
+  hyphens:
+    max-spaces-after: 1
+  indentation:
+    spaces: 'consistent'
+    indent-sequences: true
+  key-duplicates: 'enable'
+  key-ordering: 'disable'
+  line-length: 'disable'
+  new-line-at-end-of-file: 'enable'
+  new-lines: 'enable'
+  octal-values:
+    forbid-implicit-octal: true
+    forbid-explicit-octal: true
+  quoted-strings:
+    quote-type: 'any'
+    required: true
+  trailing-spaces:
+    level: 'warning'
+  truthy:
+    allowed-values:
+      - 'true'
+      - 'false'
+    check-keys: false
+    level: 'warning'
