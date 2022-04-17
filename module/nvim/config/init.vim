@@ -56,3 +56,8 @@ augroup END
 
 " Config for fzf.vim (BONUS :D)
 nnoremap <leader>f :Files<cr>
+
+" Display invisible characters
+" set listchars=tab:→\ ,space:· ",nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
+set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»
+set list
