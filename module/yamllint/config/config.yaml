@@ -1,0 +1,71 @@
+yaml-files:
+  # Define which yaml files we should validate.
+  - '*.yaml'
+  - '*.yml'
+  - '.yamllint'
+
+rules:
+  # --- Strict Syntax ---
+  # These rules are influenced by StrictYAML syntax.
+  # https://hitchdev.com/strictyaml/
+  #
+  # - Disable flow style (braces and brackets).
+  # - Forbid duplicate keys.
+  # - Enfore better type safety by requiring to quote strings.
+  # - Forbid empty values (implicit null).
+  # - Require truthy values to be either `true` or `false`.
+  braces:
+    forbid: true
+  brackets:
+    forbid: true
+  document-end: 'disable'
+  document-start: 'disable'
+  empty-values:
+    forbid-in-block-mappings: true
+    forbid-in-flow-mappings: true
+  key-duplicates: 'enable'
+  key-ordering: 'disable'
+  new-line-at-end-of-file: 'enable'
+  octal-values:
+    forbid-implicit-octal: true
+    forbid-explicit-octal: true
+  quoted-strings:
+    quote-type: 'any'
+    required: true
+  truthy:
+    allowed-values:
+      - 'true'
+      - 'false'
+    check-keys: false
+    level: 'warning'
+
+  # --- Visual ---
+  # Define visual formatting rules for concise, human-readable yaml.
+  indentation:
+    spaces: 2  # 'consistent'
+    indent-sequences: true
+  colons:
+    max-spaces-before: 0
+  hyphens:
+    max-spaces-after: 1
+  commas:
+    max-spaces-before: 0
+    min-spaces-after: 1
+    max-spaces-after: 1
+    level: 'warning'
+  comments:
+    require-starting-space: true
+    min-spaces-from-content: 2
+    ignore-shebangs: true
+    level: 'warning'
+  comments-indentation:
+    level: 'warning'
+  empty-lines:
+    max: 1
+    level: 'warning'
+  new-lines:
+    type: 'unix'
+    level: 'warning'
+  line-length: 'disable'
+  trailing-spaces:
+    level: 'warning'
