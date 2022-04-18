@@ -3,15 +3,19 @@ rules:
   # These rules are influenced by StrictYAML syntax.
   # https://hitchdev.com/strictyaml/
   #
-  # - Disable flow style (braces and brackets).
+  # - Disable flow style, except empty braces and brackets.
   # - Forbid duplicate keys.
   # - Enfore better type safety by requiring to quote strings.
-  # - Forbid empty values (implicit null).
+  # - Forbid empty values. Use
+  #   - empty string: ""
+  #   - empty value: null
+  #   - empty list: []
+  #   - empty map: {}
   # - Require truthy values to be either `true` or `false`.
   braces:
-    forbid: true
+    forbid: 'non-empty'
   brackets:
-    forbid: true
+    forbid: 'non-empty'
   document-end: 'disable'
   document-start: 'disable'
   empty-values:
