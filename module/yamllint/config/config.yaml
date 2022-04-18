@@ -1,9 +1,3 @@
-yaml-files:
-  # Define which yaml files we should validate.
-  - '*.yaml'
-  - '*.yml'
-  - '.yamllint'
-
 rules:
   # --- Strict Syntax ---
   # These rules are influenced by StrictYAML syntax.
