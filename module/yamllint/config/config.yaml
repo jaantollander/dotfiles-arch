@@ -1,21 +1,29 @@
 rules:
   # --- Strict Syntax ---
-  # These rules are influenced by StrictYAML syntax.
+  # These rules are inspired by StrictYAML syntax.
   # https://hitchdev.com/strictyaml/
   #
-  # - Disable flow style, except empty braces and brackets.
-  # - Forbid duplicate keys.
+  # Ther rules in summary:
+  # - Warn about flow style (braces and brackets).
+  #   Allow empty braces and brackets as there is no other way
+  #   to denote empty map or list in yaml.
   # - Enfore better type safety by requiring to quote strings.
+  # - Forbid duplicate keys.
   # - Forbid empty values. Use
-  #   - empty string: ""
   #   - empty value: null
+  #   - empty string: '' or ""
   #   - empty list: []
   #   - empty map: {}
-  # - Require truthy values to be either `true` or `false`.
+  # - Require truthy values to `true` or `false`.
+  indentation:
+    spaces: 'consistent'
+    indent-sequences: true
   braces:
     forbid: 'non-empty'
+    level: 'warning'
   brackets:
     forbid: 'non-empty'
+    level: 'warning'
   document-end: 'disable'
   document-start: 'disable'
   empty-values:
@@ -39,9 +47,6 @@ rules:
 
   # --- Visual ---
   # Define visual formatting rules for concise, human-readable yaml.
-  indentation:
-    spaces: 2  # 'consistent'
-    indent-sequences: true
   colons:
     max-spaces-before: 0
   hyphens:
