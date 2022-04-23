@@ -1,34 +1,37 @@
+# Rules for Yamllint.
+# - https://github.com/adrienverge/yamllint
+#
+# Documentation about yamllint rules.
+# - https://yamllint.readthedocs.io/en/stable/rules.html
+
 rules:
   # --- Strict Syntax ---
   # These rules are inspired by StrictYAML syntax.
-  # https://hitchdev.com/strictyaml/
+  # - https://hitchdev.com/strictyaml/
   #
-  # Ther rules in summary:
-  # - Warn about flow style (braces and brackets).
-  #   Allow empty braces and brackets as there is no other way
-  #   to denote empty map or list in yaml.
+  # There is no rule to forbid implicit typing with yamllint. We should avoid
+  # using implicit types such as `null`, `true`, `false` and use strings
+  # insteads or leave value empty for no value.
+  #
+  # The rules in summary:
   # - Enfore better type safety by requiring to quote strings.
+  # - Warn about flow style, that is, braces and brackets.
   # - Forbid duplicate keys.
-  # - Forbid empty values. Use
-  #   - empty value: null
-  #   - empty string: '' or ""
-  #   - empty list: []
-  #   - empty map: {}
-  # - Require truthy values to `true` or `false`.
+  # - Allow empty values. Let the parser decide the correct empty value.
+  # - Require truthy values to `true` or `false` since they are commonly used
+  #   in configurations.
   indentation:
     spaces: 'consistent'
     indent-sequences: true
   braces:
-    forbid: 'non-empty'
+    forbid: true
     level: 'warning'
   brackets:
-    forbid: 'non-empty'
+    forbid: true
     level: 'warning'
   document-end: 'disable'
   document-start: 'disable'
-  empty-values:
-    forbid-in-block-mappings: true
-    forbid-in-flow-mappings: true
+  empty-values: 'disable'
   key-duplicates: 'enable'
   key-ordering: 'disable'
   new-line-at-end-of-file: 'enable'
