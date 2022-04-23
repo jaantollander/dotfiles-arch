@@ -7,7 +7,7 @@ This repository contains my files and scripts for installing [Arch Linux](https:
 
 I began the journey to build a custom configuration by reading the book [**Building your Mouseless Development Environment**](https://themouseless.dev/) by [Matthieu Cneude](https://github.com/Phantas0s). So if you are interested in building your configuration, I recommend reading his book first! The contents of this repository will make much more sense afterward.
 
-Furthermore, I recommend reading the [**Linux Pocket Guide**](https://linuxpocketguide.com/) by *Daniel J. Barret*. It is a concise guide to the essential Linux commands. These commands are fundamental for using Linux from the command line and the configuration presented in this repository.
+Furthermore, I recommend reading first the [**Linux Pocket Guide**](https://linuxpocketguide.com/) and then [**Efficient Linux at the Command Line**](https://efficientlinux.com/) by *Daniel J. Barret*. His books give a concise guide to the essential Linux commands and how to use the command line effectively. Knowing these Linux commands and how to use the command line is fundamental for the configuration presented in this repository. 
 
 
 ## Philosophy
