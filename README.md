@@ -63,7 +63,7 @@ Terminal:
 - Emulator: [*rxvt-unicode*](https://wiki.archlinux.org/title/rxvt-unicode) with [*resize-font*](https://github.com/simmel/urxvt-resize-font) plugin
 - Multiplexer: [*tmux*](https://github.com/tmux/tmux)
 - Shell: [*Zsh*](https://wiki.archlinux.org/title/zsh)
-- Editor: [*Neovim*](https://neovim.io/)
+- Editor: [*Neovim*](https://neovim.io/) with [*Vim Plug*](https://github.com/junegunn/vim-plug) plugin manager
 
 Command-line utilities: 
 
@@ -162,6 +162,6 @@ Here is a list of some helpful resources for developing dotfiles.
 
 - The [xsh](https://github.com/sgleizes/xsh) framework provides conventions for managing shell configuration consistently.
 
-- *Dylanaraps* has written the [pure bash bible](https://github.com/dylanaraps/pure-bash-bible) and the [pure sh bible](https://github.com/dylanaraps/pure-sh-bible) which are excellent resources for writing better bash and posix shell scripts.
+- *Dylanaraps* has written the [pure bash bible](https://github.com/dylanaraps/pure-bash-bible), [pure sh bible](https://github.com/dylanaraps/pure-sh-bible), and [how to write TUI in Bash](https://github.com/dylanaraps/writing-a-tui-in-bash) which are excellent resources for writing better bash and posix shell scripts. He has also written many other interesting projects using shell scripting such as [neofetch](https://github.com/dylanaraps/neofetch), [pfetch](https://github.com/dylanaraps/pfetch), [fff](https://github.com/dylanaraps/fff), [pash](https://github.com/dylanaraps/pash), [torque](https://github.com/dylanaraps/torque), and [shfm](https://github.com/dylanaraps/shfm/)!
 
 - [ShellCheck](https://github.com/koalaman/shellcheck) is a static analysis tool for shell scripts.
