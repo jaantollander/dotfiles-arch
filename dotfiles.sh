@@ -4,62 +4,66 @@ export DOTFILES="$HOME/dotfiles/module"
 
 
 install() {
-    MODULE=$1
-    source $DOTFILES/$1/install.sh
-}
-
-
-_add_packages() {
-    TMP=$1
-    MODULE=$2
-    PKGS=$DOTFILES/$MODULE/packages
-    if [[ -f $PKGS/official ]]; then
-        cat $PKGS/official >> $TMP/official
-    fi
-    if [[ -f $PKGS/aur ]]; then
-        cat $PKGS/aur >> $TMP/aur
-    fi
+    MODULE="$1"
+    source "$DOTFILES/$1/install.sh"
 }
 
 packages() {
     # Arguments
     MODULES=$*
 
+    # Collect all modules and their dependecies
+    declare -A ALL_MODULES
+    for MODULE in $MODULES; do
+        if [[ -z ${ALL_MODULES[$MODULE]} ]]; then
+            echo "module: $MODULE"
+            ALL_MODULES[$MODULE]="1"
+            DEPS="$DOTFILES/$MODULE/dependencies"
+            if [[ -f "$DEPS" ]]; then
+                while read -r MODULE_DEP; do
+                    if [[ -z ${ALL_MODULES[$MODULE_DEP]} ]]; then
+                        echo "module: $MODULE_DEP"
+                        ALL_MODULES[$MODULE_DEP]="1"
+                    fi
+                done < "$DEPS"
+            fi
+        fi
+    done
+
+    # Collect and install packages from official repositories and AUR
+    OFFICIAL=()
+    AUR=()
+
+    for MODULE in "${!ALL_MODULES[@]}"; do
+        FILE="$DOTFILES/$MODULE/packages/official"
+        [ -r "$FILE" ] && OFFICIAL+=("$FILE")
+        FILE="$DOTFILES/$MODULE/packages/aur"
+        [ -r "$FILE" ] && AUR+=("$FILE")
+    done
+
     # If "yay" is not installed exit with error.
-    if [[ ! $(command -v "yay") ]]; then
+    if [ ! "$(command -v "yay")" ]; then
         echo "Install Yay before installing packages."
-        echo "bash \$DOTFILES/yay/install.sh"
         exit 1
     fi
 
     # Sync, Refresh and Upgrade
     sudo pacman --sync --refresh --sysupgrade --color=auto
 
-    # Collect and install packages from official repositories and AUR
-    TMP=`mktemp -d`
-    echo "" > $TMP/official
-    echo "" > $TMP/aur
+    # shellcheck disable=2068
+    if [[ -n "${OFFICIAL[*]}" ]]; then
+        cat ${OFFICIAL[@]} \
+            | sort \
+            | uniq \
+            | sudo pacman --sync --needed --color=auto -
+    fi
 
-    for MODULE in $MODULES; do
-        _add_packages $TMP $MODULE
-        DEPS=$DOTFILES/$MODULE/dependencies
-        if [[ -f $DEPS ]]; then
-            for DEP in `cat $DEPS`; do
-                _add_packages $TMP $DEP
-            done
-        fi
-    done
-
-    sudo pacman --sync --needed --color=auto `cat $TMP/official | sort | uniq`
-    yay --sync --needed --color=auto `cat $TMP/aur | sort | uniq`
-}
-
-
-_config() {
-    MODULE=$1
-    if [[ -f $DOTFILES/$MODULE/config.sh ]]; then
-        echo "Configuring \"$MODULE\""
-        source $DOTFILES/$MODULE/config.sh
+    # shellcheck disable=2068
+    if [[ -n "${AUR[*]}" ]]; then
+        cat ${AUR[@]} \
+            | sort \
+            | uniq \
+            | yay --sync --needed --color=auto -
     fi
 }
 
@@ -67,18 +71,33 @@ config() {
     # Arguments
     MODULES=$*
 
-    # Define and create base and user directories
-    source $DOTFILES/xdg/config/@env.sh
-    source $DOTFILES/xdg/config/@login.sh
-    
-    # Config modules
+    # Collect all modules and their dependecies
+    declare -A ALL_MODULES
     for MODULE in $MODULES; do
-        _config $MODULE
-        DEPS=$DOTFILES/$MODULE/dependencies
-        if [[ -f $DEPS ]]; then
-            for DEP in `cat $DEPS`; do
-                _config $DEP
-            done
+        if [[ -z ${ALL_MODULES[$MODULE]} ]]; then
+            echo "module: $MODULE"
+            ALL_MODULES[$MODULE]="1"
+            DEPS="$DOTFILES/$MODULE/dependencies"
+            if [[ -f "$DEPS" ]]; then
+                while read -r MODULE_DEP; do
+                    if [[ -z ${ALL_MODULES[$MODULE_DEP]} ]]; then
+                        echo "module: $MODULE_DEP"
+                        ALL_MODULES[$MODULE_DEP]="1"
+                    fi
+                done < "$DEPS"
+            fi
+        fi
+    done
+
+    # Define and create base and user directories
+    source "$DOTFILES/xdg/config/@env.sh"
+    source "$DOTFILES/xdg/config/@login.sh"
+
+    # Config modules
+    for MODULE in "${!ALL_MODULES[@]}"; do
+        if [[ -r $DOTFILES/$MODULE/config.sh ]]; then
+            echo "config: $MODULE"
+            source "$DOTFILES/$MODULE/config.sh"
         fi
     done
 }
@@ -110,7 +129,7 @@ function help() {
 # Print help message on:
 # `./dotfiles.sh`
 # `./dotfiles.sh help`
-if [[ -z $* ]]; then
+if [ -z "$*" ]; then
     help
 fi
 
