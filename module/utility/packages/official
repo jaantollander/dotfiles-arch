@@ -10,6 +10,7 @@ ghostscript
 poppler
 mupdf
 feh
-jq
 argbash
 shellcheck
+jq
+go-yq

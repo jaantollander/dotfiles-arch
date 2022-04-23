@@ -1,15 +1,15 @@
-## Configure `ls` if `lsd` is not installed
-if [[ ! $(command -v "lsd") ]]; then
+# Configure `ls` if `lsd` is not installed
+if [ ! "$(command -v "lsd")" ]; then
     alias ls='ls --color=auto'
     alias l='ls -l'
     alias la='ls -a'
     alias ll='ls -lah'
 fi
 
-## Configure `grep`
+# Configure `grep`
 alias grep='grep --color=auto'
 
-## Find
+# Find
 find_broken_links() {
-    find $1 -xtype l
+    find "$1" -xtype l
 }
