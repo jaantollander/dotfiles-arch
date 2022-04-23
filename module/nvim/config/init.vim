@@ -6,6 +6,7 @@ call plug#begin("$XDG_CONFIG_HOME/nvim/plugged")
     Plug 'junegunn/fzf.vim'
     Plug 'simnalamburt/vim-mundo'
     Plug 'christoomey/vim-tmux-navigator'
+    Plug 'dense-analysis/ale'
 call plug#end()
 
 set clipboard+=unnamedplus
@@ -61,3 +62,6 @@ nnoremap <leader>f :Files<cr>
 " set listchars=tab:→\ ,space:· ",nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
 set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»
 set list
+
+" Line length indicator
+set colorcolumn=80

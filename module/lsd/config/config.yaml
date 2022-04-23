@@ -10,12 +10,12 @@ classic: false
 # layout.
 # Possible values: permission, user, group, size, size_value, date, name, inode
 blocks:
-  - permission
-  - user
-  - group
-  - size
-  - date
-  - name
+  - "permission"
+  - "user"
+  - "group"
+  - "size"
+  - "date"
+  - "name"
 
 # == Color ==
 # This has various color options. (Will be expanded in the future.)
@@ -23,14 +23,14 @@ color:
   # When to colorize the output.
   # When "classic" is set, this is set to "never".
   # Possible values: never, auto, always
-  when: auto
+  when: "auto"
   # How to colorize the output.
   # When "classic" is set, this is set to "no-color".
   # Possible values: default, <theme-file-name>
   # when specifying <theme-file-name>, lsd will look up theme file
   # XDG Base Directory if relative, e.g. ~/.config/lsd/themes/<theme-file-name>.yaml,
   # The file path if absolute
-  theme: default
+  theme: "default"
 
 # == Date ==
 # This specifies the date format for the date column. The freeform format
@@ -38,7 +38,7 @@ color:
 # When "classic" is set, this is set to "date".
 # Possible values: date, relative, '+<date_format>'
 # `date_format` will be a `strftime` formatted value. e.g. `date: '+%d %b %y %X'` will give you a date like this: 17 Jun 21 20:14:55
-date: "+%Y-%m-%d" 
+date: "+%Y-%m-%d"
 
 # == Dereference ==
 # Whether to dereference symbolic links.
@@ -55,10 +55,10 @@ icons:
   # When to use icons.
   # When "classic" is set, this is set to "never".
   # Possible values: always, auto, never
-  when: auto
+  when: "auto"
   # Which icon theme to use.
   # Possible values: fancy, unicode
-  theme: fancy
+  theme: "fancy"
   # Separator between icon and the name
   # Default to 1 space
   separator: " "
@@ -66,7 +66,7 @@ icons:
 # == Ignore Globs ==
 # A list of globs to ignore when listing.
 ignore-globs:
-  - .git
+  - ".git"
 
 # == Indicators ==
 # Whether to add indicator characters to certain listed files.
@@ -77,7 +77,7 @@ indicators: false
 # Which layout to use. "oneline" might be a bit confusing here and should be
 # called "one-per-line". It might be changed in the future.
 # Possible values: grid, tree, oneline
-layout: grid
+layout: "grid"
 
 # == Recursion ==
 recursion:
@@ -91,20 +91,20 @@ recursion:
 # == Size ==
 # Specifies the format of the size column.
 # Possible values: default, short, bytes
-size: default
+size: "default"
 
 # == Sorting ==
 sorting:
   # Specify what to sort by.
   # Possible values: extension, name, time, size, version
-  column: name
+  column: "name"
   # Whether to reverse the sorting.
   # Possible values: false, true
   reverse: false
   # Whether to group directories together and where.
   # When "classic" is set, this is set to "none".
   # Possible values: first, last, none
-  dir-grouping: first
+  dir-grouping: "first"
 
 # == No Symlink ==
 # Whether to omit showing symlink targets
@@ -118,4 +118,4 @@ total-size: true
 
 # == Symlink arrow ==
 # Specifies how the symlink arrow display, chars in both ascii and utf8
-symlink-arrow: ⇒
+symlink-arrow: "⇒"
