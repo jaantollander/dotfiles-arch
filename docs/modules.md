@@ -1,28 +1,41 @@
 # Modules 
-I aim to structure the configuration files into modules. Each module contains its configuration and data files, and (indempotent) scripts for installing the packages and configuring the program as below.
+In this repository, we structure the configuration files into modules. Each module contains the configuration and data files and scripts for installing the packages and configurations of one or more programs or for a collection of other modules.
 
 ```text
 <module>
 ├── config
-│   └── <config-files> 
+│   └── <user-config-files>
+├── etc
+│   └── <system-wide-config-files>
 ├── data 
-│   └── <data-files> 
-├── packages 
+│   └── <user-data-files>
+├── packages
 │   ├── aur
-│   └── official 
+│   └── official
 ├── config.sh
+├── etc.sh
 └── dependencies
 ```
 
-Configurations for each program are located in `<module>` directory, named after the program, such as `nvim` for Neovim. 
+Configurations for each program are located in the `<module>` directory. The module name can be anything. However, we should prefer a name that describes the module's contents, such as the program name.
 
-- The `config` directory contains the config files for the module.
+- The `config/` directory contains user-specific configuration files.
 
-- The `data` directory contains the data files for the module. 
+- The `data/` directory contains the user-specific data files.
 
-- The `packages` directory contains the lists of required official and AUR packages for the module.
+- The `etc/` directory contains the system-wide configurations.
 
-- The `dependencies` contains list of other modules that current module depends on.
+- The `packages/` directory contains the lists of required packages.
 
-- The `config.sh` script, which creates configuration and data directories and copies or links the configuration and data files to their appropriate locations such as `$HOME` or `$XDG_CONFIG_HOME` for configuration files or `$XDG_DATA_HOME` for data files.
+  1) The `packages/official` file contains a newline-separated list of official packages.
+  2) The `packages/aur` file contains a newline-separated list of packages from the Arch User Repository (AUR).
 
+- The `dependencies` contain a newline-separated list of modules that the current module depends on.
+
+- The `config.sh` script created the user-specific configurations.
+
+- The `etc.sh` script creates the system-wide configurations.
+
+- We can define other configuration files and scripts for modules if need to.
+
+Configuration scripts create appropriate directories for the configurations and link or copy configuration files to these locations.
