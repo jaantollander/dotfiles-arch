@@ -19,6 +19,7 @@ udiskie
 pulse
 brightnessctl
 bluez
+pulseaudio-bluetooth
 maim
 fzf
 lsd
@@ -31,11 +32,8 @@ nvim
 tmux
 qt
 redshift
+mupdf
 zathura
 keepassxc
-hledger
 brave
 firefox
-nodejs
-python
-julia

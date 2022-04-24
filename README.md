@@ -80,7 +80,7 @@ Other tools:
 
 - Process Viewer: [*htop*](https://htop.dev/)
 - Password manager: [*KeePassXC*](https://keepassxc.org)
-- Document viewer: [*Zathura*](https://pwmt.org/projects/zathura/)
+- Document viewer: [*mupdf*](https://mupdf.com/), [*Zathura*](https://pwmt.org/projects/zathura/)
 - Plain text accounting: [*hledger*](https://hledger.org/)
 - Hosting Git repositories: [*GitHub CLI*](https://cli.github.com/)
 

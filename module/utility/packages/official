@@ -1,4 +1,3 @@
-base-devel
 coreutils
 dialog
 imagemagick
@@ -8,7 +7,6 @@ dos2unix
 sqlite3
 ghostscript
 poppler
-mupdf
 feh
 argbash
 shellcheck
