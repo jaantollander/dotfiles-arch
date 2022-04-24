@@ -1,7 +1,7 @@
-## System Startup
-It is useful to understand the execution order of configuration files on system startup. Here is a summary:
+## Login Shell
+It is useful to understand the execution order of configuration files for the login shell. Here is a summary:
 
-1) First, we boot the computer and login, which starts the login shell. We have set it to `zsh`. 
+1) After booting the computer we arrive to the login menu. By logging in, we start the login shell, `zsh` in our case.
 
 2) Starting zsh first sets environment variables from [`zshenv`](../zsh/config/zshenv) file. 
 

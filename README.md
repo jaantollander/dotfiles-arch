@@ -139,10 +139,10 @@ Finally, install configs for the target module.
 ## Documentation
 The [**documentation**](./docs) contains a more detailed configuration overview.
 
+- [Modules](./docs/modules.md)
 - [Key Bindings](./docs/key-bindings.md)
 - [Style](./docs/style.md)
-- [System Startup](./docs/system-startup.md)
-- [Modules](./docs/modules.md)
+- [Login Shell](./docs/login-shell.md)
 
 
 ## Resources
