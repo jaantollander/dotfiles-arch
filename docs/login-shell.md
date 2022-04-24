@@ -14,7 +14,7 @@ It is useful to understand the execution order of configuration files for the lo
     - `.xinitrc` (`xinitrc.sh`)
       - `exec i3` -> `i3`'s `config`
 - `$ZDOTDIR.zprofile` (`@login.zsh`)
-- `/etc/zsh/zshrc/
+- `/etc/zsh/zshrc/`
 - `@interactive.sh`
 - `$ZDOTDIR.zshrc` (`@interactive.zsh`)
 
