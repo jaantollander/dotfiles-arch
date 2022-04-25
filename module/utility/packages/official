@@ -12,3 +12,4 @@ argbash
 shellcheck
 jq
 go-yq
+pdf2svg
