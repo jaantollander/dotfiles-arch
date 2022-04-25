@@ -142,7 +142,7 @@ The [**documentation**](./docs) contains a more detailed configuration overview.
 - [Modules](./docs/modules.md)
 - [Key Bindings](./docs/key-bindings.md)
 - [Style](./docs/style.md)
-- [Login Shell](./docs/login-shell.md)
+- [Shell](./docs/shell.md)
 
 
 ## Resources
