@@ -58,4 +58,5 @@ help() {
 
 
 # Execute functions as arguments 
+# shellcheck disable=2048
 $*
