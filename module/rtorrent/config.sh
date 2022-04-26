@@ -1,3 +1,3 @@
-#!/bin/bash
-mkdir -p $HOME/rtorrent  # rtorrent files
-ln -sf $DOTFILES/rtorrent/config/rtorrent.rc $HOME/.rtorrent.rc
+#!/usr/bin/env sh
+mkdir -p "$HOME/.rtorrent"
+ln -sf "$DOTFILES/rtorrent/config/rtorrent.rc" "$HOME/.rtorrent.rc"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 mkdir -p "$HOME/.ssh"
 chmod u=rwx,g=,o= "$HOME/.ssh"
 

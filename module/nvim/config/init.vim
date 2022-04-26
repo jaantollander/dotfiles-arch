@@ -63,5 +63,6 @@ nnoremap <leader>f :Files<cr>
 set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»
 set list
 
-" Line length indicator
-set colorcolumn=80
+" Set column length and incidate characters exceeding the length
+set columns=80
+set colorcolumn=81
