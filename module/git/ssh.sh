@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 COMMENT="$1"
 ALGORITHM="ed25519"
 SUFFIX="git"

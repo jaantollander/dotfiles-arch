@@ -1,4 +1,4 @@
-if [ "$(command -v "lsd")" ]; then
+if test "$(command -v "lsd")"; then
     alias ls='lsd'
     alias l='ls -l'
     alias la='ls -A'
