@@ -13,21 +13,21 @@ Furthermore, I recommend reading first the [**Linux Pocket Guide**](https://linu
 ## Philosophy
 My configuration philosophy is to strive for a minimal, ergonomic, and composable configuration by avoiding skeuomorphic design and accepting that such configuration requires effort to learn. It builds upon the [Unix Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy). Here are the main principles:
 
-- **Keyboard Driven**: We should be able to use our configuration effectively without leaving the keyboard and use the mouse only for graphical tasks.
+**Keyboard Driven**: We should be able to use our configuration effectively without leaving the keyboard and use the mouse only for graphical tasks.
 
-- **Command-line Driven**: We should primarily use programs via Command-Line Interfaces on a command-line shell. Command-Line Clients (CLIs) are a simple, effective, and composable way to interact with programs compared to Graphical User Interfaces (GUIs).
+**Command-line Driven**: We should primarily use programs via Command-Line Interfaces on a command-line shell. Command-Line Clients (CLIs) are a simple, effective, and composable way to interact with programs compared to Graphical User Interfaces (GUIs).
 
-- **Use Built-in Software Tools and Avoid Unnecessary Dependencies**: We should aim to use the built-in software tools and operating system features and install additional software only if necessary.
+**Prefer Built-in Software Tools, Avoid Unnecessary Dependencies**: We should aim to use the built-in software tools and operating system features and install additional software only if necessary.
 
-- **Shell Scripting**: We should create shell scripts for repetitive or complex tasks. We should link the scripts to a single location and make them available throughout the system, similar to built-in commands.
+**Shell Scripting**: We should create shell scripts for repetitive or complex tasks. We should link the scripts to a single location and make them available throughout the system, similar to built-in commands.
 
-- **Search over Navigation**: We should use search whenever possible instead of navigating through menus.
+**Search over Navigation**: We should use search whenever possible instead of navigating through menus.
 
-- **Text over Binary**: We should use text files over binary. Text files are simple, universal, and searchable, and we can track changes to text files using version control.
+**Text over Binary**: We should use text files over binary. Text files are simple, universal, and searchable, and we can track changes to text files using version control.
 
-- **Modular Configuration**: Modularity makes it easier to change components and reason about dependencies.
+**Modular Configuration**: Modularity makes it easier to change components and reason about dependencies.
 
-- **Information Security is Essential**: Your data could get lost, be stolen, or hacked unless you protect it with encryption and backups.
+**Information Security is Essential**: Your data could get lost, be stolen, or hacked unless you protect it with encryption and backups.
 
 
 ## Arch Linux Setup
