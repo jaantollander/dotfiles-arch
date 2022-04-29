@@ -38,14 +38,11 @@ System:
 - Encrypted root and swap filesystems with an encrypted boot and boot from UEFI. Decrypts and mounts the entire encrypted system using a single LUKS passphrase entry. [Instructions by HardenedArray](https://gist.github.com/HardenedArray/ee3041c04165926fca02deca675effe1)
 - System and service manager: [systemd](https://systemd.io/)
 
-Key Bindings: 
+Key Bindings: VIM like key bindings
 
-- VIM like key bindings
+Font: *Inconsolata* [*Nerd Font*](https://www.nerdfonts.com/) 
 
-Style: 
-
-- Font: *Inconsolata* [*Nerd Font*](https://www.nerdfonts.com/) 
-- Theme: Dark, minimalistic theme.
+Style: Dark theme, minimalistic style.
 
 Desktop:
 
