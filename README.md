@@ -33,18 +33,18 @@ My configuration philosophy is to strive for a minimal, ergonomic, and composabl
 ## Arch Linux Setup
 Here is an overview of the setup and configurations. 
 
-System:
+**System**:
 
 - Encrypted root and swap filesystems with an encrypted boot and boot from UEFI. Decrypts and mounts the entire encrypted system using a single LUKS passphrase entry. [Instructions by HardenedArray](https://gist.github.com/HardenedArray/ee3041c04165926fca02deca675effe1)
 - System and service manager: [systemd](https://systemd.io/)
 
-Key Bindings: VIM like key bindings
+**Key Bindings**: VIM like key bindings
 
-Font: *Inconsolata* [*Nerd Font*](https://www.nerdfonts.com/) 
+**Font**: *Inconsolata* [*Nerd Font*](https://www.nerdfonts.com/) 
 
-Style: Dark theme, minimalistic style.
+**Style**: Dark theme, minimalistic style.
 
-Desktop:
+**Desktop**:
 
 - Window system: [*xorg*](https://www.x.org/)
 - Tiling window manager: [*i3*](https://i3wm.org/)
@@ -55,14 +55,14 @@ Desktop:
 - Bluetooth: [*bluez*](http://www.bluez.org/)
 - Screenshot: [*maim*](https://github.com/naelstrof/maim)
 
-Terminal:
+**Terminal**:
 
 - Emulator: [*rxvt-unicode*](https://wiki.archlinux.org/title/rxvt-unicode) with [*resize-font*](https://github.com/simmel/urxvt-resize-font) plugin
 - Multiplexer: [*tmux*](https://github.com/tmux/tmux)
 - Shell: [*Zsh*](https://wiki.archlinux.org/title/zsh)
 - Editor: [*Neovim*](https://neovim.io/) with [*Vim Plug*](https://github.com/junegunn/vim-plug) plugin manager
 
-Command-line utilities: 
+**Command-line utilities**: 
 
 - [*Core Utilities*](https://wiki.archlinux.org/title/Core_utilities)
 - Version Control: [*Git*](https://git-scm.com/)
@@ -73,7 +73,7 @@ Command-line utilities:
 - Improved cat: [*bat*](https://github.com/sharkdp/bat)
 - Simplified help pages: [*tldr*](https://tldr.sh/)
 
-Other tools:
+**Other tools**:
 
 - Process Viewer: [*htop*](https://htop.dev/)
 - Password manager: [*KeePassXC*](https://keepassxc.org)
