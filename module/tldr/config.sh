@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-tldr --print-completion "zsh" > "$DOTFILES/tldr/config/completion.zsh"
+tldr --print-completion "zsh" > "$DOTMODULE/tldr/config/completion.zsh"

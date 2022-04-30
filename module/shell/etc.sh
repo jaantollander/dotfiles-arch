@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-sudo cp "$DOTFILES/shell/etc/@login.sh" "/etc/profile"
+sudo cp "$DOTMODULE/shell/etc/@login.sh" "/etc/profile"

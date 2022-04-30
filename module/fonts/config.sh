@@ -13,13 +13,13 @@ EOF
 )
 
 # Download fonts if they don't exist
-mkdir -p "$DOTFILES/fonts/data"
+mkdir -p "$DOTMODULE/fonts/data"
 for FONT in $FONTS; do
-    FPATH=$DOTFILES/fonts/data/$FONT
+    FPATH=$DOTMODULE/fonts/data/$FONT
     if [ -f "$FPATH" ]; then
         curl "$BASE_URL/$FONT" --output="$FPATH"
     fi
 done
 
 mkdir -p "$XDG_DATA_HOME/fonts"
-cp -rf "$DOTFILES/fonts/data/"* "$XDG_DATA_HOME/fonts"
+cp -rf "$DOTMODULE/fonts/data/"* "$XDG_DATA_HOME/fonts"

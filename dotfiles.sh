@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
 
-export DOTFILES="$HOME/dotfiles/module"
+# Absolute path to dotfiles
+export DOTFILES="$HOME/dotfiles"
+export DOTMODULE="$DOTFILES/module"
+
+# Define and create base and user directories
+source "$DOTMODULE/xdg/config/@env.sh"
+source "$DOTMODULE/xdg/config/@login.sh"
 
 
 install() {
-    MODULE="$1"
-    source "$DOTFILES/$1/install.sh"
+    MODULE=$1
+    "./$DOTMODULE/$1/install.sh"
 }
 
 packages() {
@@ -18,7 +24,7 @@ packages() {
         if [[ -z ${ALL_MODULES[$MODULE]} ]]; then
             echo "module: $MODULE"
             ALL_MODULES[$MODULE]="1"
-            DEPS="$DOTFILES/$MODULE/dependencies"
+            DEPS="$DOTMODULE/$MODULE/dependencies"
             if [[ -f "$DEPS" ]]; then
                 while read -r MODULE_DEP; do
                     if [[ -z ${ALL_MODULES[$MODULE_DEP]} ]]; then
@@ -35,9 +41,9 @@ packages() {
     AUR=()
 
     for MODULE in "${!ALL_MODULES[@]}"; do
-        FILE="$DOTFILES/$MODULE/packages/official"
+        FILE="$DOTMODULE/$MODULE/packages/official"
         [ -r "$FILE" ] && OFFICIAL+=("$FILE")
-        FILE="$DOTFILES/$MODULE/packages/aur"
+        FILE="$DOTMODULE/$MODULE/packages/aur"
         [ -r "$FILE" ] && AUR+=("$FILE")
     done
 
@@ -77,7 +83,7 @@ config() {
         if [[ -z ${ALL_MODULES[$MODULE]} ]]; then
             echo "module: $MODULE"
             ALL_MODULES[$MODULE]="1"
-            DEPS="$DOTFILES/$MODULE/dependencies"
+            DEPS="$DOTMODULE/$MODULE/dependencies"
             if [[ -f "$DEPS" ]]; then
                 while read -r MODULE_DEP; do
                     if [[ -z ${ALL_MODULES[$MODULE_DEP]} ]]; then
@@ -89,21 +95,15 @@ config() {
         fi
     done
 
-    # Define and create base and user directories
-    source "$DOTFILES/xdg/config/@env.sh"
-    source "$DOTFILES/xdg/config/@login.sh"
-
     # Config modules
     for MODULE in "${!ALL_MODULES[@]}"; do
-        if [[ -r $DOTFILES/$MODULE/config.sh ]]; then
+        if [[ -x $DOTMODULE/$MODULE/config.sh ]]; then
             echo "config: $MODULE"
-            source "$DOTFILES/$MODULE/config.sh"
+            "./$DOTMODULE/$MODULE/config.sh"
         fi
     done
 }
 
-
-# Help message
 function help() {
     echo "Manage the Arch Linux configuration."
     echo ""
@@ -124,14 +124,12 @@ function help() {
     echo "  ./dotfiles.sh config <module1> <module2> <...>"
 }
 
-
 # Print help message on:
 # `./dotfiles.sh`
 # `./dotfiles.sh help`
 if [ -z "$*" ]; then
     help
 fi
-
 
 # Expose functions as arguments.
 $*
