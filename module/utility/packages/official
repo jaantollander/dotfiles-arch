@@ -9,7 +9,6 @@ ghostscript
 poppler
 feh
 argbash
-shellcheck
 jq
 go-yq
 pdf2svg

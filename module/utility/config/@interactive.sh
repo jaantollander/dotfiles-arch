@@ -1,5 +1,5 @@
 # Configure `ls` if `lsd` is not installed
-if [ ! "$(command -v "lsd")" ]; then
+if test -z  "$(command -v "lsd")"; then
     alias ls='ls --color=auto'
     alias l='ls -l'
     alias la='ls -a'
