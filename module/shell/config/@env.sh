@@ -1,3 +1,4 @@
+# shellcheck shell=sh
 # Source environment variables
 DIR=$HOME/.config/shell/env
 if test -d "$DIR"; then

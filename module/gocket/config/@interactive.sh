@@ -1,3 +1,4 @@
+# shellcheck shell=sh
 #!/usr/bin/env sh
 alias gocket_list='gh release list --repo Phantas0s/gocket'
 alias gocket_view='gh release view --repo Phantas0s/gocket'

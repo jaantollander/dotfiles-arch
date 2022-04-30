@@ -1,3 +1,4 @@
+# shellcheck shell=sh
 # Set our umask
 umask 077
 

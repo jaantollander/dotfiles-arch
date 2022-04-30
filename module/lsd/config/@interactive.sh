@@ -1,3 +1,4 @@
+# shellcheck shell=sh
 if test "$(command -v "lsd")"; then
     alias ls='lsd'
     alias l='ls -l'

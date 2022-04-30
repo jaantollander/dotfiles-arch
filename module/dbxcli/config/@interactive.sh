@@ -1,3 +1,4 @@
+# shellcheck shell=sh
 #!/usr/bin/env sh
 alias dbxcli_list='gh release list --repo dropbox/dbxcli'
 alias dbxcli_view='gh release view --repo dropbox/dbxcli'

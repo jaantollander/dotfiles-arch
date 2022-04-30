@@ -1,3 +1,4 @@
+# shellcheck shell=sh
 #!/usr/bin/env sh
 alias hugo_list='gh release list --repo gohugoio/hugo'
 alias hugo_view='gh release view --repo gohugoio/hugo'

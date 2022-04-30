@@ -1,3 +1,4 @@
+# shellcheck shell=sh
 alias tmuxl='tmux list-sessions'
 alias tmuxa='tmux attach-session'
 alias tmuxk='tmux kill-session'
@@ -16,7 +17,8 @@ ftmuxp() {
 
     create_new_session="Create New Session"
 
-    ID="${create_new_session}\n$ID"
+    ID="${create_new_session}
+$ID"
     ID="$(echo "$ID" | fzf | cut -d: -f1)"
 
     if test "$ID" = "${create_new_session}"; then

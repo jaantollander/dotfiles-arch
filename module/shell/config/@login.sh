@@ -1,3 +1,4 @@
+# shellcheck shell=sh
 # Source login scripts
 DIR=$HOME/.config/shell/login
 if test -d "$DIR"; then

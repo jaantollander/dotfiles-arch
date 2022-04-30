@@ -1,3 +1,4 @@
+# shellcheck shell=sh
 # Source scripts for interactive shell
 DIR=$HOME/.config/shell/interactive
 if test -d "$DIR"; then

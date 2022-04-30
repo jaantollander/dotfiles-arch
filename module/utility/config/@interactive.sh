@@ -1,3 +1,4 @@
+# shellcheck shell=sh
 # Configure `ls` if `lsd` is not installed
 if test -z  "$(command -v "lsd")"; then
     alias ls='ls --color=auto'
