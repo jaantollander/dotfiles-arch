@@ -1,5 +1,4 @@
 disable=SC1090
 disable=SC1091
-disable=SC2148
 enable=deprecate-which
 enable=avoid-nullary-conditions
