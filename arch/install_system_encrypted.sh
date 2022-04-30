@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 # This script is based on "Efficient UEFI Encrypted Root and Swap Arch Linux Installation 
 # with an ENCRYPTED BOOT" by HardenedArray. 

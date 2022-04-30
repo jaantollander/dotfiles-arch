@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 ## --- Parameters ---
 # Select the hard drive to install Arch Linux such as "/dev/sda" or `/dev/nvme0n1`. 

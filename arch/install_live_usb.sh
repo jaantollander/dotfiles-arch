@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # Resources
 # https://wiki.archlinux.org/title/USB_flash_installation_medium
