@@ -9,10 +9,10 @@ rm -rf "$XDG_CONFIG_HOME/zsh/external"
 ln -sf "$DOTMODULE/zsh/config/external" "$XDG_CONFIG_HOME/zsh"
 
 # If login shell is not zsh change it to zsh.
-if test "$SHELL" = "$(which zsh)"; then
+if test "$SHELL" = "$(command -v zsh)"; then
     echo "Zsh is already the login shell."
 else
     echo "Change the login shell to zsh."
     # Initiates a password prompt.
-    chsh -s "$(which zsh)"
+    chsh -s "$(command -v zsh)"
 fi

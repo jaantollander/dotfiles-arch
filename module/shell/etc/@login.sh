@@ -1,5 +1,3 @@
-# /etc/profile
-
 # Set our umask
 umask 077
 

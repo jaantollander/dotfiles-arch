@@ -54,7 +54,7 @@ packages() {
     done
 
     # If "yay" is not installed exit with error.
-    if [ ! "$(command -v "yay")" ]; then
+    if [ -z "$(command -v "yay")" ]; then
         echo "Install Yay before installing packages."
         exit 1
     fi
@@ -119,4 +119,4 @@ if [ -z "$*" ]; then
 fi
 
 # Expose functions as arguments.
-$*
+"$@"

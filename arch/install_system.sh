@@ -24,7 +24,7 @@ iwctl
 
 
 ## --- Wipe the hard drive ---
-dd if=/dev/zero of=$HARD_DISK bs=4M status=progress
+dd if=/dev/zero of="$HARD_DISK" bs=4M status=progress
 
 
 ## --- Enable network time synchronization --- 
@@ -115,7 +115,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 
 ## -- Set hostname ---
-echo $HOST_NAME > /etc/hostname
+echo "$HOST_NAME" > /etc/hostname
 
 
 ## --- Set hardware clock from system clock ---
@@ -139,8 +139,8 @@ passwd
 
 
 ## --- Create a new user and set password ---
-useradd -m -g wheel -s /bin/bash $USERNAME
-passwd $USERNAME
+useradd -m -g wheel -s /bin/bash "$USER_NAME"
+passwd "$USER_NAME"
 
 # Exit your system
 exit

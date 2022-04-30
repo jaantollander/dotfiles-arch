@@ -19,10 +19,10 @@ iwctl
 HARD_DISK=""  # For example, "/dev/sda" or "/dev/nvme0n1".
 
 # Over write the hard disk
-dd if=/dev/zero of=$HARD_DISK bs=4M status=progress
+dd if=/dev/zero of="$HARD_DISK" bs=4M status=progress
 
 # Create EFI and ROOT partitions
-gdisk $HARD_DISK
+gdisk "$HARD_DISK"
 
 # Clear all current partition data
 # 1) `o`
@@ -46,15 +46,15 @@ EFI=""  # For example: "/dev/sda1" or "/dev/nvme0n1p1"
 ROOT="" # For example: "/dev/sda2" or "/dev/nvme0n1p2"
 
 # Create FAT32 filesystem for the EFI partition 
-mkfs.vfat -F 32 $EFI 
+mkfs.vfat -F 32 "$EFI"
 
 # Encrypt and open your system partition
 EBOOT="encrypted-boot"
-cryptsetup -c aes-xts-plain64 -h sha512 -s 512 --use-random --type luks1 luksFormat $ROOT
-cryptsetup luksOpen $ROOT $EBOOT
+cryptsetup -c aes-xts-plain64 -h sha512 -s 512 --use-random --type luks1 luksFormat "$ROOT"
+cryptsetup luksOpen "$ROOT" "$EBOOT"
 
 # Create encrypted LVM partitions
-LVGROUP=arch
+LVGROUP="arch"
 pvcreate /dev/mapper/$EBOOT
 vgcreate $LVGROUP /dev/mapper/$EBOOT
 lvcreate -L 512M $LVGROUP -n swap
@@ -69,7 +69,7 @@ mount /dev/mapper/$LVGROUP-root /mnt
 swapon /dev/mapper/$LVGROUP-swap
 mkdir /mnt/boot
 mkdir /mnt/efi
-mount $EFI /mnt/efi
+mount "$EFI" /mnt/efi
 
 # Install Arch system
 pacstrap /mnt base base-devel grub efibootmgr dialog wpa_supplicant linux linux-headers nano dhcpcd iwd lvm2 linux-firmware man-pages
@@ -112,8 +112,8 @@ cd /
 dd bs=512 count=4 if=/dev/random of=crypto_keyfile.bin iflag=fullblock
 chmod 000 /crypto_keyfile.bin
 chmod 600 /boot/initramfs-linux*
-cryptsetup luksAddKey $ROOT /crypto_keyfile.bin
-cryptsetup luksDump $ROOT  # You should now see that LUKS Key Slots 0 and 1 are both occupied
+cryptsetup luksAddKey "$ROOT" /crypto_keyfile.bin
+cryptsetup luksDump "$ROOT"  # You should now see that LUKS Key Slots 0 and 1 are both occupied
 
 # Configure mkinitcpio with the correct FILES statement and proper HOOKS required for your initrd image:
 nano /etc/mkinitcpio.conf
