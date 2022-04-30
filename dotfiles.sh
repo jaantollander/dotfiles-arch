@@ -10,37 +10,43 @@ source "$DOTMODULE/xdg/config/@login.sh"
 
 
 install() {
-    MODULE=$1
-    "./$DOTMODULE/$1/install.sh"
+    local MODULE=$1
+    "$DOTMODULE/$1/install.sh"
 }
 
-packages() {
-    # Arguments
-    MODULES=$*
-
-    # Collect all modules and their dependecies
-    declare -A ALL_MODULES
-    for MODULE in $MODULES; do
+__dependencies() {
+    for MODULE in "$@"; do
         if [[ -z ${ALL_MODULES[$MODULE]} ]]; then
-            echo "module: $MODULE"
             ALL_MODULES[$MODULE]="1"
             DEPS="$DOTMODULE/$MODULE/dependencies"
             if [[ -f "$DEPS" ]]; then
-                while read -r MODULE_DEP; do
-                    if [[ -z ${ALL_MODULES[$MODULE_DEP]} ]]; then
-                        echo "module: $MODULE_DEP"
-                        ALL_MODULES[$MODULE_DEP]="1"
-                    fi
-                done < "$DEPS"
+                __dependencies "$(tr '\n' ' ' < "$DEPS")"
             fi
         fi
     done
+}
+
+dependencies() {
+    local MODULES=$*
+    local ALL_MODULES
+    declare -A ALL_MODULES
+    __dependencies "$MODULES"
+    echo "${!ALL_MODULES[@]}"
+}
+
+packages() {
+    local MODULES=$*
+    local ALL_MODULES
+    ALL_MODULES=$(dependencies "$MODULES")
 
     # Collect and install packages from official repositories and AUR
-    OFFICIAL=()
-    AUR=()
+    local OFFICIAL
+    local AUR
+    local FILE
+    declare -a OFFICIAL
+    declare -a AUR
 
-    for MODULE in "${!ALL_MODULES[@]}"; do
+    for MODULE in $ALL_MODULES; do
         FILE="$DOTMODULE/$MODULE/packages/official"
         [ -r "$FILE" ] && OFFICIAL+=("$FILE")
         FILE="$DOTMODULE/$MODULE/packages/aur"
@@ -74,32 +80,13 @@ packages() {
 }
 
 config() {
-    # Arguments
-    MODULES=$*
-
-    # Collect all modules and their dependecies
-    declare -A ALL_MODULES
-    for MODULE in $MODULES; do
-        if [[ -z ${ALL_MODULES[$MODULE]} ]]; then
-            echo "module: $MODULE"
-            ALL_MODULES[$MODULE]="1"
-            DEPS="$DOTMODULE/$MODULE/dependencies"
-            if [[ -f "$DEPS" ]]; then
-                while read -r MODULE_DEP; do
-                    if [[ -z ${ALL_MODULES[$MODULE_DEP]} ]]; then
-                        echo "module: $MODULE_DEP"
-                        ALL_MODULES[$MODULE_DEP]="1"
-                    fi
-                done < "$DEPS"
-            fi
-        fi
-    done
-
-    # Config modules
-    for MODULE in "${!ALL_MODULES[@]}"; do
+    local MODULES=$*
+    local ALL_MODULES
+    ALL_MODULES=$(dependencies "$MODULES")
+    for MODULE in $ALL_MODULES; do
         if [[ -x $DOTMODULE/$MODULE/config.sh ]]; then
             echo "config: $MODULE"
-            "./$DOTMODULE/$MODULE/config.sh"
+            "$DOTMODULE/$MODULE/config.sh"
         fi
     done
 }
