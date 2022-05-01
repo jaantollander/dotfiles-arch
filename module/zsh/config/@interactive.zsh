@@ -1,7 +1,9 @@
-fpath=($ZDOTDIR/external $fpath)
-
 ## --- Source common interactive scripts ---
 source $XDG_CONFIG_HOME/shell/interactive.sh
+
+
+## Add to fpath
+fpath=($ZDOTDIR/interactive $fpath)
 
 
 ## --- Environment Variables ---
@@ -16,7 +18,7 @@ export SAVEHIST=10000
 
 
 ## --- Filesystem Navigation ---
-source "$XDG_CONFIG_HOME/zsh/external/bd.zsh"
+source "$XDG_CONFIG_HOME/zsh/interactive/bd.zsh"
 
 # Push the current directory visited on to the stack.
 setopt AUTO_PUSHD
@@ -33,7 +35,7 @@ for index ({1..9}) alias "$index"="cd +${index}"; unset index
 
 
 ## --- Command Completion ---
-source $XDG_CONFIG_HOME/zsh/external/completion.zsh
+source $XDG_CONFIG_HOME/zsh/interactive/completion.zsh
 zmodload zsh/complist
 autoload -Uz compinit; compinit
 _comp_options+=(globdots) # With hidden files
