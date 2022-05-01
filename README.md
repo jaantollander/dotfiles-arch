@@ -30,7 +30,7 @@ My configuration philosophy is to strive for a minimal, ergonomic, and composabl
 **Information Security is Essential**: Your data could get lost, be stolen, or hacked unless you protect it with encryption and backups.
 
 
-## Arch Linux Setup
+## Configuration
 Here is an overview of the setup and configurations. 
 
 **System**:
@@ -92,11 +92,11 @@ List of the hardware I am using with my setup.
 - USB Flash Drive: *Kingston DataTraveler*
 
 
-## Installation Scripts
-### Arch Linux
+## Installing Arch Linux
 You can read my instructions for installing Arch Linux in the [**arch**](./arch) directory. It includes instructions with and without encryption and the post-installation steps.
 
-### Configurations 
+
+## Configuration Management
 First, let's install Git if we haven't already.
 
 ```bash
