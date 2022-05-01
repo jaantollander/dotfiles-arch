@@ -1,3 +1,2 @@
-# shellcheck shell=sh
-source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
+source "$XDG_CONFIG_HOME/zsh/interactive/fzf/completion.zsh"
+source "$XDG_CONFIG_HOME/zsh/interactive/fzf/key-bindings.zsh"
