@@ -16,6 +16,9 @@ export HISTSIZE=10000
 # Maximum events in history file
 export SAVEHIST=10000
 
+# fzf
+source "$XDG_CONFIG_HOME/zsh/interactive/fzf.zsh"
+
 
 ## --- Filesystem Navigation ---
 source "$XDG_CONFIG_HOME/zsh/interactive/bd.zsh"

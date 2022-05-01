@@ -12,3 +12,6 @@ argbash
 jq
 go-yq
 pdf2svg
+fd
+hyperfine
+hexyl

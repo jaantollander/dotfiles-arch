@@ -72,6 +72,7 @@ Here is an overview of the setup and configurations.
 - Improved ls and coloring: [*lsd*](https://github.com/Peltoche/lsd) and [*LS_COLORS*](https://github.com/trapd00r/LS_COLORS)
 - Improved cat: [*bat*](https://github.com/sharkdp/bat)
 - Simplified help pages: [*tldr*](https://tldr.sh/)
+- Improved find: [*fd*](https://github.com/sharkdp/fd)
 
 **Other tools**:
 
