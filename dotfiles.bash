@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 
-# Absolute path to dotfiles
+# Paths
 export DOTFILES="$HOME/dotfiles"
 export DOTMODULE="$DOTFILES/module"
+
+# File names
+DEPENDENCIES="dependencies"
+CONFIG="config.sh"
+PACKAGES_OFFICIAL="packages/official"
+PACKAGES_AUR="packages/aur"
 
 # Define and create base and user directories
 source "$DOTMODULE/xdg/config/@env.sh"
@@ -11,14 +17,14 @@ source "$DOTMODULE/xdg/config/@login.sh"
 
 install() {
     local MODULE=$1
-    "$DOTMODULE/$1/install.sh"
+    "$DOTMODULE/$MODULE/install.sh"
 }
 
 __dependencies() {
     for MODULE in "$@"; do
         if [[ -z ${ALL_MODULES[$MODULE]} ]]; then
             ALL_MODULES[$MODULE]="1"
-            DEPS="$DOTMODULE/$MODULE/dependencies"
+            DEPS="$DOTMODULE/$MODULE/$DEPENDENCIES"
             if [[ -f "$DEPS" ]]; then
                 __dependencies "$(tr '\n' ' ' < "$DEPS")"
             fi
@@ -27,34 +33,29 @@ __dependencies() {
 }
 
 dependencies() {
-    local MODULES=$*
-    local ALL_MODULES
+    local MODULES ALL_MODULES
+    MODULES=$*
     declare -A ALL_MODULES
     __dependencies "$MODULES"
     echo "${!ALL_MODULES[@]}"
 }
 
 packages() {
-    local MODULES=$*
-    local ALL_MODULES
-    ALL_MODULES=$(dependencies "$MODULES")
-
     # Collect and install packages from official repositories and AUR
-    local OFFICIAL
-    local AUR
-    local FILE
+    local MODULES OFFICIAL AUR FILE
+    MODULES=$*
     declare -a OFFICIAL
     declare -a AUR
 
-    for MODULE in $ALL_MODULES; do
-        FILE="$DOTMODULE/$MODULE/packages/official"
-        [ -r "$FILE" ] && OFFICIAL+=("$FILE")
-        FILE="$DOTMODULE/$MODULE/packages/aur"
-        [ -r "$FILE" ] && AUR+=("$FILE")
+    for MODULE in $(dependencies "$MODULES"); do
+        FILE="$DOTMODULE/$MODULE/$PACKAGES_OFFICIAL"
+        [[ -r "$FILE" ]] && OFFICIAL+=("$FILE")
+        FILE="$DOTMODULE/$MODULE/$PACKAGES_AUR"
+        [[ -r "$FILE" ]] && AUR+=("$FILE")
     done
 
     # If "yay" is not installed exit with error.
-    if [ -z "$(command -v "yay")" ]; then
+    if [[ -z "$(command -v "yay")" ]]; then
         echo "Install Yay before installing packages."
         exit 1
     fi
@@ -62,17 +63,15 @@ packages() {
     # Sync, Refresh and Upgrade
     sudo pacman --sync --refresh --sysupgrade --color=auto
 
-    # shellcheck disable=2068
-    if [[ -n "${OFFICIAL[*]}" ]]; then
-        cat ${OFFICIAL[@]} \
+    if [[ "${#OFFICIAL[@]}" -ge 0 ]]; then
+        cat "${OFFICIAL[@]}" \
             | sort \
             | uniq \
             | sudo pacman --sync --needed --color=auto -
     fi
 
-    # shellcheck disable=2068
-    if [[ -n "${AUR[*]}" ]]; then
-        cat ${AUR[@]} \
+    if [[ "${#AUR[@]}" -ge 0 ]]; then
+        cat "${AUR[@]}" \
             | sort \
             | uniq \
             | yay --sync --needed --color=auto -
@@ -81,12 +80,10 @@ packages() {
 
 config() {
     local MODULES=$*
-    local ALL_MODULES
-    ALL_MODULES=$(dependencies "$MODULES")
-    for MODULE in $ALL_MODULES; do
-        if [[ -x $DOTMODULE/$MODULE/config.sh ]]; then
+    for MODULE in $(dependencies "$MODULES"); do
+        if [[ -x "$DOTMODULE/$MODULE/$CONFIG" ]]; then
             echo "config: $MODULE"
-            "$DOTMODULE/$MODULE/config.sh"
+            "$DOTMODULE/$MODULE/$CONFIG"
         fi
     done
 }
@@ -96,25 +93,25 @@ function help() {
     echo ""
     echo "USAGE"
     echo "- General usage."
-    echo "  ./dotfiles.sh <operation> <args>"
+    echo "  ./dotfiles.bash <operation> <args>"
     echo ""
     echo "- Print help message."
-    echo "  ./dotfiles.sh help"
+    echo "  ./dotfiles.bash help"
     echo ""
     echo "- Run install script for a module."
-    echo "  ./dotfiles.sh install <module>"
+    echo "  ./dotfiles.bash install <module>"
     echo ""
     echo "- Install packages for one or more modules."
-    echo "  ./dotfiles.sh packages <module1> <module2> <...>"
+    echo "  ./dotfiles.bash packages <module1> <module2> <...>"
     echo ""
     echo "- Install configurations for one or more modules."
-    echo "  ./dotfiles.sh config <module1> <module2> <...>"
+    echo "  ./dotfiles.bash config <module1> <module2> <...>"
 }
 
 # Print help message on:
-# `./dotfiles.sh`
-# `./dotfiles.sh help`
-if [ -z "$*" ]; then
+# `./dotfiles.bash`
+# `./dotfiles.bash help`
+if [[ -z "$*" ]]; then
     help
 fi
 
