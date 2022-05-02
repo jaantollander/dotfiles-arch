@@ -1,4 +1,0 @@
-disable=SC1090
-disable=SC1091
-enable=deprecate-which
-enable=avoid-nullary-conditions
