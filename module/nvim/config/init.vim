@@ -64,5 +64,4 @@ set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»
 set list
 
 " Set column length and incidate characters exceeding the length
-set columns=80
 set colorcolumn=81
