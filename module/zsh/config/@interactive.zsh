@@ -1,5 +1,5 @@
 ## --- Source common interactive scripts ---
-emulate sh -c "source $XDG_CONFIG_HOME/shell/interactive.sh"
+emulate sh -c "source $XDG_CONFIG_HOME/posix/interactive.sh"
 
 
 ## Add to fpath

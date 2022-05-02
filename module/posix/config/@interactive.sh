@@ -1,6 +1,6 @@
 # shellcheck shell=sh
-# Source environment variables
-DIR=$HOME/.config/shell/env
+# Source scripts for interactive shell
+DIR=$HOME/.config/posix/interactive
 if test -d "$DIR"; then
     for f in "$DIR"/*.sh; do
         test -r "$f" && . "$f"
