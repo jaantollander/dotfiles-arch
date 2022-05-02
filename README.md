@@ -138,8 +138,6 @@ Finally, install configs for the target module.
 The [**documentation**](./docs) contains a more detailed configuration overview.
 
 - [Modules](./docs/modules.md)
-- [Key Bindings](./docs/key-bindings.md)
-- [Style](./docs/style.md)
 - [Shell](./docs/shell.md)
 
 
