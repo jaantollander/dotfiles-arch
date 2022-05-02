@@ -3,7 +3,7 @@
 
 
 ## About
-This repository contains my files and scripts for installing [Arch Linux](https://archlinux.org/) and configuring various software tools.
+This repository contains my files and scripts for installing [Arch Linux](https://archlinux.org/) and configuring various software tools. You are free to copy code, ideas, and structure from the configuration and modify them to your needs. My configuration is a constant work-in-progress, so expect lots of changes over time! I will also list books, code, and other material that has influenced this configuration or improved my Linux skills.
 
 I began the journey to build a custom configuration by reading the book [**Building your Mouseless Development Environment**](https://themouseless.dev/) by [Matthieu Cneude](https://github.com/Phantas0s). So if you are interested in building your configuration, I recommend reading his book first! The contents of this repository will make much more sense afterward.
 
@@ -44,6 +44,11 @@ Here is an overview of the setup and configurations.
 
 **Style**: Dark theme, minimalistic style.
 
+**Shell**:
+
+- The [xsh](https://github.com/sgleizes/xsh) framework provides conventions for managing shell configuration consistently.
+- Login shell: [*Zsh*](https://wiki.archlinux.org/title/zsh)
+
 **Desktop**:
 
 - Window system: [*xorg*](https://www.x.org/)
@@ -59,7 +64,6 @@ Here is an overview of the setup and configurations.
 
 - Emulator: [*rxvt-unicode*](https://wiki.archlinux.org/title/rxvt-unicode) with [*resize-font*](https://github.com/simmel/urxvt-resize-font) plugin
 - Multiplexer: [*tmux*](https://github.com/tmux/tmux)
-- Shell: [*Zsh*](https://wiki.archlinux.org/title/zsh)
 - Editor: [*Neovim*](https://neovim.io/) with [*Vim Plug*](https://github.com/junegunn/vim-plug) plugin manager
 
 **Command-line utilities**: 
@@ -67,12 +71,14 @@ Here is an overview of the setup and configurations.
 - [*Core Utilities*](https://wiki.archlinux.org/title/Core_utilities)
 - Version Control: [*Git*](https://git-scm.com/)
 - File transfer and backup: [*rsync*](https://rsync.samba.org/)
-- Search tools: [*ripgrep*](https://github.com/BurntSushi/ripgrep), [*ripgrep-all*](https://github.com/phiresky/ripgrep-all)
+- Colors for directory listings: [*LS_COLORS*](https://github.com/trapd00r/LS_COLORS)
 - Fuzzy finder: [*fzf*](https://github.com/junegunn/fzf)
-- Improved ls and coloring: [*lsd*](https://github.com/Peltoche/lsd) and [*LS_COLORS*](https://github.com/trapd00r/LS_COLORS)
 - Improved cat: [*bat*](https://github.com/sharkdp/bat)
-- Simplified help pages: [*tldr*](https://tldr.sh/)
 - Improved find: [*fd*](https://github.com/sharkdp/fd)
+- Improved ls: [*lsd*](https://github.com/Peltoche/lsd)
+- Improved grep: [*ripgrep*](https://github.com/BurntSushi/ripgrep), [*ripgrep-all*](https://github.com/phiresky/ripgrep-all)
+- Simplified help pages: [*tldr*](https://tldr.sh/)
+- [ShellCheck](https://github.com/koalaman/shellcheck) is a static analysis tool for shell scripts.
 
 **Other tools**:
 
@@ -156,8 +162,4 @@ Here is a list of some helpful resources for developing dotfiles.
 
 - We can use [Argbash](https://argbash.io/) for adding command-line arguments to Bash scripts.
 
-- The [xsh](https://github.com/sgleizes/xsh) framework provides conventions for managing shell configuration consistently.
-
 - *Dylanaraps* has written the [pure bash bible](https://github.com/dylanaraps/pure-bash-bible), [pure sh bible](https://github.com/dylanaraps/pure-sh-bible), and [how to write TUI in Bash](https://github.com/dylanaraps/writing-a-tui-in-bash) which are excellent resources for writing better bash and posix shell scripts. He has also written many other interesting projects using shell scripting such as [neofetch](https://github.com/dylanaraps/neofetch), [pfetch](https://github.com/dylanaraps/pfetch), [fff](https://github.com/dylanaraps/fff), [pash](https://github.com/dylanaraps/pash), [torque](https://github.com/dylanaraps/torque), and [shfm](https://github.com/dylanaraps/shfm/)!
-
-- [ShellCheck](https://github.com/koalaman/shellcheck) is a static analysis tool for shell scripts.
