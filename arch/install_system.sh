@@ -8,12 +8,6 @@ HARD_DISK=""
 # Set your swap size such as "4G" or "512M".
 SWAP_SIZE=""
 
-# Set your hostname for your computer, such as "arch".
-HOST_NAME="" 
-
-# Set your username
-USER_NAME=""
-
 
 ## --- Connect to the Internet ---
 # Make sure you are connected to the internet via ethernet cable or wi-fi.
@@ -115,7 +109,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 
 ## -- Set hostname ---
-echo "$HOST_NAME" > /etc/hostname
+echo "arch" > /etc/hostname
 
 
 ## --- Set hardware clock from system clock ---
@@ -139,6 +133,7 @@ passwd
 
 
 ## --- Create a new user and set password ---
+USER_NAME="jaan"
 useradd -m -g wheel -s /bin/bash "$USER_NAME"
 passwd "$USER_NAME"
 
