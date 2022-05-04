@@ -11,39 +11,67 @@
 
 
 ## --- On Live Booted Arch Linux ---
-# Connect to WiFi
-iwctl
+# Connect to WiFi if needed
+# iwctl
 # station <wlan-device-name> connect <wifi-station-name>
 
-# Choose a hard disk. 
-HARD_DISK=""  # For example, "/dev/sda" or "/dev/nvme0n1".
+# Choose a hard disk.
+# Example: "/dev/sda" or "/dev/nvme0n1"
+HARD_DISK=""
 
 # Over write the hard disk
 dd if=/dev/zero of="$HARD_DISK" bs=4M status=progress
 
-# Create EFI and ROOT partitions
-gdisk "$HARD_DISK"
+# Create EFI and ROOT partitions using `gdisk`.
+# 1.
+# - `o`           Clear all current partition data
+# - `y`           Accept
+# 2. Create first partition for EFI.
+# - `n`           Create new partition
+# - `1`           Partition number
+# - `<default>`   First sector
+# - `+100M`       Last sector
+# - `ef00`        Hex code for EFI partition type
+# 3. Create second partition for encrypted root and swap. 
+# - `n`           Create new partition
+# - `2`           Partition number
+# - `<default>`   First sector
+# - `<default>`   Last sector
+# - `8300`        Linux filesystem partition type 
+# 4.
+# - `w`           Write partitions to disk
+# - `y`           Accept
 
-# Clear all current partition data
-# 1) `o`
-# Create first partition for EFI.
-# 2) `n`           Create new partition
-# 3) `1`           Partition number
-# 4) `<default>`   First sector
-# 5) `+100M`       Last sector
-# 6) `ef00`        Hex code for EFI partition type
-# Create second partition for encrypted root and swap. 
-# 7) `n`           Create new partition
-# 8) `2`           Partition number
-# 9) `<default>`   First sector
-# 10) `<default>`  Last sector
-# 11) `8300`       Linux filesystem partition type 
-# Write partitions to disk
-# 12) `w`
+gdisk "$HARD_DISK" << EOF
+o
+y
+n
+1
+
++100M
+ef00
+n
+2
+
+
+8300
+w
+y
+EOF
 
 # We'll use the following variables to to denote the partitions.
-EFI=""  # For example: "/dev/sda1" or "/dev/nvme0n1p1"
-ROOT="" # For example: "/dev/sda2" or "/dev/nvme0n1p2"
+case "$HARD_DISK" in
+    "/dev/sd"*)
+        EFI="${HARD_DISK}1"
+        ROOT="${HARD_DISK}2"
+        ;;
+    "/dev/nvme"*)
+        EFI="${HARD_DISK}p1"
+        ROOT="${HARD_DISK}p2"
+        ;;
+    *) exit 1
+        ;;
+esac
 
 # Create FAT32 filesystem for the EFI partition 
 mkfs.vfat -F 32 "$EFI"
@@ -91,8 +119,7 @@ hwclock --systohc --utc
 #systemctl enable iwd
 
 # Create a hostname
-HOSTNAME="arch"
-echo $HOSTNAME > /etc/hostname
+echo "arch" > /etc/hostname
 
 # Set locale
 echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
@@ -116,26 +143,49 @@ cryptsetup luksAddKey "$ROOT" /crypto_keyfile.bin
 cryptsetup luksDump "$ROOT"  # You should now see that LUKS Key Slots 0 and 1 are both occupied
 
 # Configure mkinitcpio with the correct FILES statement and proper HOOKS required for your initrd image:
-nano /etc/mkinitcpio.conf
+# nano /etc/mkinitcpio.conf
 # Add or modify the following lines to the config:
 # FILES=(/crypto_keyfile.bin)
 # HOOKS=(base udev autodetect modconf block keymap encrypt lvm2 resume filesystems keyboard fsck)
+
+MATCH_FILES='^FILES=.*$'
+FILES='FILES=(/crypto_keyfile.bin)'
+
+MATCH_HOOKS='^HOOKS=.*$'
+HOOKS='HOOKS=(base udev autodetect modconf block keymap encrypt lvm2 resume filesystems keyboard fsck)'
+
+sed -e "s@$MATCH_FILES@$FILES@g" \
+    -e "s@$MATCH_HOOKS@$HOOKS@g" \
+    --in-place \
+    /etc/mkinitcpio.conf
 
 # Generate your initrd image
 mkinitcpio -p linux
 
 # Install and Configure Grub-EFI
-nano /etc/default/grub
+# nano /etc/default/grub
 # Uncomment the following line in the config:
 # GRUB_ENABLE_CRYPTODISK=y
+
+MATCH_GRUB_ENABLE_CRYPTODISK='^.*GRUB_ENABLE_CRYPTODISK.*$'
+GRUB_ENABLE_CRYPTODISK="GRUB_ENABLE_CRYPTODISK=y"
+sed -e "s@$MATCH_GRUB_ENABLE_CRYPTODISK@$GRUB_ENABLE_CRYPTODISK@g" \
+    --in-place \
+    /etc/default/grub
 
 # Install GRUB on an UEFI computer 
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=ArchLinux
 
 # Edit the default grub
-nano /etc/default/grub
+# nano /etc/default/grub
 # Substitute the correct values for the variables and add the line to the config:
 # GRUB_CMDLINE_LINUX="cryptdevice=$ROOT:$EBOOT resume=/dev/mapper/$LVGROUP-swap"
+
+MATCH_GRUB_CMDLINE_LINUX='^GRUB_CMDLINE_LINUX.*$'
+GRUB_CMDLINE_LINUX="GRUB_CMDLINE_LINUX=\"cryptdevice=$ROOT:$EBOOT resume=/dev/mapper/$LVGROUP-swap\""
+sed -e "s@$MATCH_GRUB_CMDLINE_LINUX@$GRUB_CMDLINE_LINUX@g" \
+    --in-place \
+    /etc/default/grub
 
 # Generate Your Final Grub Configuration:
 grub-mkconfig -o /boot/grub/grub.cfg

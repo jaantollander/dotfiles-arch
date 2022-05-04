@@ -3,7 +3,7 @@
 ## --- Parameters ---
 # Select the hard drive to install Arch Linux such as "/dev/sda" or `/dev/nvme0n1`. 
 # Use `lsblk -d` to list your block devices.
-HARD_DISK="" 
+HARD_DISK=""
 
 # Set your swap size such as "4G" or "512M".
 SWAP_SIZE=""
@@ -13,7 +13,7 @@ SWAP_SIZE=""
 # Make sure you are connected to the internet via ethernet cable or wi-fi.
 
 # You can use `iwctl` to connect to wi-fi.
-iwctl
+# iwctl
 # station <wlan-device-name> connect <wifi-station-name>
 
 
@@ -133,9 +133,9 @@ passwd
 
 
 ## --- Create a new user and set password ---
-USER_NAME="jaan"
-useradd -m -g wheel -s /bin/bash "$USER_NAME"
-passwd "$USER_NAME"
+USERNAME="jaan"
+useradd -m -g wheel -s /bin/bash "$USERNAME"
+passwd "$USERNAME"
 
 # Exit your system
 exit
