@@ -204,9 +204,6 @@ esac
 EBOOT="encrypted-boot"
 LVGROUP="arch"
 
-# Over write the hard disk
-dd if=/dev/zero of="$HARD_DISK" bs=4M status=progress
-
 # Prepare hard disk
 prepare_hard_disk "$HARD_DISK" "$EFI" "$ROOT" "$EBOOT" "$LVGROUP"
 

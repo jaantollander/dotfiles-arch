@@ -3,7 +3,7 @@
 Download Arch Linux ISO file from the Arch Linux website. After the download, there should exist an ISO file as below. 
 
 ```bash
-ls ~/downloads/archlinux-2022.01.01-x86_64.iso
+ls archlinux-2022.01.01-x86_64.iso
 ```
 
 Next, attach a USB drive to the computer and list block devices. The USB device should be listed. In the example, below is named `sdb` with partitions `1` and `2`. The block devices listed above are located in the `/dev/` directory. The path to the `sdb` is therefore `/dev/sdb`.
@@ -56,6 +56,12 @@ List your block devices and select the hard drive to install the operating syste
 lsblk -d
 ```
 
+Overwrite the hard drive with zeros to wipe all data from it.
+
+```bash
+dd if=/dev/zero of="$HARD_DISK" bs=4M status=progress
+```
+
 Run the installation script with hard disk as the argument.
 
 ```bash
@@ -65,7 +71,7 @@ bash install.sh $HARD_DISK
 There are also [manual instructions for installation](./encrypted/manual_install.sh).
 
 
-## Post Installation
+## Post Installation Steps
 First, log into the `root` user. Then, enable internet by plugging ethernet cable or using wi-fi. Let's start the `iw` and `dhcpc` daemons.
 
 ```bash
