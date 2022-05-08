@@ -26,7 +26,7 @@ timedatectl set-ntp true
 
 
 ## --- Boot type: BIOS or UEFI ---
-if [ -f /sys/firmware/efi/efivars ]; then
+if [ -d /sys/firmware/efi/efivars ]; then
     boot_type="uefi"
     boot_partition_type=1
 else

@@ -27,14 +27,42 @@ nvme0n1     259:0    0 476.9G  0 disk
 Finally, let's install the live bootable Arch Linux on USB drive. We need to supply the path to the Arch Linux ISO file and path to the USB device to the script.
 
 ```bash
-bash install_live_usb.sh ~/downloads/archlinux-2022.01.01-x86_64.iso /dev/sdb
+ARCHISO=archlinux-2022.01.01-x86_64.iso
+sh live_usb.sh $ARCHISO /dev/sdb
 ```
 
 We can now remove the USB drive and attach it to the computer where we want to boot Arch Linux as Live USB environment for installation. Modify the boot order such that the USB drive is the first to boot. Now, we can boot to the live Arch Linux environment!
 
 
-## Installing System
-We can follow the instructions on the [`install_system.sh`](./install_system.sh) file for normal system installation or the instructions on the [`install_system_encrypted.sh`](./install_system_encrypted.sh) file for installing system with encrypted boot and hard drive.
+## Installing Encrypted System
+Prepapare by securely creating strong passwords for LUKS and root. Write them on paper.
+
+Connect to the internet via ethernet or WiFi. We can use `iw` for connecting to WiFi if needed.
+
+```bash
+iwctl
+station <wlan-device-name> connect <wifi-station-name>
+```
+
+Download the installation script.
+
+```bash
+curl https://github.com/jaantollander/dotfiles/blob/master/arch/encrypted/install.sh > install.sh
+```
+
+List your block devices and select the hard drive to install the operating system.
+
+```bash
+lsblk -d
+```
+
+Run the installation script with hard disk as the argument.
+
+```bash
+bash install.sh $HARD_DISK
+```
+
+There are also [manual instructions for installation](./encrypted/manual_install.sh).
 
 
 ## Post Installation
@@ -77,3 +105,10 @@ Next, let's change the default `umask 022` to `umask 077` which improves securit
 nvim /etc/profile
 ```
 
+Create new user
+
+```bash
+USERNAME="jaan"
+useradd -m -G wheel -s /bin/bash "$USERNAME"
+passwd "$USERNAME"
+```

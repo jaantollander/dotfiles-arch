@@ -117,11 +117,6 @@ install_chroot() {
     # Set root password
     passwd
 
-    # Create new user and set password
-    #USERNAME="jaan"
-    #useradd -m -G wheel -s /bin/bash $USERNAME
-    #passwd $USERNAME
-
     # Let's create a crypto keyfile
     cd /
     dd bs=512 count=4 if=/dev/random of=crypto_keyfile.bin iflag=fullblock
@@ -183,13 +178,14 @@ install_chroot() {
 
 # Preparation
 # Securely create three strong password for LUKS, root and user. Write them on paper.
-# Connect to WiFi if needed
-# iwctl
-# station <wlan-device-name> connect <wifi-station-name>
 
-# Choose a hard disk.
-# Example: "/dev/sda" or "/dev/nvme0n1"
-HARD_DISK=""
+# Verify boot mode. Exit with error if not UEFI.
+if [ ! -d /sys/firmware/efi/efivars ]; then
+    exit 1
+fi
+
+# Choose a hard disk for installation such as "/dev/sda" or "/dev/nvme0n1".
+HARD_DISK=$1
 
 # We'll use the following variables to to denote the partitions.
 case "$HARD_DISK" in
