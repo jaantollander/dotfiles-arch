@@ -37,17 +37,25 @@ We can now remove the USB drive and attach it to the computer where we want to b
 ## Installing Encrypted System
 Prepapare by securely creating strong passwords for LUKS and root. Write them on paper.
 
+Lets change larger font on the Linux console to make text easier to read.
+
+```bash
+setfont ter-132n
+```
+
 Connect to the internet via ethernet or WiFi. We can use `iw` for connecting to WiFi if needed.
 
 ```bash
-iwctl
-station <wlan-device-name> connect <wifi-station-name>
+iwctl station list
+iwctl station <wlan> scan
+iwctl station <wlan> get-networks
+iwctl station <wlan> connect <network-name>
 ```
 
 Download the installation script.
 
 ```bash
-curl https://github.com/jaantollander/dotfiles/blob/master/arch/encrypted/install.sh > install.sh
+curl https://raw.githubusercontent.com/jaantollander/dotfiles/master/arch/encrypted/install.sh > install.sh
 ```
 
 List your block devices and select the hard drive to install the operating system.
@@ -56,16 +64,30 @@ List your block devices and select the hard drive to install the operating syste
 lsblk -d
 ```
 
+Export the selected hard drive as an environment variable.
+
+```bash
+export HARD_DISK=/dev/sda
+```
+
 Overwrite the hard drive with zeros to wipe all data from it.
 
 ```bash
 dd if=/dev/zero of="$HARD_DISK" bs=4M status=progress
 ```
 
-Run the installation script with hard disk as the argument.
+Source the installation script.
 
 ```bash
-bash install.sh $HARD_DISK
+source install.sh
+```
+
+Run the installation steps.
+
+```bash
+step1
+step2
+step3
 ```
 
 There are also [manual instructions for installation](./encrypted/manual_install.sh).
@@ -76,7 +98,9 @@ First, log into the `root` user. Then, enable internet by plugging ethernet cabl
 
 ```bash
 systemctl enable iwd --now
-dhcpcd &
+systemctl enable networkd --now
+systemctl enable resolved --now
+#dhcpcd &
 ```
 
 We can connect to wi-fi using `iwctl`.

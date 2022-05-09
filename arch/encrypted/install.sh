@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # This script is based on "Efficient UEFI Encrypted Root and Swap Arch Linux Installation
 # with an ENCRYPTED BOOT" by HardenedArray.
@@ -7,11 +7,11 @@
 
 
 prepare_hard_disk() {
-    HARD_DISK=$1
-    EFI=$2
-    ROOT=$3
-    EBOOT=$4
-    LVGROUP=$5
+    local HARD_DISK=$1
+    local EFI=$2
+    local ROOT=$3
+    local EBOOT=$4
+    local LVGROUP=$5
 
     # Create EFI and ROOT partitions using `gdisk`.
     # 1.
@@ -49,6 +49,10 @@ n
 w
 y
 EOF
+
+    # Verify that EFI and ROOT block devices exist
+    [ -b "$EFI" ] || exit 1
+    [ -b "$ROOT" ] || exit 1
 
     # Create FAT32 filesystem for the EFI partition
     mkfs.vfat -F 32 "$EFI"
@@ -90,11 +94,11 @@ EOF
     genfstab -U /mnt >> /mnt/etc/fstab
 
     # Check your fstab carefully, and modify it, if required.
-    cat /mnt/etc/fstab
+    #cat /mnt/etc/fstab
 }
 
 
-install_chroot() {
+install_system() {
     ROOT=$1
     EBOOT=$2
     LVGROUP=$3
@@ -103,8 +107,6 @@ install_chroot() {
     # This will harmlessly fail if your system's CMOS clock is already set to UTC.
     ln -s /usr/share/zoneinfo/UTC /etc/localtime
     hwclock --systohc --utc
-
-    #systemctl enable iwd
 
     # Create a hostname
     echo "arch" > /etc/hostname
@@ -149,7 +151,7 @@ install_chroot() {
     # Uncomment the following line in "/etc/default/grub".
     # GRUB_ENABLE_CRYPTODISK=y
 
-    MATCH_GRUB_ENABLE_CRYPTODISK='^.*GRUB_ENABLE_CRYPTODISK.*$'
+    MATCH_GRUB_ENABLE_CRYPTODISK='^#\?GRUB_ENABLE_CRYPTODISK=.*$'
     GRUB_ENABLE_CRYPTODISK="GRUB_ENABLE_CRYPTODISK=y"
     sed -e "s@$MATCH_GRUB_ENABLE_CRYPTODISK@$GRUB_ENABLE_CRYPTODISK@g" \
         --in-place \
@@ -162,7 +164,7 @@ install_chroot() {
     # Substitute the correct values for the variables and add the line to "/etc/default/grub".
     # GRUB_CMDLINE_LINUX="cryptdevice=$ROOT:$EBOOT resume=/dev/mapper/$LVGROUP-swap"
 
-    MATCH_GRUB_CMDLINE_LINUX='^GRUB_CMDLINE_LINUX.*$'
+    MATCH_GRUB_CMDLINE_LINUX='^GRUB_CMDLINE_LINUX=.*$'
     GRUB_CMDLINE_LINUX="GRUB_CMDLINE_LINUX=\"cryptdevice=$ROOT:$EBOOT resume=/dev/mapper/$LVGROUP-swap\""
     sed -e "s@$MATCH_GRUB_CMDLINE_LINUX@$GRUB_CMDLINE_LINUX@g" \
         --in-place \
@@ -170,22 +172,16 @@ install_chroot() {
 
     # Generate Your Final Grub Configuration:
     grub-mkconfig -o /boot/grub/grub.cfg
-
-    # Exit Your New Arch System
-    #exit
 }
 
 
-# Preparation
-# Securely create three strong password for LUKS, root and user. Write them on paper.
-
 # Verify boot mode. Exit with error if not UEFI.
-if [ ! -d /sys/firmware/efi/efivars ]; then
-    exit 1
-fi
+[ -d /sys/firmware/efi/efivars ] || exit 1
 
-# Choose a hard disk for installation such as "/dev/sda" or "/dev/nvme0n1".
-HARD_DISK=$1
+# Set a hard disk for installation such as "/dev/sda" or "/dev/nvme0n1"
+# as an environment variable. 
+# export HARD_DISK=/dev/sda
+[ -b "$HARD_DISK" ] || exit 1
 
 # We'll use the following variables to to denote the partitions.
 case "$HARD_DISK" in
@@ -204,15 +200,19 @@ esac
 EBOOT="encrypted-boot"
 LVGROUP="arch"
 
-# Prepare hard disk
-prepare_hard_disk "$HARD_DISK" "$EFI" "$ROOT" "$EBOOT" "$LVGROUP"
+export HARD_DISK EFI ROOT EBOOT LVGROUP
 
-# Enter the new system
-arch-chroot /mnt install_chroot "$ROOT" "$EBOOT" "$LVGROUP"
+step1() {
+    prepare_hard_disk "$HARD_DISK" "$EFI" "$ROOT" "$EBOOT" "$LVGROUP"
+}
 
-# Unmount all partitions
-umount -R /mnt
-swapoff -a
+step2() {
+    arch-chroot /mnt install_system "$ROOT" "$EBOOT" "$LVGROUP"
+}
 
-# Reboot and Enjoy Your Encrypted BOOT Arch Linux System!
-reboot
+step3() {
+    # Unmount all partitions and reboot
+    umount -R /mnt
+    swapoff -a
+    reboot
+}
