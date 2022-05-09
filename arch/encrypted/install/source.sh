@@ -36,11 +36,11 @@ LVGROUP="arch"
 export HARD_DISK EFI ROOT EBOOT LVGROUP
 
 step1() {
-    ./hard_disk.sh "$HARD_DISK" "$EFI" "$ROOT" "$EBOOT" "$LVGROUP"
+    sh disk.sh
 }
 
 step2() {
-    arch-chroot /mnt ./system.sh "$ROOT" "$EBOOT" "$LVGROUP"
+    arch-chroot /mnt ./system.sh
 }
 
 step3() {

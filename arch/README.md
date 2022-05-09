@@ -55,7 +55,9 @@ iwctl station <wlan> connect <network-name>
 Download the installation script.
 
 ```bash
-curl https://raw.githubusercontent.com/jaantollander/dotfiles/master/arch/encrypted/install.sh > install.sh
+curl https://raw.githubusercontent.com/jaantollander/dotfiles/master/arch/encrypted/install/source.sh > source.sh
+curl https://raw.githubusercontent.com/jaantollander/dotfiles/master/arch/encrypted/install/disk.sh > disk.sh
+curl https://raw.githubusercontent.com/jaantollander/dotfiles/master/arch/encrypted/install/system.sh > system.sh
 ```
 
 List your block devices and select the hard drive to install the operating system.
@@ -79,7 +81,7 @@ dd if=/dev/zero of="$HARD_DISK" bs=4M status=progress
 Source the installation script.
 
 ```bash
-source install.sh
+source source.sh
 ```
 
 Run the installation steps.
