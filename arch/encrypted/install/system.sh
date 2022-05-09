@@ -18,7 +18,7 @@ passwd
 
 # Let's create a crypto keyfile
 cd /
-dd bs=512 count=4 if=/dev/random of=crypto_keyfile.bin iflag=fullblock
+dd bs=512 count=4 if=/dev/random of=/crypto_keyfile.bin iflag=fullblock
 chmod 000 /crypto_keyfile.bin
 chmod 600 /boot/initramfs-linux*
 cryptsetup luksAddKey "$ROOT" /crypto_keyfile.bin

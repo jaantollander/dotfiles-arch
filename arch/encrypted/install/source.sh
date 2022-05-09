@@ -36,12 +36,14 @@ LVGROUP="arch"
 export HARD_DISK EFI ROOT EBOOT LVGROUP
 
 step1() {
-    sh disk.sh
+    chmod u+x disk.sh
+    ./disk.sh
 }
 
 step2() {
+    chmod u+x system.sh
     cp system.sh /mnt/system.sh
-    arch-chroot /mnt system.sh
+    arch-chroot /mnt /system.sh
     rm /mnt/system.sh
 }
 
