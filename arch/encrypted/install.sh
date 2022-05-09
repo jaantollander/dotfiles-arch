@@ -99,9 +99,9 @@ EOF
 
 
 install_system() {
-    ROOT=$1
-    EBOOT=$2
-    LVGROUP=$3
+    local ROOT=$1
+    local EBOOT=$2
+    local LVGROUP=$3
 
     # Set the system clock
     # This will harmlessly fail if your system's CMOS clock is already set to UTC.
@@ -153,6 +153,7 @@ install_system() {
 
     local MATCH_GRUB_ENABLE_CRYPTODISK='^#\?GRUB_ENABLE_CRYPTODISK=.*$'
     local GRUB_ENABLE_CRYPTODISK="GRUB_ENABLE_CRYPTODISK=y"
+
     sed -e "s@$MATCH_GRUB_ENABLE_CRYPTODISK@$GRUB_ENABLE_CRYPTODISK@g" \
         --in-place \
         /etc/default/grub
@@ -166,6 +167,7 @@ install_system() {
 
     local MATCH_GRUB_CMDLINE_LINUX='^GRUB_CMDLINE_LINUX=.*$'
     local GRUB_CMDLINE_LINUX="GRUB_CMDLINE_LINUX=\"cryptdevice=$ROOT:$EBOOT resume=/dev/mapper/$LVGROUP-swap\""
+
     sed -e "s@$MATCH_GRUB_CMDLINE_LINUX@$GRUB_CMDLINE_LINUX@g" \
         --in-place \
         /etc/default/grub
