@@ -40,7 +40,9 @@ step1() {
 }
 
 step2() {
-    arch-chroot /mnt ./system.sh
+    cp system.sh /mnt/system.sh
+    arch-chroot /mnt system.sh
+    rm /mnt/system.sh
 }
 
 step3() {
