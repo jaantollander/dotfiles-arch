@@ -133,11 +133,11 @@ install_system() {
     # FILES=(/crypto_keyfile.bin)
     # HOOKS=(base udev autodetect modconf block keymap encrypt lvm2 resume filesystems keyboard fsck)
 
-    MATCH_FILES='^FILES=.*$'
-    FILES='FILES=(/crypto_keyfile.bin)'
+    local MATCH_FILES='^FILES=.*$'
+    local FILES='FILES=(/crypto_keyfile.bin)'
 
-    MATCH_HOOKS='^HOOKS=.*$'
-    HOOKS='HOOKS=(base udev autodetect modconf block keymap encrypt lvm2 resume filesystems keyboard fsck)'
+    local MATCH_HOOKS='^HOOKS=.*$'
+    local HOOKS='HOOKS=(base udev autodetect modconf block keymap encrypt lvm2 resume filesystems keyboard fsck)'
 
     sed -e "s@$MATCH_FILES@$FILES@g" \
         -e "s@$MATCH_HOOKS@$HOOKS@g" \
@@ -151,8 +151,8 @@ install_system() {
     # Uncomment the following line in "/etc/default/grub".
     # GRUB_ENABLE_CRYPTODISK=y
 
-    MATCH_GRUB_ENABLE_CRYPTODISK='^#\?GRUB_ENABLE_CRYPTODISK=.*$'
-    GRUB_ENABLE_CRYPTODISK="GRUB_ENABLE_CRYPTODISK=y"
+    local MATCH_GRUB_ENABLE_CRYPTODISK='^#\?GRUB_ENABLE_CRYPTODISK=.*$'
+    local GRUB_ENABLE_CRYPTODISK="GRUB_ENABLE_CRYPTODISK=y"
     sed -e "s@$MATCH_GRUB_ENABLE_CRYPTODISK@$GRUB_ENABLE_CRYPTODISK@g" \
         --in-place \
         /etc/default/grub
@@ -164,8 +164,8 @@ install_system() {
     # Substitute the correct values for the variables and add the line to "/etc/default/grub".
     # GRUB_CMDLINE_LINUX="cryptdevice=$ROOT:$EBOOT resume=/dev/mapper/$LVGROUP-swap"
 
-    MATCH_GRUB_CMDLINE_LINUX='^GRUB_CMDLINE_LINUX=.*$'
-    GRUB_CMDLINE_LINUX="GRUB_CMDLINE_LINUX=\"cryptdevice=$ROOT:$EBOOT resume=/dev/mapper/$LVGROUP-swap\""
+    local MATCH_GRUB_CMDLINE_LINUX='^GRUB_CMDLINE_LINUX=.*$'
+    local GRUB_CMDLINE_LINUX="GRUB_CMDLINE_LINUX=\"cryptdevice=$ROOT:$EBOOT resume=/dev/mapper/$LVGROUP-swap\""
     sed -e "s@$MATCH_GRUB_CMDLINE_LINUX@$GRUB_CMDLINE_LINUX@g" \
         --in-place \
         /etc/default/grub
