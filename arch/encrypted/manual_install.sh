@@ -6,18 +6,9 @@
 # https://gist.github.com/HardenedArray/ee3041c04165926fca02deca675effe1
 
 
-## --- Preparation ---
-# Securely create three strong password for LUKS, root and user. Write them on paper.
-
-
-## --- On Live Booted Arch Linux ---
-# Connect to WiFi if needed
-# iwctl
-# station <wlan-device-name> connect <wifi-station-name>
-
 # Choose a hard disk.
 # Example: "/dev/sda" or "/dev/nvme0n1"
-HARD_DISK=""  
+HARD_DISK=""
 
 # Over write the hard disk
 dd if=/dev/zero of="$HARD_DISK" bs=4M status=progress

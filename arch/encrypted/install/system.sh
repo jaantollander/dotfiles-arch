@@ -25,21 +25,15 @@ cryptsetup luksAddKey "$ROOT" /crypto_keyfile.bin
 cryptsetup luksDump "$ROOT"
 # You should now see that LUKS Key Slots 0 and 1 are both occupied
 
-# Configure mkinitcpio with the correct FILES statement and proper HOOKS required for your initrd image:
-# Add or modify the following lines in "/etc/mkinitcpio.conf".
-# FILES=(/crypto_keyfile.bin)
-# HOOKS=(base udev autodetect modconf block keymap encrypt lvm2 resume filesystems keyboard fsck)
-
-MATCH_FILES='^FILES=.*$'
-FILES='FILES=(/crypto_keyfile.bin)'
-
-MATCH_HOOKS='^HOOKS=.*$'
-HOOKS='HOOKS=(base udev autodetect modconf block keymap encrypt lvm2 resume filesystems keyboard fsck)'
-
-sed -e "s@$MATCH_FILES@$FILES@g" \
-    -e "s@$MATCH_HOOKS@$HOOKS@g" \
-    --in-place \
-    /etc/mkinitcpio.conf
+# Configure mkinitcpio with the correct FILES statement and proper HOOKS required for your initrd image
+# Backup the default mkinitcpio.conf and create new.
+cp /etc/mkinitcpio.conf /etc/mkinitcpio.conf.old
+cat << EOF > /etc/mkinitcpio.conf
+MODULES=()
+BINARIES=()
+FILES=(/crypto_keyfile.bin)
+HOOKS=(base udev autodetect modconf block keymap encrypt lvm2 resume filesystems keyboard fsck)
+EOF
 
 # Generate your initrd image
 mkinitcpio -p linux
@@ -47,13 +41,12 @@ mkinitcpio -p linux
 # Install and Configure Grub-EFI
 # Uncomment the following line in "/etc/default/grub".
 # GRUB_ENABLE_CRYPTODISK=y
+M1='^#\?GRUB_ENABLE_CRYPTODISK=.*$'
+R1="GRUB_ENABLE_CRYPTODISK=y"
+sed -i -e "s@$M1@$R1@g" /etc/default/grub
 
-MATCH_GRUB_ENABLE_CRYPTODISK='^#\?GRUB_ENABLE_CRYPTODISK=.*$'
-GRUB_ENABLE_CRYPTODISK="GRUB_ENABLE_CRYPTODISK=y"
-
-sed -e "s@$MATCH_GRUB_ENABLE_CRYPTODISK@$GRUB_ENABLE_CRYPTODISK@g" \
-    --in-place \
-    /etc/default/grub
+# Avoid leaking variables
+unset M1 R1
 
 # Install GRUB on an UEFI computer
 grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=ArchLinux
@@ -61,13 +54,12 @@ grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=ArchLinux
 # Edit the default grub
 # Substitute the correct values for the variables and add the line to "/etc/default/grub".
 # GRUB_CMDLINE_LINUX="cryptdevice=$ROOT:$EBOOT resume=/dev/mapper/$LVGROUP-swap"
+M2='^GRUB_CMDLINE_LINUX=.*$'
+R2="GRUB_CMDLINE_LINUX=\"cryptdevice=$ROOT:$EBOOT resume=/dev/mapper/$LVGROUP-swap\""
+sed -i -e "s@$M2@$R2@g" /etc/default/grub
 
-MATCH_GRUB_CMDLINE_LINUX='^GRUB_CMDLINE_LINUX=.*$'
-GRUB_CMDLINE_LINUX="GRUB_CMDLINE_LINUX=\"cryptdevice=$ROOT:$EBOOT resume=/dev/mapper/$LVGROUP-swap\""
-
-sed -e "s@$MATCH_GRUB_CMDLINE_LINUX@$GRUB_CMDLINE_LINUX@g" \
-    --in-place \
-    /etc/default/grub
+# Avoid leaking variables
+unset M2 R2
 
 # Generate Your Final Grub Configuration:
 grub-mkconfig -o /boot/grub/grub.cfg

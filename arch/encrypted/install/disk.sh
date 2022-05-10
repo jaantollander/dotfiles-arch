@@ -20,6 +20,7 @@
 #   `w`           Write partitions to disk
 #   `y`           Accept
 
+# TODO: replace with sgdisk
 gdisk "$HARD_DISK" << EOF
 o
 y
@@ -78,6 +79,7 @@ pacstrap /mnt \
 
 # Create and review file system table (fstab)
 # The -U option pulls in all the correct UUIDs for your mounted filesystems.
+# FIXME: generated fstab has incorrect UUID for \efi
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Check your fstab carefully, and modify it, if required.
