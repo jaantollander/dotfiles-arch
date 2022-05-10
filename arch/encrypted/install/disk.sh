@@ -83,4 +83,6 @@ pacstrap /mnt \
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Check your fstab carefully, and modify it, if required.
-#cat /mnt/etc/fstab
+# UUIDs should match ones in "/dev/disk/by-uuid/"
+cat /mnt/etc/fstab
+ls -l /mnt/dev/disk/by-uuid/
