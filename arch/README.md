@@ -76,6 +76,7 @@ Overwrite the hard drive with zeros to wipe all data from it.
 
 ```bash
 wipefs -a "$DISK"
+```
 
 ```bash
 dd if=/dev/zero of="$DISK" bs=4M status=progress
