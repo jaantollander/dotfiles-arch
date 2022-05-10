@@ -1,4 +1,13 @@
 # Instructions
+## About
+My arch install script are influenced by the following resources.
+
+- [The official installation guide](https://wiki.archlinux.org/title/installation_guide)
+- [Phantas0s/ArchInstall](https://github.com/Phantas0s/ArchInstall)
+- [maximbaz/dotfiles](https://github.com/maximbaz/dotfiles), look for the `install.sh` script
+- ["Efficient UEFI Encrypted Root and Swap Arch Linux Installation with an ENCRYPTED BOOT" by HardenedArray](https://gist.github.com/HardenedArray/ee3041c04165926fca02deca675effe1)
+
+
 ## Installing Live USB
 Download Arch Linux ISO file from the Arch Linux website. After the download, there should exist an ISO file as below. 
 
