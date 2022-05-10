@@ -150,9 +150,6 @@ chmod 000 /mnt/crypto_keyfile.bin
 chmod 600 /mnt/boot/initramfs-linux*
 cryptsetup luksAddKey "$ROOT" /mnt/crypto_keyfile.bin
 
-# You should now see that LUKS Key Slots 0 and 1 are both occupied
-cryptsetup luksDump "$ROOT"
-
 # Configure mkinitcpio with the correct FILES statement and proper HOOKS required for your initrd image
 # Backup the default mkinitcpio.conf and create new.
 cp /mnt/etc/mkinitcpio.conf /mnt/etc/mkinitcpio.conf.old
@@ -191,8 +188,3 @@ unset M2 R2
 
 # Generate Your Final Grub Configuration:
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
-
-# Unmount all partitions and reboot
-#umount -R /mnt
-#swapoff -a
-#reboot

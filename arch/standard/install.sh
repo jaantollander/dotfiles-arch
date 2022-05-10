@@ -9,18 +9,6 @@ DISK=""
 SWAP_SIZE=""
 
 
-## --- Connect to the Internet ---
-# Make sure you are connected to the internet via ethernet cable or wi-fi.
-
-# You can use `iwctl` to connect to wi-fi.
-# iwctl
-# station <wlan-device-name> connect <wifi-station-name>
-
-
-## --- Wipe the hard drive ---
-dd if=/dev/zero of="$DISK" bs=4M status=progress
-
-
 ## --- Enable network time synchronization --- 
 timedatectl set-ntp true
 
@@ -130,19 +118,3 @@ echo "LANG=en_US.UTF-8" > /etc/locale.conf
 
 ## --- Set password for the root user ---
 passwd 
-
-
-## --- Create a new user and set password ---
-USERNAME="jaan"
-useradd -m -g wheel -s /bin/bash "$USERNAME"
-passwd "$USERNAME"
-
-# Exit your system
-exit
-
-# Unmount all partitions
-umount -R /mnt
-swapoff -a
-
-# Reboot your system
-reboot

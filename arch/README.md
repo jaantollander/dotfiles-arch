@@ -83,6 +83,14 @@ Run the installation script. For the script to work, the `DISK` environment vari
 bash install.sh
 ```
 
+Finally, unmount all partitions and reboot.
+
+```bash
+umount -R /mnt
+swapoff -a
+reboot
+```
+
 There are also [manual instructions for installation](./encrypted/manual_install.sh).
 
 
