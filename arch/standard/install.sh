@@ -3,7 +3,7 @@
 ## --- Parameters ---
 # Select the hard drive to install Arch Linux such as "/dev/sda" or `/dev/nvme0n1`. 
 # Use `lsblk -d` to list your block devices.
-HARD_DISK=""
+DISK=""
 
 # Set your swap size such as "4G" or "512M".
 SWAP_SIZE=""
@@ -18,7 +18,7 @@ SWAP_SIZE=""
 
 
 ## --- Wipe the hard drive ---
-dd if=/dev/zero of="$HARD_DISK" bs=4M status=progress
+dd if=/dev/zero of="$DISK" bs=4M status=progress
 
 
 ## --- Enable network time synchronization --- 
@@ -44,9 +44,9 @@ echo "Boot type: $boot_type"
 # e - extended partition
 # w - write the table to disk and exit
 
-partprobe "$HARD_DISK"
+partprobe "$DISK"
 
-fdisk "$HARD_DISK" << EOF
+fdisk "$DISK" << EOF
 g
 n
 
@@ -65,19 +65,19 @@ n
 w
 EOF
 
-partprobe "$HARD_DISK"
+partprobe "$DISK"
 
 
 ## --- Format the partitions ---
-mkswap "${HARD_DISK}2"
-swapon "${HARD_DISK}2"
-mkfs.ext4 "${HARD_DISK}3"
-mount "${HARD_DISK}3" /mnt
+mkswap "${DISK}2"
+swapon "${DISK}2"
+mkfs.ext4 "${DISK}3"
+mount "${DISK}3" /mnt
 
 if [ $boot_type = "uefi" ]; then
-    mkfs.fat -F32 "${HARD_DISK}1"
+    mkfs.fat -F32 "${DISK}1"
     mkdir -p /mnt/boot/efi
-    mount "${HARD_DISK}1" /mnt/boot/efi
+    mount "${DISK}1" /mnt/boot/efi
 fi
 
 
@@ -102,7 +102,7 @@ if [ $boot_type = "uefi" ]; then
         --bootloader-id=GRUB \
         --efi-directory=/boot/efi
 elif [ $boot_type = "bios" ]; then  
-    grub-install "$HARD_DISK"
+    grub-install "$DISK"
 fi
 
 grub-mkconfig -o /boot/grub/grub.cfg

@@ -8,21 +8,21 @@ fi
 
 # Set a hard disk for installation such as "/dev/sda" or "/dev/nvme0n1"
 # as an environment variable. 
-# export HARD_DISK=/dev/sda
-if [ ! -b "$HARD_DISK" ]; then
-    echo "HARD_DISK=\"$HARD_DISK\" is not valid block device."
+# export DISK=/dev/sda
+if [ ! -b "$DISK" ]; then
+    echo "DISK=\"$DISK\" is not valid block device."
     return 1
 fi
 
 # We'll use the following variables to to denote the partitions.
-case "$HARD_DISK" in
+case "$DISK" in
     /dev/sd*)
-        EFI="${HARD_DISK}1"
-        ROOT="${HARD_DISK}2"
+        EFI="${DISK}1"
+        ROOT="${DISK}2"
         ;;
     /dev/nvme*)
-        EFI="${HARD_DISK}p1"
-        ROOT="${HARD_DISK}p2"
+        EFI="${DISK}p1"
+        ROOT="${DISK}p2"
         ;;
     *)
         echo "Couldn't set EFI and ROOT."
@@ -33,7 +33,7 @@ esac
 EBOOT="encrypted-boot"
 LVGROUP="arch"
 
-export HARD_DISK EFI ROOT EBOOT LVGROUP
+export DISK EFI ROOT EBOOT LVGROUP
 
 step1() {
     chmod u+x disk.sh

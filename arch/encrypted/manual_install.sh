@@ -8,13 +8,13 @@
 
 # Choose a hard disk.
 # Example: "/dev/sda" or "/dev/nvme0n1"
-HARD_DISK=""
+DISK=""
 
 # Over write the hard disk
-dd if=/dev/zero of="$HARD_DISK" bs=4M status=progress
+dd if=/dev/zero of="$DISK" bs=4M status=progress
 
 # Create EFI and ROOT partitions
-gdisk "$HARD_DISK"
+gdisk "$DISK"
 
 # Create EFI and ROOT partitions using `gdisk`.
 # 1.

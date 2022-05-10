@@ -69,13 +69,16 @@ lsblk -d
 Export the selected hard drive as an environment variable.
 
 ```bash
-export HARD_DISK=/dev/sda
+export DISK=/dev/sda
 ```
 
 Overwrite the hard drive with zeros to wipe all data from it.
 
 ```bash
-dd if=/dev/zero of="$HARD_DISK" bs=4M status=progress
+wipefs -a "$DISK"
+
+```bash
+dd if=/dev/zero of="$DISK" bs=4M status=progress
 ```
 
 Source the installation script.

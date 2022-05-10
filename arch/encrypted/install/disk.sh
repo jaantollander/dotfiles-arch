@@ -21,7 +21,7 @@
 #   `y`           Accept
 
 # TODO: replace with sgdisk
-gdisk "$HARD_DISK" << EOF
+gdisk "$DISK" << EOF
 o
 y
 n
