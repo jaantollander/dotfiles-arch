@@ -19,7 +19,7 @@ fi
 # export DISK=/dev/sda
 if [ ! -b "$DISK" ]; then
     echo >&2 "DISK=\"$DISK\" is not valid block device."
-    exit 1
+    exit 2
 fi
 
 # We'll use the following variables to to denote the partitions.
@@ -120,13 +120,13 @@ pacstrap /mnt \
 
 # Create and review file system table (fstab)
 # The -U option pulls in all the correct UUIDs for your mounted filesystems.
-# FIXME: generated fstab has incorrect UUID for \efi
+# FIXME: generated fstab has incorrect UUID for "\efi
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Check your fstab carefully, and modify it, if required.
 # UUIDs should match ones in "/dev/disk/by-uuid/"
 cat /mnt/etc/fstab
-ls -l /mnt/dev/disk/by-uuid/
+arch-chroot /mnt ls -l /dev/disk/by-uuid/
 
 # Set the system clock
 # This will harmlessly fail if your system's CMOS clock is already set to UTC.

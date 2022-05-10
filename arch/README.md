@@ -55,9 +55,7 @@ iwctl station <wlan> connect <network-name>
 Download the installation script.
 
 ```bash
-curl https://raw.githubusercontent.com/jaantollander/dotfiles/master/arch/encrypted/install/source.sh > source.sh
-curl https://raw.githubusercontent.com/jaantollander/dotfiles/master/arch/encrypted/install/disk.sh > disk.sh
-curl https://raw.githubusercontent.com/jaantollander/dotfiles/master/arch/encrypted/install/system.sh > system.sh
+curl https://raw.githubusercontent.com/jaantollander/dotfiles/master/arch/encrypted/install.sh > install.sh
 ```
 
 List your block devices and select the hard drive to install the operating system.
@@ -66,34 +64,23 @@ List your block devices and select the hard drive to install the operating syste
 lsblk -d
 ```
 
-Export the selected hard drive as an environment variable.
+Export the selected hard drive as an environment variable such as `/dev/sda` or `/dev/nvme0n1`.
 
 ```bash
-export DISK=/dev/sda
+export DISK=/dev/nvme0n1
 ```
 
-Overwrite the hard drive with zeros to wipe all data from it.
+Remove existing filesystems from the disk and overwrite it with zeros to wipe all data from it.
 
 ```bash
 wipefs -a "$DISK"
-```
-
-```bash
 dd if=/dev/zero of="$DISK" bs=4M status=progress
 ```
 
-Source the installation script.
+Run the installation script. For the script to work, the `DISK` environment variable must be set.
 
 ```bash
-source source.sh
-```
-
-Run the installation steps.
-
-```bash
-step1
-step2
-step3
+bash install.sh
 ```
 
 There are also [manual instructions for installation](./encrypted/manual_install.sh).
