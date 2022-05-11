@@ -16,30 +16,15 @@ fi
 
 # Set a hard disk for installation such as "/dev/sda" or "/dev/nvme0n1"
 # as an environment variable. 
-# export DISK=/dev/sda
 if [ ! -b "$DISK" ]; then
     echo >&2 "DISK=\"$DISK\" is not valid block device."
     exit 2
 fi
 
-# We'll use the following variables to to denote the partitions.
-case "$DISK" in
-    /dev/sd*)
-        EFI="${DISK}1"
-        ROOT="${DISK}2"
-        ;;
-    /dev/nvme*)
-        EFI="${DISK}p1"
-        ROOT="${DISK}p2"
-        ;;
-    *)
-        echo >&2 "Couldn't set EFI and ROOT."
-        exit 2
-        ;;
-esac
-
-EBOOT="encrypted-boot"
+# Parameters
+BOOT="boot"
 LVGROUP="arch"
+HOSTNAME="arch"
 
 # Create EFI and ROOT partitions using `gdisk`.
 # 1.
@@ -79,9 +64,17 @@ w
 y
 EOF
 
+# Update UUIDs for partitions, otherwise `genfstab` might use the old ones.
+partprobe "$DISK"
+
+# Match EFI and ROOT partitions with a glob.
+# For example, `/dev/sda1` or `/dev/nvme0n1p1`.
+EFI="$(echo "$DISK"*1)"
+ROOT="$(echo "$DISK"*2)"
+
 # Verify that EFI and ROOT block devices exist
-[ -b "$EFI" ] || return 1
-[ -b "$ROOT" ] || return 1
+[ -b "$EFI" ] || exit 2
+[ -b "$ROOT" ] || exit 2
 
 # Create FAT32 filesystem for the EFI partition
 mkfs.vfat -F 32 "$EFI"
@@ -94,11 +87,11 @@ cryptsetup \
     --use-random \
     --type luks1 \
     luksFormat "$ROOT"
-cryptsetup luksOpen "$ROOT" "$EBOOT"
+cryptsetup luksOpen "$ROOT" "$BOOT"
 
 # Create encrypted LVM partitions
-pvcreate "/dev/mapper/$EBOOT"
-vgcreate "$LVGROUP" "/dev/mapper/$EBOOT"
+pvcreate "/dev/mapper/$BOOT"
+vgcreate "$LVGROUP" "/dev/mapper/$BOOT"
 lvcreate -L 512M "$LVGROUP" -n swap
 lvcreate -l 100%FREE "$LVGROUP" -n root
 
@@ -120,13 +113,11 @@ pacstrap /mnt \
 
 # Create and review file system table (fstab)
 # The -U option pulls in all the correct UUIDs for your mounted filesystems.
-# FIXME: generated fstab has incorrect UUID for "\efi
 genfstab -U /mnt >> /mnt/etc/fstab
 
 # Check your fstab carefully, and modify it, if required.
 # UUIDs should match ones in "/dev/disk/by-uuid/"
 cat /mnt/etc/fstab
-arch-chroot /mnt ls -l /dev/disk/by-uuid/
 
 # Set the system clock
 # This will harmlessly fail if your system's CMOS clock is already set to UTC.
@@ -134,7 +125,7 @@ ln -sf /usr/share/zoneinfo/UTC /mnt/etc/localtime
 arch-chroot /mnt hwclock --systohc --utc
 
 # Create a hostname
-echo "arch" > /mnt/etc/hostname
+echo "$HOSTNAME" > /mnt/etc/hostname
 
 # Set locale
 echo "en_US.UTF-8 UTF-8" >> /mnt/etc/locale.gen
@@ -174,13 +165,16 @@ sed -i -e "s@$M1@$R1@g" /mnt/etc/default/grub
 unset M1 R1
 
 # Install GRUB on an UEFI computer
-arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=ArchLinux
+arch-chroot /mnt grub-install \
+    --target=x86_64-efi \
+    --efi-directory=/efi \
+    --bootloader-id=ArchLinux
 
 # Edit the default grub
 # Substitute the correct values for the variables and add the line to "/etc/default/grub".
-# GRUB_CMDLINE_LINUX="cryptdevice=$ROOT:$EBOOT resume=/dev/mapper/$LVGROUP-swap"
+# GRUB_CMDLINE_LINUX="cryptdevice=$ROOT:$BOOT resume=/dev/mapper/$LVGROUP-swap"
 M2='^GRUB_CMDLINE_LINUX=.*$'
-R2="GRUB_CMDLINE_LINUX=\"cryptdevice=$ROOT:$EBOOT resume=/dev/mapper/$LVGROUP-swap\""
+R2="GRUB_CMDLINE_LINUX=\"cryptdevice=$ROOT:$BOOT resume=/dev/mapper/$LVGROUP-swap\""
 sed -i -e "s@$M2@$R2@g" /mnt/etc/default/grub
 
 # Avoid leaking variables
