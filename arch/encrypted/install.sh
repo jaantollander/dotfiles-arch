@@ -26,43 +26,14 @@ BOOT="boot"
 LVGROUP="arch"
 HOSTNAME="arch"
 
-# Create EFI and ROOT partitions using `gdisk`.
-# 1.
-#   `o`           Clear all current partition data
-#   `y`           Accept
-# 2. Create first partition for EFI.
-#   `n`           Create new partition
-#   `1`           Partition number
-#   `<default>`   First sector
-#   `+100M`       Last sector
-#   `ef00`        Hex code for EFI partition type
-# 3. Create second partition for encrypted root and swap.
-#   `n`           Create new partition
-#   `2`           Partition number
-#   `<default>`   First sector
-#   `<default>`   Last sector
-#   `8300`        Linux filesystem partition type
-# 4.
-#   `w`           Write partitions to disk
-#   `y`           Accept
+# Clear all current partition data
+sgdisk --clear "$DISK"
 
-# TODO: replace with sgdisk
-gdisk "$DISK" << EOF
-o
-y
-n
-1
+# Create EFI partition.
+sgdisk --new "1::+100M" --typecode "1:ef00" "$DISK"
 
-+100M
-ef00
-n
-2
-
-
-8300
-w
-y
-EOF
+# Create partition for encrypted root and swap.
+sgdisk --new "2::0" --typecode "2:8300" "$DISK"
 
 # Update UUIDs for partitions, otherwise `genfstab` might use the old ones.
 partprobe "$DISK"
