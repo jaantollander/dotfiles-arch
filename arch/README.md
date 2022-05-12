@@ -2,9 +2,11 @@
 ## About
 My arch install script are influenced by the following resources.
 
-- [The official installation guide](https://wiki.archlinux.org/title/installation_guide)
+- [ArchWiki - Installation guide](https://wiki.archlinux.org/title/installation_guide)
+- [ArchWiki - GRUB](https://wiki.archlinux.org/title/GRUB)
+- [ArchWiki - Cryptsetup](https://wiki.archlinux.org/title/Dm-crypt/Device_encryption#Cryptsetup_usage)
 - [Phantas0s/ArchInstall](https://github.com/Phantas0s/ArchInstall)
-- [maximbaz/dotfiles](https://github.com/maximbaz/dotfiles)/[`install.sh`](https://github.com/maximbaz/dotfiles/blob/master/install.sh)
+- [maximbaz/dotfiles/install.sh](https://github.com/maximbaz/dotfiles/blob/master/install.sh)
 - ["Efficient UEFI Encrypted Root and Swap Arch Linux Installation with an ENCRYPTED BOOT" by HardenedArray](https://gist.github.com/HardenedArray/ee3041c04165926fca02deca675effe1)
 
 
