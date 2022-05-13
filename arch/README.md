@@ -100,8 +100,6 @@ swapoff -a
 reboot
 ```
 
-There are also [manual instructions for installation](./encrypted/manual_install.sh).
-
 
 ## Post Installation Steps
 First, log into the `root` user. Then, enable internet by plugging ethernet cable or using wi-fi. Let's start the `iw` and `dhcpc` daemons.
