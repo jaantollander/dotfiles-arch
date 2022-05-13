@@ -8,18 +8,20 @@ set -o pipefail
 exec 1> >(tee "stdout.log")
 exec 2> >(tee "stderr.log" >&2)
 
-# Verify boot mode. Exit with error if not UEFI.
-if [ ! -d /sys/firmware/efi/efivars ]; then
-    echo >&2 "Boot mode is not UEFI."
-    exit 2
-fi
+# Print message to stdout
+msg() { echo "MESSAGE: $*"; }
 
-# Set a hard disk for installation such as "/dev/sda" or "/dev/nvme0n1"
-# as an environment variable. 
-if [ ! -b "$DISK" ]; then
-    echo >&2 "DISK=\"$DISK\" is not valid block device."
-    exit 2
-fi
+# Print error message
+error() { echo "ERROR: $*"; } >&2
+
+# Print error message
+die() { error "$*"; exit 1; }
+
+# Verify boot mode. Exit with error if not UEFI.
+[ -d /sys/firmware/efi/efivars ] || die "Boot mode is not UEFI."
+
+# Verify that installation disk is valid block device
+[ -b "$DISK" ] || die "DISK=\"$DISK\" is not valid block device."
 
 # Set up clock
 timedatectl set-ntp true
