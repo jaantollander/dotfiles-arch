@@ -21,10 +21,14 @@ if [ ! -b "$DISK" ]; then
     exit 2
 fi
 
-# Parameters
-BOOT="boot"
-LVGROUP="arch"
-HOSTNAME="arch"
+# Set up clock
+timedatectl set-ntp true
+hwclock --systohc --utc
+
+# Set parameters
+: "${BOOT:="boot"}"
+: "${LVGROUP="arch"}"
+: "${HOST_NAME="arch"}"
 
 # Clear all current partition data
 sgdisk --clear "$DISK"
@@ -32,20 +36,16 @@ sgdisk --clear "$DISK"
 # Create EFI partition.
 sgdisk --new "1::+100M" --typecode "1:ef00" "$DISK"
 
-# Create partition for encrypted root and swap.
+# Create Linux Filesystem partition for encrypted root and swap.
 sgdisk --new "2::0" --typecode "2:8300" "$DISK"
 
 # Update UUIDs for partitions, otherwise `genfstab` might use the old ones.
 partprobe "$DISK"
 
-# Match EFI and ROOT partitions with a glob.
+# Match partitions with a glob.
 # For example, `/dev/sda1` or `/dev/nvme0n1p1`.
 EFI="$(echo "$DISK"*1)"
 ROOT="$(echo "$DISK"*2)"
-
-# Verify that EFI and ROOT block devices exist
-[ -b "$EFI" ] || exit 2
-[ -b "$ROOT" ] || exit 2
 
 # Create FAT32 filesystem for the EFI partition
 mkfs.vfat -F 32 "$EFI"
@@ -90,13 +90,13 @@ genfstab -U /mnt >> /mnt/etc/fstab
 # UUIDs should match ones in "/dev/disk/by-uuid/"
 cat /mnt/etc/fstab
 
+# Create a hostname
+echo "$HOST_NAME" > /mnt/etc/hostname
+
 # Set the system clock
 # This will harmlessly fail if your system's CMOS clock is already set to UTC.
 ln -sf /usr/share/zoneinfo/UTC /mnt/etc/localtime
 arch-chroot /mnt hwclock --systohc --utc
-
-# Create a hostname
-echo "$HOSTNAME" > /mnt/etc/hostname
 
 # Set locale
 echo "en_US.UTF-8 UTF-8" >> /mnt/etc/locale.gen

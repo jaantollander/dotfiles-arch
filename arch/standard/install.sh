@@ -1,120 +1,91 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
-## --- Parameters ---
-# Select the hard drive to install Arch Linux such as "/dev/sda" or `/dev/nvme0n1`. 
-# Use `lsblk -d` to list your block devices.
-DISK=""
+# Script will fail if parameters are not set.
+set -u
+set -o pipefail
+
+# Log stdout and stderr to files.
+exec 1> >(tee "stdout.log")
+exec 2> >(tee "stderr.log" >&2)
+
+# Verify boot mode. Exit with error if not UEFI.
+if [ ! -d /sys/firmware/efi/efivars ]; then
+    echo >&2 "Boot mode is not UEFI."
+    exit 2
+fi
+
+# Set a hard disk for installation such as "/dev/sda" or "/dev/nvme0n1"
+# as an environment variable. 
+if [ ! -b "$DISK" ]; then
+    echo >&2 "DISK=\"$DISK\" is not valid block device."
+    exit 2
+fi
+
+# Set up clock
+timedatectl set-ntp true
+hwclock --systohc --utc
 
 # Set your swap size such as "4G" or "512M".
-SWAP_SIZE=""
+: "${SWAP_SIZE:=512M}"
+: "${HOST_NAME:=arch}"
 
+# Create the partitions
+sgdisk --clear "$DISK"
 
-## --- Enable network time synchronization --- 
-timedatectl set-ntp true
+# Create EFI partition.
+sgdisk --new "1::+512M" --typecode "1:ef00" "$DISK"
 
+# Create Linux Filesystem partition for swap
+sgdisk --new "2::+$SWAP_SIZE" --typecode "2:8300" "$DISK"
 
-## --- Boot type: BIOS or UEFI ---
-if [ -d /sys/firmware/efi/efivars ]; then
-    boot_type="uefi"
-    boot_partition_type=1
-else
-    boot_type="bios"
-    boot_partition_type=4
-fi
+# Create Linux Filesystem partition for root
+sgdisk --new "3::0" --typecode "3:8300" "$DISK"
 
-echo "Boot type: $boot_type"
-
-
-## --- Create the partitions ---
-# g - create non empty GPT partition table
-# n - create new partition
-# p - primary partition
-# e - extended partition
-# w - write the table to disk and exit
-
+# Update UUIDs for partitions, otherwise `genfstab` might use the old ones.
 partprobe "$DISK"
 
-fdisk "$DISK" << EOF
-g
-n
+# Match the partitions with a glob.
+EFI=$(echo "$DISK"*1)
+SWAP=$(echo "$DISK"*2)
+ROOT=$(echo "$DISK"*3)
 
+# Format the partitions
+mkfs.fat -F32 "$EFI"
+mkswap "$SWAP"
+mkfs.ext4 "$ROOT"
 
-+512M
-t
-$boot_partition_type
-n
+# Mount the new system
+mount "$ROOT" /mnt
+swapon "$SWAP"
+mkdir -p /mnt/boot/efi
+mount "$EFI" /mnt/boot/efi
 
+# Install Arch Linux
+pacstrap /mnt base base-devel grub efibootmgr linux linux-firmware
 
-+${SWAP_SIZE}
-n
-
-
-
-w
-EOF
-
-partprobe "$DISK"
-
-
-## --- Format the partitions ---
-mkswap "${DISK}2"
-swapon "${DISK}2"
-mkfs.ext4 "${DISK}3"
-mount "${DISK}3" /mnt
-
-if [ $boot_type = "uefi" ]; then
-    mkfs.fat -F32 "${DISK}1"
-    mkdir -p /mnt/boot/efi
-    mount "${DISK}1" /mnt/boot/efi
-fi
-
-
-## --- Install Arch Linux ---
-pacstrap /mnt base base-devel linux linux-firmware
-
-
-## --- Generate file system table ---
+# Generate file system table
 genfstab -U /mnt >> /mnt/etc/fstab
 
+# Set hostname
+echo "$HOST_NAME" > /mnt/etc/hostname
 
-## --- Enter the new system ---
-arch-chroot /mnt /bin/bash
+# Set hardware clock from system clock
+ln -sf /usr/share/zoneinfo/UTC /mnt/etc/localtime
+arch-chroot /mnt hwclock --systohc --utc
 
+# Set localization
+echo "en_US.UTF-8 UTF-8" >> /mnt/etc/locale.gen
+arch-chroot /mnt locale-gen
+echo "LANG=en_US.UTF-8" > /mnt/etc/locale.conf
 
-## --- Install GRUB ---
-pacman -S --noconfirm grub
+# Set password for the root user
+arch-chroot /mnt passwd
 
-if [ $boot_type = "uefi" ]; then
-    pacman -S --noconfirm efibootmgr
-    grub-install --target=x86_64-efi \
-        --bootloader-id=GRUB \
-        --efi-directory=/boot/efi
-elif [ $boot_type = "bios" ]; then  
-    grub-install "$DISK"
-fi
+# Install GRUB on an UEFI computer
+arch-chroot /mnt grub-install \
+    --target=x86_64-efi \
+    --efi-directory=/boot/efi \
+    --bootloader-id=GRUB
 
-grub-mkconfig -o /boot/grub/grub.cfg
-
-
-## -- Set hostname ---
-echo "arch" > /etc/hostname
-
-
-## --- Set hardware clock from system clock ---
-hwclock --systohc
-
-
-## --- Set timezone ---
-# To list the timezones: `timedatectl list-timezones`
-timedatectl set-timezone "Europe/Helsinki"
-
-
-# --- Set localization ---
-# You can run `cat /etc/locale.gen` to see all the locales available
-echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
-locale-gen
-echo "LANG=en_US.UTF-8" > /etc/locale.conf
-
-
-## --- Set password for the root user ---
-passwd 
+# Generate GRUB configuration
+arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
