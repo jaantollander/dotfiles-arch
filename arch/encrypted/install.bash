@@ -29,8 +29,8 @@ hwclock --systohc --utc
 
 # Set parameters
 : "${BOOT:="boot"}"
-: "${LVGROUP="arch"}"
-: "${HOST_NAME="arch"}"
+: "${LVGROUP:="arch"}"
+: "${HOST_NAME:="arch"}"
 
 # Clear all current partition data
 sgdisk --clear "$DISK"
