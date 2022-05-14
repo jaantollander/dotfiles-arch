@@ -21,7 +21,7 @@ USB_DEVICE=$2
 sudo umount "${USB_DEVICE}"*
 
 # Wipe existing filesystem from the USB device.
-sudo wipefs "$USB_DEVICE"
+sudo wipefs --all "$USB_DEVICE"
 
 # Make FAT32 filesystem on the USB device.
 sudo mkfs.fat -F 32 "$USB_DEVICE"
