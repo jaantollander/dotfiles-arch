@@ -78,7 +78,7 @@ Here is an overview of the setup and configurations.
 - Improved ls: [*lsd*](https://github.com/Peltoche/lsd)
 - Improved grep: [*ripgrep*](https://github.com/BurntSushi/ripgrep), [*ripgrep-all*](https://github.com/phiresky/ripgrep-all)
 - Simplified help pages: [*tldr*](https://tldr.sh/)
-- [ShellCheck](https://github.com/koalaman/shellcheck) is a static analysis tool for shell scripts.
+- Static analysis tool for shell scripts: [shellcheck](https://github.com/koalaman/shellcheck)
 
 **Other tools**:
 
