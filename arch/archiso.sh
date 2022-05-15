@@ -3,10 +3,10 @@
 # Install Arch Linux Live USB
 #
 # USAGE
-#   live_usb.sh <archiso> <usb-device>
+#   archiso.sh <archiso> <device>
 #
 # EXAMPLE
-#   live_usb.sh archlinux-<version>-86_64.iso /dev/sdb
+#   archiso.sh archlinux-<version>-86_64.iso /dev/sdb
 #
 # LINKS
 #   https://wiki.archlinux.org/title/USB_flash_installation_medium
