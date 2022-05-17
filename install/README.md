@@ -43,7 +43,7 @@ sh archiso.sh $ARCHISO /dev/sdb
 ```
 
 
-## Preparing Archiso
+## Booting and Preparing Archiso
 We can now remove the USB drive and attach it to the computer where we want to boot Arch Linux as Live USB environment for installation. Modify the boot order such that the USB drive is the first to boot. Now, we can boot to the live Arch Linux environment!
 
 Lets change larger font on the Linux console to make text easier to read. We can use Terminus fonts. You can try `ter-132n` or `ter-716n` fonts and select the one that works better on your display.
@@ -64,7 +64,7 @@ iwctl station <wlan> connect <network-name>
 
 
 ## Installing Arch Linux
-Prepapare by securely creating strong passwords for encryption and root. Write them on paper.
+Prepapare by securely creating strong passwords for encryption, root and user. Write them on paper.
 
 Download the installation script.
 
@@ -102,14 +102,12 @@ reboot
 ```
 
 
-## Post Installation Steps
-First, log into the `root` user. Then, enable internet by plugging ethernet cable or using wi-fi. Let's start the `iw` and `dhcpc` daemons.
+## Connecting to Network
+First, log into the `root` user. Then, enable internet by plugging ethernet cable or using wi-fi. Let's start the `iw` and `dhcpc` daemons. We can connect to wi-fi using `iwctl` the same way we did during Arch Linux installation.
 
 ```bash
-systemctl enable iwd --now
-systemctl enable networkd --now
-systemctl enable resolved --now
-dhcpcd &
+systemctl enable iwd.service --now
+systemctl enable dhcpcd.service --now
+systemctl enable systemd-networkd.socket --now
+systemctl enable systemd-resolved.service --now
 ```
-
-We can connect to wi-fi using `iwctl` the same way we did during Arch Linux installation.
