@@ -14,7 +14,7 @@ Tools used for the installation.
 Useful ArchWiki articles: [Archiso](https://wiki.archlinux.org/title/Archiso), [GRUB](https://wiki.archlinux.org/title/GRUB), and [Cryptsetup](https://wiki.archlinux.org/title/Dm-crypt/Device_encryption#Cryptsetup_usage).
 
 
-## Installing Live USB
+## Installing Archiso
 Download Arch Linux ISO file from the Arch Linux website. After the download, you should have an ISO file named similarly to `archlinux-2022.01.01-x86_64.iso`.
 
 Next, attach a USB drive to the computer and list block devices. The USB device should be listed. In the example, below is named `sdb` with partitions `1` and `2`. The block devices listed above are located in the `/dev/` directory. The path to the `sdb` is therefore `/dev/sdb`.
@@ -63,7 +63,7 @@ iwctl station <wlan> connect <network-name>
 ```
 
 
-# Installing Arch Linux
+## Installing Arch Linux
 Prepapare by securely creating strong passwords for encryption and root. Write them on paper.
 
 Download the installation script.
@@ -112,42 +112,4 @@ systemctl enable resolved --now
 dhcpcd &
 ```
 
-We can connect to wi-fi using `iwctl`.
-
-```bash
-iwctl
-```
-
-List available timezones and set a new timezone if needed.
-
-```bash
-timedatectl list-timezones
-timedatectl set-timezone "Europe/Helsinki"
-```
-
-Next, we need to install Git and text editor such as Neovim for editing configuration files.
-
-```bash
-pacman -Suy git neovim
-```
-
-Let's securely edit the `/etc/sudoers` file `visudo` to allow users on the `wheel` group to use `sudo` by uncommenting the line `%wheel ALL=(ALL:ALL) ALL`.
-
-```bash
-export EDITOR=nvim
-visudo
-```
-
-Next, let's change the default `umask 022` to `umask 077` which improves security by changing the default file permissions to read and write and additionally execute permission to directories only for the owner. 
-
-```bash
-nvim /etc/profile
-```
-
-Create new user
-
-```bash
-USERNAME="jaan"
-useradd -m -G wheel -s /bin/bash "$USERNAME"
-passwd "$USERNAME"
-```
+We can connect to wi-fi using `iwctl` the same way we did during Arch Linux installation.

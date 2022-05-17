@@ -23,13 +23,15 @@ die() { error "$*"; exit 1; }
 # Verify that installation disk is valid block device
 [ -b "$DISK" ] || die "DISK=\"$DISK\" is not valid block device."
 
+# Set your swap size such as "4G" or "512M".
+: "${SWAP_SIZE:="512M"}"
+: "${HOST_NAME:="arch"}"
+: "${USER_NAME:="jaan"}"
+: "${TIMEZONE:="UTC"}"
+
 # Set up clock
 timedatectl set-ntp true
 hwclock --systohc --utc
-
-# Set your swap size such as "4G" or "512M".
-: "${SWAP_SIZE:=512M}"
-: "${HOST_NAME:=arch}"
 
 # Wipe all data from the disk by overwriting it with zeros
 dd if=/dev/zero of="$DISK" bs=4096 status=progress
@@ -74,8 +76,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 # Set hostname
 echo "$HOST_NAME" > /mnt/etc/hostname
 
-# Set hardware clock from system clock
-ln -sf /usr/share/zoneinfo/UTC /mnt/etc/localtime
+# Set the system clock
 arch-chroot /mnt hwclock --systohc --utc
 
 # Set localization
@@ -94,3 +95,15 @@ arch-chroot /mnt grub-install \
 
 # Generate GRUB configuration
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
+
+# Allow users on the "wheel" group to use "sudo"
+cat << EOF > /mnt/etc/sudoers.d/wheel
+%wheel ALL=(ALL:ALL) ALL
+EOF
+
+# Create new user
+arch-chroot /mnt useradd "$USER_NAME" \
+    --create-home \
+    --groups wheel \
+    --shell /bin/bash
+arch-chroot /mnt passwd "$USER_NAME"

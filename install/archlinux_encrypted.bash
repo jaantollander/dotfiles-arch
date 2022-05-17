@@ -23,14 +23,16 @@ die() { error "$*"; exit 1; }
 # Verify that installation disk is valid block device
 [ -b "$DISK" ] || die "DISK=\"$DISK\" is not valid block device."
 
-# Set up clock
-timedatectl set-ntp true
-hwclock --systohc --utc
-
 # Set parameters
 : "${BOOT:="boot"}"
 : "${LVGROUP:="arch"}"
 : "${HOST_NAME:="arch"}"
+: "${USER_NAME:="jaan"}"
+: "${TIMEZONE:="UTC"}"
+
+# Set up clock
+timedatectl set-ntp true
+hwclock --systohc --utc
 
 # Wipe all data from the disk by overwriting it with random data
 dd if=/dev/urandom of="$DISK" bs=4096 status=progress
@@ -99,9 +101,8 @@ cat /mnt/etc/fstab
 echo "$HOST_NAME" > /mnt/etc/hostname
 
 # Set the system clock
-# This will harmlessly fail if your system's CMOS clock is already set to UTC.
-ln -sf /usr/share/zoneinfo/UTC /mnt/etc/localtime
 arch-chroot /mnt hwclock --systohc --utc
+arch-chroot /mnt timedatectl set-timezone "$TIMEZONE"
 
 # Set locale
 echo "en_US.UTF-8 UTF-8" >> /mnt/etc/locale.gen
@@ -158,3 +159,15 @@ unset M2 R2
 
 # Generate Your Final Grub Configuration:
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
+
+# Allow users on the "wheel" group to use "sudo"
+cat << EOF > /mnt/etc/sudoers.d/wheel
+%wheel ALL=(ALL:ALL) ALL
+EOF
+
+# Create new user
+arch-chroot /mnt useradd "$USER_NAME" \
+    --create-home \
+    --groups wheel \
+    --shell /bin/bash
+arch-chroot /mnt passwd "$USER_NAME"
