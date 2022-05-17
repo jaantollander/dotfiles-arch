@@ -3,19 +3,19 @@
 My arch install script are influenced by the following resources.
 
 - [ArchWiki - Installation guide](https://wiki.archlinux.org/title/installation_guide)
-- [ArchWiki - GRUB](https://wiki.archlinux.org/title/GRUB)
-- [ArchWiki - Cryptsetup](https://wiki.archlinux.org/title/Dm-crypt/Device_encryption#Cryptsetup_usage)
-- [Phantas0s/ArchInstall](https://github.com/Phantas0s/ArchInstall)
 - [maximbaz/dotfiles/install.sh](https://github.com/maximbaz/dotfiles/blob/master/install.sh)
 - ["Efficient UEFI Encrypted Root and Swap Arch Linux Installation with an ENCRYPTED BOOT" by HardenedArray](https://gist.github.com/HardenedArray/ee3041c04165926fca02deca675effe1)
 
+Tools used for the installation.
+
+- [Archiso](https://gitlab.archlinux.org/archlinux/archiso)
+- [Arch Install Scripts](https://github.com/archlinux/arch-install-scripts) which contains the `arch-chroot`, `genfstab`, and `pacstrap` shell functions.
+
+Useful ArchWiki articles: [Archiso](https://wiki.archlinux.org/title/Archiso), [GRUB](https://wiki.archlinux.org/title/GRUB), and [Cryptsetup](https://wiki.archlinux.org/title/Dm-crypt/Device_encryption#Cryptsetup_usage).
+
 
 ## Installing Live USB
-Download Arch Linux ISO file from the Arch Linux website. After the download, there should exist an ISO file as below. 
-
-```bash
-ls archlinux-2022.01.01-x86_64.iso
-```
+Download Arch Linux ISO file from the Arch Linux website. After the download, you should have an ISO file named similarly to `archlinux-2022.01.01-x86_64.iso`.
 
 Next, attach a USB drive to the computer and list block devices. The USB device should be listed. In the example, below is named `sdb` with partitions `1` and `2`. The block devices listed above are located in the `/dev/` directory. The path to the `sdb` is therefore `/dev/sdb`.
 
@@ -51,7 +51,9 @@ Prepapare by securely creating strong passwords for LUKS and root. Write them on
 Lets change larger font on the Linux console to make text easier to read.
 
 ```bash
-setfont ter-132n
+pacman -Sy terminus-font
+#setfont ter-132n
+#setfont ter-716n
 ```
 
 Connect to the internet via ethernet or WiFi. We can use `iw` for connecting to WiFi if needed.
