@@ -145,7 +145,7 @@ Finally, install configs for the target module.
 
 
 ## Documentation
-The [**documentation**](./docs) contains a more detailed configuration overview.
+The documentation contains a more detailed configuration overview.
 
 - [Modules](./docs/modules.md)
 - [Shell](./docs/shell.md)
