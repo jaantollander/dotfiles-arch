@@ -39,21 +39,18 @@ Finally, let's install the live bootable Arch Linux on USB drive. We need to sup
 
 ```bash
 ARCHISO=archlinux-2022.01.01-x86_64.iso
-sh live_usb.sh $ARCHISO /dev/sdb
+sh archiso.sh $ARCHISO /dev/sdb
 ```
 
+
+## Preparing Archiso
 We can now remove the USB drive and attach it to the computer where we want to boot Arch Linux as Live USB environment for installation. Modify the boot order such that the USB drive is the first to boot. Now, we can boot to the live Arch Linux environment!
 
-
-## Installing Encrypted System
-Prepapare by securely creating strong passwords for LUKS and root. Write them on paper.
-
-Lets change larger font on the Linux console to make text easier to read.
+Lets change larger font on the Linux console to make text easier to read. We can use Terminus fonts. You can try `ter-132n` or `ter-716n` fonts and select the one that works better on your display.
 
 ```bash
-pacman -Sy terminus-font
-#setfont ter-132n
-#setfont ter-716n
+setfont ter-132n
+setfont ter-716n
 ```
 
 Connect to the internet via ethernet or WiFi. We can use `iw` for connecting to WiFi if needed.
@@ -65,10 +62,15 @@ iwctl station <wlan> get-networks
 iwctl station <wlan> connect <network-name>
 ```
 
+
+# Installing Arch Linux
+Prepapare by securely creating strong passwords for encryption and root. Write them on paper.
+
 Download the installation script.
 
 ```bash
-curl https://raw.githubusercontent.com/jaantollander/dotfiles/master/arch/encrypted/install.sh > install.sh
+URL=https://raw.githubusercontent.com/jaantollander/dotfiles/master/install/archlinux_encrypted.sh
+curl $URL > install.sh
 ```
 
 List your block devices and select the hard drive to install the operating system.
@@ -83,18 +85,13 @@ Export the selected hard drive as an environment variable such as `/dev/sda` or 
 export DISK=/dev/nvme0n1
 ```
 
-Remove existing filesystems from the disk and overwrite it with zeros to wipe all data from it.
-
-```bash
-wipefs -a "$DISK"
-dd if=/dev/zero of="$DISK" bs=4M status=progress
-```
-
 Run the installation script. For the script to work, the `DISK` environment variable must be set.
 
 ```bash
 bash install.sh
 ```
+
+Next, review the installation and logs.
 
 Finally, unmount all partitions and reboot.
 
@@ -112,7 +109,7 @@ First, log into the `root` user. Then, enable internet by plugging ethernet cabl
 systemctl enable iwd --now
 systemctl enable networkd --now
 systemctl enable resolved --now
-#dhcpcd &
+dhcpcd &
 ```
 
 We can connect to wi-fi using `iwctl`.

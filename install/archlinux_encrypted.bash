@@ -14,7 +14,7 @@ msg() { echo "MESSAGE: $*"; }
 # Print error message
 error() { echo "ERROR: $*"; } >&2
 
-# Print error message
+# Print error message and exit with error status
 die() { error "$*"; exit 1; }
 
 # Verify boot mode. Exit with error if not UEFI.
@@ -32,7 +32,10 @@ hwclock --systohc --utc
 : "${LVGROUP:="arch"}"
 : "${HOST_NAME:="arch"}"
 
-# Clear all current partition data
+# Wipe all data from the disk by overwriting it with random data
+dd if=/dev/urandom of="$DISK" bs=4096 status=progress
+
+# Clear existing partition data
 sgdisk --clear "$DISK"
 
 # Create EFI partition.
