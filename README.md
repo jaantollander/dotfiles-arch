@@ -103,7 +103,7 @@ You can read my instructions for creating Archiso and installing Arch Linux.
 
 - [Installing Archiso](./install/archiso.sh)
 - [Basic Arch Linux Installation](./install/archlinux_basic.bash)
-- [Encrypted Arch Linux Install](./install/archlinux_encrypted.bash)
+- [Encrypted Arch Linux Installation](./install/archlinux_encrypted.bash)
 
 
 ## Configuration Management
