@@ -99,14 +99,18 @@ List of the hardware I am using with my setup.
 
 
 ## Installing Arch Linux
-You can read my instructions for installing Arch Linux in the [**arch**](./arch) directory. It includes instructions with and without encryption and the post-installation steps.
+You can read my instructions for creating Archiso and installing Arch Linux.
+
+- [Installing Archiso](./install/archiso.sh)
+- [Basic Arch Linux Installation](./install/archlinux_basic.bash)
+- [Encrypted Arch Linux Install](./install/archlinux_encrypted.bash)
 
 
 ## Configuration Management
 First, let's install Git if we haven't already.
 
 ```bash
-sudo pacman -S git
+sudo pacman -Suy git
 ```
 
 Then, we can clone the dotfiles repository to the home directory. 
