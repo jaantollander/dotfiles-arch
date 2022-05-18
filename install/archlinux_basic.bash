@@ -20,14 +20,18 @@ die() { error "$*"; exit 1; }
 # Verify boot mode. Exit with error if not UEFI.
 [ -d /sys/firmware/efi/efivars ] || die "Boot mode is not UEFI."
 
+# Check network connection
+ping -c 1 "archlinux.org" || die "Network connection failed."
+
 # Verify that installation disk is valid block device
 [ -b "$DISK" ] || die "DISK=\"$DISK\" is not valid block device."
 
-# Set your swap size such as "4G" or "512M".
+# Set parameters
 : "${SWAP_SIZE:="512M"}"
 : "${HOST_NAME:="arch"}"
 : "${USER_NAME:="jaan"}"
 : "${TIMEZONE:="UTC"}"
+: "${FONT:="ter-132n"}"
 
 # Set up clock
 timedatectl set-ntp true
@@ -68,24 +72,13 @@ mkdir -p /mnt/boot/efi
 mount "$EFI" /mnt/boot/efi
 
 # Install Arch Linux
-pacstrap /mnt base base-devel grub efibootmgr linux linux-firmware
+pacstrap /mnt \
+    base base-devel grub efibootmgr linux linux-headers linux-firmware \
+    dhcpcd iwd wpa_supplicant \
+    git terminus-font
 
 # Generate file system table
 genfstab -U /mnt >> /mnt/etc/fstab
-
-# Set hostname
-echo "$HOST_NAME" > /mnt/etc/hostname
-
-# Set the system clock
-arch-chroot /mnt hwclock --systohc --utc
-
-# Set localization
-echo "en_US.UTF-8 UTF-8" >> /mnt/etc/locale.gen
-arch-chroot /mnt locale-gen
-echo "LANG=en_US.UTF-8" > /mnt/etc/locale.conf
-
-# Set password for the root user
-arch-chroot /mnt passwd
 
 # Install GRUB on an UEFI computer
 arch-chroot /mnt grub-install \
@@ -95,6 +88,24 @@ arch-chroot /mnt grub-install \
 
 # Generate GRUB configuration
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
+
+# Set hostname
+echo "$HOST_NAME" > /mnt/etc/hostname
+
+# Set virtual console font
+echo "FONT=$FONT" > /mnt/etc/vconsole.conf
+
+# Set the system clock
+arch-chroot /mnt hwclock --systohc --utc
+arch-chroot /mnt timedatectl set-timezone "$TIMEZONE"
+
+# Set localization
+echo "en_US.UTF-8 UTF-8" >> /mnt/etc/locale.gen
+arch-chroot /mnt locale-gen
+echo "LANG=en_US.UTF-8" > /mnt/etc/locale.conf
+
+# Set password for the root user
+arch-chroot /mnt passwd
 
 # Allow users on the "wheel" group to use "sudo"
 cat << EOF > /mnt/etc/sudoers.d/wheel
@@ -107,3 +118,9 @@ arch-chroot /mnt useradd "$USER_NAME" \
     --groups wheel \
     --shell /bin/bash
 arch-chroot /mnt passwd "$USER_NAME"
+
+# Network setup
+arch-chroot /mnt systemctl enable "iwd.service" --now
+arch-chroot /mnt systemctl enable "dhcpcd.service" --now
+arch-chroot /mnt systemctl enable "systemd-networkd.socket" --now
+arch-chroot /mnt systemctl enable "systemd-resolved.service" --now

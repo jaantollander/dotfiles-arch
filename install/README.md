@@ -4,6 +4,8 @@ My arch install script are influenced by the following resources.
 
 - [ArchWiki - Installation guide](https://wiki.archlinux.org/title/installation_guide)
 - [maximbaz/dotfiles/install.sh](https://github.com/maximbaz/dotfiles/blob/master/install.sh)
+- [maximbaz/dotfiles/setup-system.sh](https://github.com/maximbaz/dotfiles/blob/master/setup-system.sh)
+- [maximbaz/dotfiles/setup-user.sh](https://github.com/maximbaz/dotfiles/blob/master/setup-user.sh)
 - ["Efficient UEFI Encrypted Root and Swap Arch Linux Installation with an ENCRYPTED BOOT" by HardenedArray](https://gist.github.com/HardenedArray/ee3041c04165926fca02deca675effe1)
 
 Tools used for the installation.
@@ -44,13 +46,19 @@ sh archiso.sh $ARCHISO /dev/sdb
 
 
 ## Booting and Preparing Archiso
-We can now remove the USB drive and attach it to the computer where we want to boot Arch Linux as Live USB environment for installation. Modify the boot order such that the USB drive is the first to boot. Now, we can boot to the live Arch Linux environment!
+We can now remove the USB drive and attach it to the computer where we want to boot Arch Linux as Live USB environment for installation. Modify the boot order such that the USB drive is the first to boot. Now, we can boot to the live Arch Linux environment.
 
 Lets change larger font on the Linux console to make text easier to read. We can use Terminus fonts. You can try `ter-132n` or `ter-716n` fonts and select the one that works better on your display.
 
 ```bash
 setfont ter-132n
 setfont ter-716n
+```
+
+We can list all normal terminus fonts as follows.
+
+```bash
+ls /usr/share/kbd/consolefonts | grep 'ter-[0-9]\{3\}n' --only-matching
 ```
 
 Connect to the internet via ethernet or WiFi. We can use `iw` for connecting to WiFi if needed.
@@ -99,15 +107,4 @@ Finally, unmount all partitions and reboot.
 umount -R /mnt
 swapoff -a
 reboot
-```
-
-
-## Connecting to Network
-First, log into the `root` user. Then, enable internet by plugging ethernet cable or using wi-fi. Let's start the `iw` and `dhcpc` daemons. We can connect to wi-fi using `iwctl` the same way we did during Arch Linux installation.
-
-```bash
-systemctl enable iwd.service --now
-systemctl enable dhcpcd.service --now
-systemctl enable systemd-networkd.socket --now
-systemctl enable systemd-resolved.service --now
 ```
