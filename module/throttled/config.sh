@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-systemctl enable --user --now lenovo_fix.service
+systemctl enable "lenovo_fix.service" --now
