@@ -1,14 +1,12 @@
 shell
 shell-utilities
 window-system
-openvpn
-utility
 throttled
 brightnessctl
 bluez
 pulseaudio-bluetooth
 mupdf
-zathura
 keepassxc
 brave
 firefox
+qbittorrent
