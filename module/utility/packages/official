@@ -1,4 +1,3 @@
-coreutils
 dialog
 imagemagick
 rsync
@@ -12,6 +11,6 @@ argbash
 jq
 go-yq
 pdf2svg
-fd
 hyperfine
 hexyl
+inotify-tools

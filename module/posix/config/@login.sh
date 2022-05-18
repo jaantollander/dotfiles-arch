@@ -1,4 +1,8 @@
 # shellcheck shell=sh
+
+# Set default permissions to read and write for the user only
+umask 077
+
 # Source login scripts
 DIR=$HOME/.config/posix/login
 if test -d "$DIR"; then
