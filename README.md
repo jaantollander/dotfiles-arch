@@ -107,13 +107,7 @@ You can read my instructions for creating Archiso and installing Arch Linux.
 
 
 ## Configuration Management
-First, let's install Git if we haven't already.
-
-```bash
-sudo pacman -Suy git
-```
-
-Then, we can clone the dotfiles repository to the home directory. 
+We can clone the dotfiles repository to the home directory. 
 
 ```bash
 git clone git@github.com:jaantollander/dotfiles.git $HOME
