@@ -108,9 +108,7 @@ echo "LANG=en_US.UTF-8" > /mnt/etc/locale.conf
 arch-chroot /mnt passwd
 
 # Allow users on the "wheel" group to use "sudo"
-cat << EOF > /mnt/etc/sudoers.d/wheel
-%wheel ALL=(ALL:ALL) ALL
-EOF
+echo "%wheel ALL=(ALL:ALL) ALL" > /mnt/etc/sudoers.d/wheel
 
 # Create new user
 arch-chroot /mnt useradd "$USER_NAME" \
