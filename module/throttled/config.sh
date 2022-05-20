@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-systemctl enable "lenovo_fix.service" --now
+suso systemctl enable "lenovo_fix.service" --now
