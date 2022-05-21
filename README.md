@@ -36,57 +36,63 @@ Here is an overview of the setup and configurations.
 **System**:
 
 - Encrypted root and swap filesystems with an encrypted boot and boot from UEFI. Decrypts and mounts the entire encrypted system using a single LUKS passphrase entry. [Instructions by HardenedArray](https://gist.github.com/HardenedArray/ee3041c04165926fca02deca675effe1)
-- System and service manager: [systemd](https://systemd.io/)
-
-**Key Bindings**: VIM like key bindings
-
-**Font**: *Inconsolata* [*Nerd Font*](https://www.nerdfonts.com/) 
-
-**Style**: Dark theme, minimalistic style.
+- [*systemd*](https://systemd.io/) as the system and service manager.
+- *Terminus-font* for the Linux console.
 
 **Shell**:
 
-- The [xsh](https://github.com/sgleizes/xsh) framework provides conventions for managing shell configuration consistently.
-- Login shell: [*Zsh*](https://wiki.archlinux.org/title/zsh)
-
-**Desktop**:
-
-- Window system: [*xorg*](https://www.x.org/)
-- Tiling window manager: [*i3*](https://i3wm.org/)
-- Application launcher: [*Rofi*](https://github.com/davatorium/rofi)
-- Notifications: [*Dunst*](https://dunst-project.org/)
-- Audio: *PulseAudio*
-- Backlights: [*brightnessctl*](https://github.com/Hummer12007/brightnessctl)
-- Bluetooth: [*bluez*](http://www.bluez.org/)
-- Screenshot: [*maim*](https://github.com/naelstrof/maim)
-
-**Terminal**:
-
-- Emulator: [*rxvt-unicode*](https://wiki.archlinux.org/title/rxvt-unicode) with [*resize-font*](https://github.com/simmel/urxvt-resize-font) plugin
-- Multiplexer: [*tmux*](https://github.com/tmux/tmux)
-- Editor: [*Neovim*](https://neovim.io/) with [*Vim Plug*](https://github.com/junegunn/vim-plug) plugin manager
-
-**Command-line utilities**: 
-
+- *Key Bindings* are similar to VIM.
+- [*Xsh*](https://github.com/sgleizes/xsh) conventions for consistent shell configuration.
+- *Posix* compliant runcoms for common shell configurations.
+- *Bash* for shell scripting.
+- *Zsh* as login and interactive shell.
+- *Xdg* standard for defining base and user directories.
 - [*Core Utilities*](https://wiki.archlinux.org/title/Core_utilities)
-- Version Control: [*Git*](https://git-scm.com/)
-- File transfer and backup: [*rsync*](https://rsync.samba.org/)
-- Colors for directory listings: [*LS_COLORS*](https://github.com/trapd00r/LS_COLORS)
-- Fuzzy finder: [*fzf*](https://github.com/junegunn/fzf)
-- Improved cat: [*bat*](https://github.com/sharkdp/bat)
-- Improved find: [*fd*](https://github.com/sharkdp/fd)
-- Improved ls: [*lsd*](https://github.com/Peltoche/lsd)
-- Improved grep: [*ripgrep*](https://github.com/BurntSushi/ripgrep), [*ripgrep-all*](https://github.com/phiresky/ripgrep-all)
-- Simplified help pages: [*tldr*](https://tldr.sh/)
-- Static analysis tool for shell scripts: [shellcheck](https://github.com/koalaman/shellcheck)
+- [*LS_COLORS*](https://github.com/trapd00r/LS_COLORS) for listing files and directories with colors.
+
+**Shell Utilities**:
+
+- [*Git*](https://git-scm.com/) for version control.
+- [*GitHub CLI*](https://cli.github.com/) for hosting Git repositories.
+- [*rsync*](https://rsync.samba.org/) for file transfer and backups.
+- [*fzf*](https://github.com/junegunn/fzf) as the fuzzy finder.
+- [*bat*](https://github.com/sharkdp/bat) for viewing files.
+- [*fd*](https://github.com/sharkdp/fd) for finding files and directories.
+- [*lsd*](https://github.com/Peltoche/lsd) for listing files and directories.
+- [*ripgrep*](https://github.com/BurntSushi/ripgrep) for searching text from text files.
+- [*ripgrep-all*](https://github.com/phiresky/ripgrep-all) for searching text from multiple files formats.
+- [*tldr*](https://tldr.sh/) for simplified help pages.
+
+**Editor**:
+
+- [*Neovim*](https://neovim.io/) as the text editor.
+- [*Vim Plug*](https://github.com/junegunn/vim-plug) for managing plugins.
+- [*shellcheck*](https://github.com/koalaman/shellcheck) for static analysis for shell scripts.
+- *yamllint* for linting Yaml files.
+
+**Window System**:
+
+- [*Inconsolata Nerd Font*](https://www.nerdfonts.com/) 
+- [*Xorg*](https://www.x.org/) as the window system.
+- [*i3*](https://i3wm.org/) as the tiling window manager.
+- [*rxvt-unicode*](https://wiki.archlinux.org/title/rxvt-unicode) as the terminal emulator.
+- [*resize-font*](https://github.com/simmel/urxvt-resize-font) plugin for *rxvt*
+- [*tmux*](https://github.com/tmux/tmux) as the terminal multiplexer.
+- [*Rofi*](https://github.com/davatorium/rofi) as the application launcher.
+- [*Dunst*](https://dunst-project.org/) for notifications.
+- *Pulse* for managing audio.
+- [*brightnessctl*](https://github.com/Hummer12007/brightnessctl) for controlling device backlights.
+- [*bluez*](http://www.bluez.org/) for bluetooth.
+- [*maim*](https://github.com/naelstrof/maim) for taking screenshots.
 
 **Other tools**:
 
-- Process Viewer: [*htop*](https://htop.dev/)
-- Password manager: [*KeePassXC*](https://keepassxc.org)
-- Document viewer: [*mupdf*](https://mupdf.com/), [*Zathura*](https://pwmt.org/projects/zathura/)
-- Plain text accounting: [*hledger*](https://hledger.org/)
-- Hosting Git repositories: [*GitHub CLI*](https://cli.github.com/)
+- [*htop*](https://htop.dev/) for viewing processes interactively.
+- [*KeePassXC*](https://keepassxc.org) for managing passwords.
+- [*mupdf*](https://mupdf.com/) for viewing PDF and EPUB documents
+- [*Zathura*](https://pwmt.org/projects/zathura/)
+- [*hledger*](https://hledger.org/) for plain text accounting
+- *pandoc*
 
 
 ## Hardware Setup
