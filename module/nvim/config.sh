@@ -16,6 +16,3 @@ ln -sf "$DOTMODULE/nvim/config/autoload/plug.vim" "$XDG_CONFIG_HOME/nvim/autoloa
 
 # Install (or update) all the plugins
 nvim --noplugin +PlugUpdate +qa
-
-mkdir -p "$XDG_CONFIG_HOME/posix/env"
-ln -sf "$DOTMODULE/nvim/config/@env.sh" "$XDG_CONFIG_HOME/posix/env/nvim.sh"
