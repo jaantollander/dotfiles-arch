@@ -5,10 +5,9 @@ bat
 fd
 fzf
 ripgrep
+ripgrep-all
 tldr
 openssh
 git
 github
-shellcheck
 htop
-nvim
