@@ -35,9 +35,12 @@ Here is an overview of the setup and configurations.
 
 **System**:
 
-- Encrypted root and swap filesystems with an encrypted boot and boot from UEFI. Decrypts and mounts the entire encrypted system using a single LUKS passphrase entry. [Instructions by HardenedArray](https://gist.github.com/HardenedArray/ee3041c04165926fca02deca675effe1)
-- [*systemd*](https://systemd.io/) as the system and service manager.
+- *UEFI* boot
+- *GRUB* bootloader
+- *LUKS 1* encrypted root, swap and boot
+- *Ext 4* filesystem
 - *Terminus-font* for the Linux console.
+- [*systemd*](https://systemd.io/) as the system and service manager.
 
 **Shell**:
 
@@ -98,10 +101,10 @@ Here is an overview of the setup and configurations.
 ## Hardware Setup
 List of the hardware I am using with my setup.
 
-- Laptop: *Lenovo Thinkpad T480s*
-- Keyboard: [*Kinesis Advantage 2*](https://kinesis-ergo.com/keyboards/advantage2-keyboard/)
-- Mouse: *Razer DeathAdder Elite*
-- USB Flash Drive: *Kingston DataTraveler*
+- *Lenovo Thinkpad T480s* laptop
+- [*Kinesis Advantage 2*](https://kinesis-ergo.com/keyboards/advantage2-keyboard/) ergonomic keyboard
+- *Razer DeathAdder Elite* ergonomic mouse
+- *Kingston DataTraveler* USB flash drive
 
 
 ## Installing Arch Linux
