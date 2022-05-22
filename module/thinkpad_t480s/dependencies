@@ -1,5 +1,6 @@
 shell
 shell-utilities
+editor
 window-system
 throttled
 brightnessctl
