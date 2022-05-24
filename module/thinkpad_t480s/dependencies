@@ -2,12 +2,11 @@ shell
 shell-utilities
 editor
 window-system
+browser
 throttled
 brightnessctl
 bluez
 pulseaudio-bluetooth
 mupdf
 keepassxc
-brave
-firefox
 qbittorrent
