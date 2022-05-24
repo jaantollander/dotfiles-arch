@@ -3,7 +3,7 @@ emulate sh -c "source $XDG_CONFIG_HOME/posix/interactive.sh"
 
 
 ## Add to fpath
-fpath=($ZDOTDIR/interactive $fpath)
+fpath=($ZDOTDIR/fpath $fpath)
 
 
 ## Source interactive zsh scripts
