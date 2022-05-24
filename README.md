@@ -57,6 +57,7 @@ Here is an overview of the setup and configurations.
 
 - [*Git*](https://git-scm.com/) for version control.
 - [*GitHub CLI*](https://cli.github.com/) for hosting Git repositories.
+- [*OpenSSH*](https://github.com/openssh/openssh-portable) for SSH connections.
 - [*rsync*](https://rsync.samba.org/) for file transfer and backups.
 - [*fzf*](https://github.com/junegunn/fzf) as the fuzzy finder.
 - [*bat*](https://github.com/sharkdp/bat) for viewing files.
@@ -65,6 +66,7 @@ Here is an overview of the setup and configurations.
 - [*ripgrep*](https://github.com/BurntSushi/ripgrep) for searching text from text files.
 - [*ripgrep-all*](https://github.com/phiresky/ripgrep-all) for searching text from multiple files formats.
 - [*tldr*](https://tldr.sh/) for simplified help pages.
+- [*htop*](https://htop.dev/) for viewing processes interactively.
 
 **Editor**:
 
@@ -83,14 +85,13 @@ Here is an overview of the setup and configurations.
 - [*tmux*](https://github.com/tmux/tmux) as the terminal multiplexer.
 - [*Rofi*](https://github.com/davatorium/rofi) as the application launcher.
 - [*Dunst*](https://dunst-project.org/) for notifications.
-- *Pulse* for managing audio.
-- [*brightnessctl*](https://github.com/Hummer12007/brightnessctl) for controlling device backlights.
-- [*bluez*](http://www.bluez.org/) for bluetooth.
 - [*maim*](https://github.com/naelstrof/maim) for taking screenshots.
 
 **Other tools**:
 
-- [*htop*](https://htop.dev/) for viewing processes interactively.
+- *Pulse* for managing audio.
+- [*brightnessctl*](https://github.com/Hummer12007/brightnessctl) for controlling device backlights.
+- [*bluez*](http://www.bluez.org/) for bluetooth.
 - [*KeePassXC*](https://keepassxc.org) for managing passwords.
 - [*mupdf*](https://mupdf.com/) for viewing PDF and EPUB documents
 - [*Zathura*](https://pwmt.org/projects/zathura/)
