@@ -110,7 +110,7 @@ cat << EOF > /mnt/etc/mkinitcpio.conf
 MODULES=()
 BINARIES=()
 FILES=(/crypto_keyfile.bin)
-HOOKS=(base udev autodetect modconf block keymap encrypt lvm2 resume filesystems keyboard fsck)
+HOOKS=(base udev autodetect modconf block keymap encrypt lvm2 resume filesystems keyboard fsck consolefont)
 EOF
 
 # Generate your initrd image
