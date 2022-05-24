@@ -49,7 +49,7 @@ Here is an overview of the setup and configurations.
 - *Posix* compliant runcoms for common shell configurations.
 - *Bash* for shell scripting.
 - *Zsh* as login and interactive shell.
-- *Xdg* standard for defining base and user directories.
+- [*XDG*](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) specification for defining base and user directories.
 - [*Core Utilities*](https://wiki.archlinux.org/title/Core_utilities)
 - [*LS_COLORS*](https://github.com/trapd00r/LS_COLORS) for listing files and directories with colors.
 
