@@ -171,3 +171,5 @@ Here is a list of some helpful resources for developing dotfiles.
 - We can use [Argbash](https://argbash.io/) for adding command-line arguments to Bash scripts.
 
 - *Dylanaraps* has written the [pure bash bible](https://github.com/dylanaraps/pure-bash-bible), [pure sh bible](https://github.com/dylanaraps/pure-sh-bible), and [how to write TUI in Bash](https://github.com/dylanaraps/writing-a-tui-in-bash) which are excellent resources for writing better bash and posix shell scripts. He has also written many other interesting projects using shell scripting such as [neofetch](https://github.com/dylanaraps/neofetch), [pfetch](https://github.com/dylanaraps/pfetch), [fff](https://github.com/dylanaraps/fff), [pash](https://github.com/dylanaraps/pash), [torque](https://github.com/dylanaraps/torque), and [shfm](https://github.com/dylanaraps/shfm/)!
+
+- Specification for [Shell and Utilities](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/contents.html).
