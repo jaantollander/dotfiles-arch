@@ -6,6 +6,11 @@ emulate sh -c "source $XDG_CONFIG_HOME/posix/interactive.sh"
 fpath=($ZDOTDIR/interactive $fpath)
 
 
+## Source interactive zsh scripts
+source "$XDG_CONFIG_HOME/zsh/interactive/fzf.zsh" 2> /dev/null
+source "$XDG_CONFIG_HOME/zsh/interactive/bd.zsh" 2> /dev/null
+
+
 ## --- Environment Variables ---
 # History filepath
 export HISTFILE="$ZDOTDIR/.zhistory"
@@ -16,13 +21,8 @@ export HISTSIZE=10000
 # Maximum events in history file
 export SAVEHIST=10000
 
-# fzf
-source "$XDG_CONFIG_HOME/zsh/interactive/fzf.zsh"
-
 
 ## --- Filesystem Navigation ---
-source "$XDG_CONFIG_HOME/zsh/interactive/bd.zsh"
-
 # Push the current directory visited on to the stack.
 setopt AUTO_PUSHD
 
