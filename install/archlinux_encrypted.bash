@@ -4,17 +4,19 @@
 set -u
 set -o pipefail
 
-# Log stdout and stderr to files.
+# Log stdout to file.
 exec 1> >(tee "stdout.log")
+
+# Log stderr to file.
 exec 2> >(tee "stderr.log" >&2)
 
-# Print message to stdout
+# Print message to stdout.
 msg() { echo "MESSAGE: $*"; }
 
-# Print error message
+# Print error message to stderr.
 error() { echo "ERROR: $*"; } >&2
 
-# Print error message and exit with error status
+# Print error message and exit with error status.
 die() { error "$*"; exit 1; }
 
 # Verify boot mode. Exit with error if not UEFI.
@@ -23,16 +25,19 @@ die() { error "$*"; exit 1; }
 # Check network connection
 ping -c 1 "archlinux.org" || die "Network connection failed."
 
-# Verify that installation disk is valid block device
-[ -b "$DISK" ] || die "DISK=\"$DISK\" is not valid block device."
-
 # Set parameters
+: "${DISK:?"Choose a block device."}"
+: "${EFI_SIZE:="100M"}"
+: "${SWAP_SIZE:="512M"}"
 : "${BOOT:="boot"}"
 : "${LVGROUP:="arch"}"
 : "${HOST_NAME:="arch"}"
 : "${USER_NAME:="jaan"}"
 : "${TIMEZONE:="UTC"}"
 : "${FONT:="ter-132n"}"
+
+# Verify that installation disk is valid block device
+[ -b "$DISK" ] || die "DISK=\"$DISK\" is not valid block device."
 
 # Set up clock
 timedatectl set-ntp true
@@ -45,7 +50,7 @@ dd if=/dev/urandom of="$DISK" bs=4096 status=progress
 sgdisk --clear "$DISK"
 
 # Create EFI partition.
-sgdisk --new "1::+100M" --typecode "1:ef00" "$DISK"
+sgdisk --new "1::+$EFI_SIZE" --typecode "1:ef00" "$DISK"
 
 # Create Linux Filesystem partition for encrypted root and swap.
 sgdisk --new "2::0" --typecode "2:8300" "$DISK"
@@ -74,7 +79,7 @@ cryptsetup luksOpen "$ROOT" "$BOOT"
 # Create encrypted LVM partitions
 pvcreate "/dev/mapper/$BOOT"
 vgcreate "$LVGROUP" "/dev/mapper/$BOOT"
-lvcreate -L 512M "$LVGROUP" -n swap
+lvcreate -L "$SWAP_SIZE" "$LVGROUP" -n swap
 lvcreate -l 100%FREE "$LVGROUP" -n root
 
 # Create filesystems on your encrypted partitions
