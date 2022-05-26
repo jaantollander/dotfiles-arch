@@ -121,33 +121,21 @@ EOF
 # Generate your initrd image
 arch-chroot /mnt mkinitcpio -p linux
 
-# Install and Configure Grub-EFI
-# Uncomment the following line in "/etc/default/grub".
-# GRUB_ENABLE_CRYPTODISK=y
-M1='^#\?GRUB_ENABLE_CRYPTODISK=.*$'
-R1="GRUB_ENABLE_CRYPTODISK=y"
-sed -i -e "s@$M1@$R1@g" /mnt/etc/default/grub
-
-# Avoid leaking variables
-unset M1 R1
-
 # Install GRUB on an UEFI computer
 arch-chroot /mnt grub-install \
     --target=x86_64-efi \
     --efi-directory=/efi \
     --bootloader-id=ArchLinux
 
-# Edit the default grub
-# Substitute the correct values for the variables and add the line to "/etc/default/grub".
-# GRUB_CMDLINE_LINUX="cryptdevice=$ROOT:$BOOT resume=/dev/mapper/$LVGROUP-swap"
+# Edit /etc/default/grub for encryption.
+M1='^#\?GRUB_ENABLE_CRYPTODISK=.*$'
+R1="GRUB_ENABLE_CRYPTODISK=y"
 M2='^GRUB_CMDLINE_LINUX=.*$'
 R2="GRUB_CMDLINE_LINUX=\"cryptdevice=$ROOT:$BOOT resume=/dev/mapper/$LVGROUP-swap\""
-sed -i -e "s@$M2@$R2@g" /mnt/etc/default/grub
+sed -i -e "s@$M1@$R1@g" -e "s@$M2@$R2@g" /mnt/etc/default/grub
+unset M1 R1 M2 R2
 
-# Avoid leaking variables
-unset M2 R2
-
-# Generate Your Final Grub Configuration:
+# Generate the GRUB configuration using /etc/default/grub.
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 # Create a hostname
