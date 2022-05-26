@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+# Print message to stdout.
+msg() { echo "MESSAGE: $*"; }
+
+# Print error message to stderr.
+error() { echo "ERROR: $*"; } >&2
+
+# Print error message and exit with error status.
+die() { error "$*"; exit 1; }
+
 # Paths
 export DOTFILES="$HOME/dotfiles"
 export DOTMODULE="$DOTFILES/module"
@@ -25,9 +34,8 @@ __dependencies() {
         if [[ -z ${ALL_MODULES[$MODULE]} ]]; then
             ALL_MODULES[$MODULE]="1"
             DEPS="$DOTMODULE/$MODULE/$DEPENDENCIES"
-            if [[ -f "$DEPS" ]]; then
+            [[ -f "$DEPS" ]] && \
                 __dependencies "$(tr '\n' ' ' < "$DEPS")"
-            fi
         fi
     done
 }
@@ -55,34 +63,30 @@ packages() {
     done
 
     # If "yay" is not installed exit with error.
-    if [[ -z "$(command -v "yay")" ]]; then
-        echo "Install Yay before installing packages."
-        exit 1
-    fi
+    [[ -z "$(command -v "yay")" ]] && \
+        die "Install Yay before installing packages."
 
     # Sync, Refresh and Upgrade
     sudo pacman --sync --refresh --sysupgrade --color=auto
 
-    if [[ "${#OFFICIAL[@]}" -ge 0 ]]; then
+    [[ "${#OFFICIAL[@]}" -gt 0 ]] && \
         cat "${OFFICIAL[@]}" \
             | sort \
             | uniq \
             | sudo pacman --sync --needed --color=auto -
-    fi
 
-    if [[ "${#AUR[@]}" -ge 0 ]]; then
+    [[ "${#AUR[@]}" -gt 0 ]] && \
         cat "${AUR[@]}" \
             | sort \
             | uniq \
             | yay --sync --needed --color=auto -
-    fi
 }
 
 config() {
     local MODULES=$*
     for MODULE in $(dependencies "$MODULES"); do
         if [[ -x "$DOTMODULE/$MODULE/$CONFIG" ]]; then
-            echo "config: $MODULE"
+            msg "config: $MODULE"
             "$DOTMODULE/$MODULE/$CONFIG"
         fi
     done
@@ -111,9 +115,7 @@ function help() {
 # Print help message on:
 # `./dotfiles.bash`
 # `./dotfiles.bash help`
-if [[ -z "$*" ]]; then
-    help
-fi
+[[ -z "$*" ]] && help
 
 # Expose functions as arguments.
 "$@"
