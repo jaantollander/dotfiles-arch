@@ -3,12 +3,13 @@ emulate sh -c "source $XDG_CONFIG_HOME/posix/interactive.sh"
 
 
 ## Add to fpath
-fpath=($ZDOTDIR/fpath $fpath)
+fpath=("$ZDOTDIR/function" $fpath)
 
 
 ## Source interactive zsh scripts
 source "$XDG_CONFIG_HOME/zsh/interactive/fzf.zsh" 2> /dev/null
 source "$XDG_CONFIG_HOME/zsh/interactive/bd.zsh" 2> /dev/null
+source "$XDG_CONFIG_HOME/zsh/interactive/prompt-purification.zsh" 2> /dev/null
 
 
 ## --- Environment Variables ---
@@ -42,10 +43,6 @@ source $XDG_CONFIG_HOME/zsh/interactive/completion.zsh
 zmodload zsh/complist
 autoload -Uz compinit; compinit
 _comp_options+=(globdots) # With hidden files
-
-
-## --- Prompt ---
-autoload -Uz prompt_purification_setup; prompt_purification_setup
 
 
 ## --- VIM Key Bindings ---

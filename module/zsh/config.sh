@@ -5,9 +5,8 @@ ln -sf "$DOTMODULE/zsh/config/@login.zsh" "$XDG_CONFIG_HOME/zsh/.zprofile"
 ln -sf "$DOTMODULE/zsh/config/@interactive.zsh" "$XDG_CONFIG_HOME/zsh/.zshrc"
 ln -sf "$XDG_CONFIG_HOME/zsh/.zshenv" "$HOME/.zshenv"
 
-mkdir -p "$XDG_CONFIG_HOME/zsh/fpath"
-ln -sf "$DOTMODULE/zsh/config/fpath/cursor_mode.zsh" "$XDG_CONFIG_HOME/zsh/fpath/cursor_mode"
-ln -sf "$DOTMODULE/zsh/config/fpath/prompt_purification_setup.zsh" "$XDG_CONFIG_HOME/zsh/fpath/prompt_purification_setup"
+mkdir -p "$XDG_CONFIG_HOME/zsh/function"
+ln -sf "$DOTMODULE/zsh/config/function/cursor_mode.zsh" "$XDG_CONFIG_HOME/zsh/function/cursor_mode"
 
 mkdir -p "$XDG_CONFIG_HOME/zsh/interactive"
 ln -sf "$DOTMODULE/zsh/config/interactive/completion.zsh" "$XDG_CONFIG_HOME/zsh/interactive/completion.zsh"
