@@ -2,7 +2,7 @@
 emulate sh -c "source $XDG_CONFIG_HOME/posix/interactive.sh"
 
 
-## Add to fpath
+## Append to function path
 fpath=("$ZDOTDIR/function" $fpath)
 
 
@@ -10,6 +10,7 @@ fpath=("$ZDOTDIR/function" $fpath)
 source "$XDG_CONFIG_HOME/zsh/interactive/fzf.zsh" 2> /dev/null
 source "$XDG_CONFIG_HOME/zsh/interactive/bd.zsh" 2> /dev/null
 source "$XDG_CONFIG_HOME/zsh/interactive/prompt-purification.zsh" 2> /dev/null
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 ## --- Environment Variables ---
@@ -45,7 +46,8 @@ autoload -Uz compinit; compinit
 _comp_options+=(globdots) # With hidden files
 
 
-## --- VIM Key Bindings ---
+## --- Key Bindings ---
+# VIM like key bindings
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
@@ -57,8 +59,7 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
-
-## --- Key Bindings ---
+# Tmux compatible key bindings
 # Unbind clearing shell from CTRL+l
 bindkey -r '^l'
 # Bind clearing shell to CTRL+g
@@ -67,8 +68,3 @@ bindkey -s '^g' 'clear\n'
 # Open tmux
 bindkey -r '^p'
 bindkey -s '^p' 'tmux\n'
-
-
-## --- Syntax Highlighting ---
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-

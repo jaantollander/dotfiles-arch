@@ -9,7 +9,7 @@ mkdir -p "$XDG_CONFIG_HOME/zsh/function"
 ln -sf "$DOTMODULE/zsh/config/function/cursor_mode.zsh" "$XDG_CONFIG_HOME/zsh/function/cursor_mode"
 
 mkdir -p "$XDG_CONFIG_HOME/zsh/interactive"
-ln -sf "$DOTMODULE/zsh/config/interactive/completion.zsh" "$XDG_CONFIG_HOME/zsh/interactive/completion.zsh"
+ln -sf "$DOTMODULE/zsh/config/completion.zsh" "$XDG_CONFIG_HOME/zsh/interactive/completion.zsh"
 
 # If login shell is not zsh change it to zsh.
 if test "$SHELL" = "$(command -v zsh)"; then
