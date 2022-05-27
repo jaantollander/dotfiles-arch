@@ -26,7 +26,7 @@ die() { error "$*"; exit 1; }
 ping -c 1 "archlinux.org" || die "Network connection failed."
 
 # Set parameters
-: "${DISK:?"Choose a block device."}"
+: "${DISK:?"Set DISK to a block device. List options: \`lsblk -d\`"}"
 : "${EFI_SIZE:="100M"}"
 : "${SWAP_SIZE:="512M"}"
 : "${BOOT:="boot"}"
@@ -36,8 +36,18 @@ ping -c 1 "archlinux.org" || die "Network connection failed."
 : "${TIMEZONE:="UTC"}"
 : "${FONT:="ter-132n"}"
 
-# Verify that installation disk is valid block device
-[ -b "$DISK" ] || die "DISK=\"$DISK\" is not valid block device."
+# Validate parameters
+[ -b "$DISK" ] || \
+    die "$DISK is not valid block device. List options: \`lsblk -d\`"
+
+[ -r "/usr/share/kbd/consolefonts/$FONT" ] || \
+    die "Font $FONT does not exists. List options: \`ls /usr/share/kbd/consolefonts/ter-*\`"
+
+[ -r "/usr/share/zoneinfo/$TIMEZONE" ] || \
+    die "Timezone $TIMEZONE does not exist. List options: \`timedatectl list-timezones\`"
+
+# Set consolefont
+setfont "$FONT"
 
 # Set up clock
 timedatectl set-ntp true
