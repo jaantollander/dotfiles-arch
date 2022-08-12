@@ -9,6 +9,8 @@ I began the journey to build a custom configuration by reading the book [**Build
 
 Furthermore, I recommend reading first the [**Linux Pocket Guide**](https://linuxpocketguide.com/) and then [**Efficient Linux at the Command Line**](https://efficientlinux.com/) by *Daniel J. Barret*. His books give a concise guide to the essential Linux commands and how to use the command line effectively. Knowing these Linux commands and how to use the command line is fundamental for the configuration presented in this repository. 
 
+For a deeper dive into understanding Linux and the Linux kernel, I recommend [**The Linux Programming Interface**](https://man7.org/tlpi/).
+
 
 ## Philosophy
 My configuration philosophy is to strive for a minimal, ergonomic, and composable configuration by avoiding skeuomorphic design and accepting that such configuration requires effort to learn. It builds upon the [Unix Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy). Here are the main principles:
