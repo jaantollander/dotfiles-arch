@@ -85,7 +85,7 @@ packages() {
 config() {
     local MODULES=$*
     for MODULE in $(dependencies "$MODULES"); do
-        if [[ -x "$DOTMODULE/$MODULE/$CONFIG" ]]; then
+        if [[ -r "$DOTMODULE/$MODULE/$CONFIG" ]]; then
             msg "config: $MODULE"
             "$DOTMODULE/$MODULE/$CONFIG"
         fi
