@@ -9,7 +9,7 @@ mkdir -p  $XDG_CONFIG_HOME  \
 
 # Create User Directories
 mkdir -p  $XDG_DOCUMENTS_DIR  \
-          $XDG_DOWNLOADS_DIR  \
+          $XDG_DOWNLOAD_DIR  \
           $XDG_VIDEOS_DIR  \
           $XDG_WORK_DIR  \
           $XDG_DATA_DIR  \
