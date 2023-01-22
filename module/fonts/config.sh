@@ -16,9 +16,7 @@ EOF
 mkdir -p "$DOTMODULE/fonts/data"
 for FONT in $FONTS; do
     FPATH=$DOTMODULE/fonts/data/$FONT
-    if [ -f "$FPATH" ]; then
-        curl "$BASE_URL/$FONT" --output="$FPATH"
-    fi
+    [ -f "$FPATH" ] curl "$BASE_URL/$FONT" --output "$FPATH"
 done
 
 mkdir -p "$XDG_DATA_HOME/fonts"
